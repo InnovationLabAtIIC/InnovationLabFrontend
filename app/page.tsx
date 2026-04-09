@@ -2,7 +2,7 @@ import Navbar from '@/components/NavBar';
 import Hero from '@/components/Home-Pg-Hero';
 import Carousel from '@/components/Crausel';
 import Marquee from '@/components/Maruee';
-
+import NewsSection from '@/components/NewsSection';
 
 export default function Home() {
   return (
@@ -19,6 +19,8 @@ export default function Home() {
       </div>
 
       <Marquee />
+
+      <NewsSection />
       
       
        <section className="py-24 px-10 text-center max-w-4xl mx-auto">

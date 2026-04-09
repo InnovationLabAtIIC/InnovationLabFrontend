@@ -7,7 +7,7 @@ export default function Navbar() {
         IV Lab
       </div>
 
-      <div className="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-[2px]">
+      <div className="hidden md:flex gap-10 text-[14px] font-bold uppercase tracking-[2px]">
         <Link href="/" className="hover:text-cyan-500 transition-colors">Home</Link>
         <Link href="#" className="hover:text-cyan-500 transition-colors">Lab</Link>
         <Link href="#" className="hover:text-cyan-500 transition-colors">Events</Link>
@@ -17,7 +17,7 @@ export default function Navbar() {
 
       <Link 
         href="/login" 
-        className="bg-gray-100 hover:bg-gray-200 text-black px-7 py-2 rounded-sm text-[11px] font-bold uppercase tracking-widest transition-all"
+        className="bg-gray-100 hover:bg-gray-200 text-black px-7 py-2 rounded-sm text-[14px] font-bold uppercase tracking-widest transition-all"
       >
         DO SMTH
       </Link>

@@ -9,10 +9,10 @@ export default function Navbar() {
 
       <div className="hidden md:flex gap-10 text-[14px] font-bold uppercase tracking-[2px]">
         <Link href="/" className="hover:text-cyan-500 transition-colors">Home</Link>
-        <Link href="#" className="hover:text-cyan-500 transition-colors">Lab</Link>
-        <Link href="#" className="hover:text-cyan-500 transition-colors">Events</Link>
-        <Link href="#" className="hover:text-cyan-500 transition-colors">About</Link>
-        <Link href="#" className="hover:text-cyan-500 transition-colors">Contact</Link>
+        <Link href="/lab" className="hover:text-cyan-500 transition-colors">Lab</Link>
+        <Link href="/events" className="hover:text-cyan-500 transition-colors">Events</Link>
+        <Link href="/about" className="hover:text-cyan-500 transition-colors">About</Link>
+        <Link href="/contact" className="hover:text-cyan-500 transition-colors">Contact</Link>
       </div>
 
       <Link 

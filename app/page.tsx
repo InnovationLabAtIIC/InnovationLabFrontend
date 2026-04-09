@@ -21,7 +21,18 @@ export default function Home() {
       <Marquee />
       
       
-      
+       <section className="py-24 px-10 text-center max-w-4xl mx-auto">
+        <div className="flex items-center justify-center gap-3 text-[14px] tracking-[4px] font-bold uppercase mb-8">
+            <span className="w-3 h-3 bg-cyan-400"></span>
+            ABOUT INNOVATIONS LAB
+            <span className="w-3 h-3 bg-cyan-400"></span>
+        </div>
+        <div className="text-[28px] md:text-[42px] font-semibold leading-tight text-gray-800">
+          We believe in the <span className="text-cyan-400">architectural</span> sovereignty of the grid. 
+          Our practice is dedicated to the reduction of noise, <span className="text-cyan-400">favoring</span> 
+           structural honesty over <span className="text-cyan-400">decorative</span> distraction.
+        </div>
+      </section>
      
     </main>
   );

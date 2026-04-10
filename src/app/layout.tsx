@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const spaceGrotesk = Space_Grotesk({

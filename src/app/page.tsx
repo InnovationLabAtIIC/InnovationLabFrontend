@@ -4,6 +4,7 @@ import Carousel from '@/components/Crausel';
 import Marquee from '@/components/Maruee';
 import NewsSection from '@/components/NewsSection';
 import OppositeScrollMotion from '@/components/Framer-Motion-Test';
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">

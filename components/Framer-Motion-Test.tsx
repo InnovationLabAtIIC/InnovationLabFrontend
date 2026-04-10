@@ -12,11 +12,11 @@ export default function OppositeScrollMotion() {
     offset: ["start end", "end start"],
   });
 
-  // Move left and right based on the same progress
+
   const leftRaw = useTransform(scrollYProgress, [0, 1], [0, -220]);  // left
   const rightRaw = useTransform(scrollYProgress, [0, 1], [0, 220]);  // right
 
-  // Optional smoothing
+
   const leftX = useSpring(leftRaw, { stiffness: 120, damping: 20 });
   const rightX = useSpring(rightRaw, { stiffness: 120, damping: 20 });
 

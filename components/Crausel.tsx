@@ -1,3 +1,8 @@
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
 type GalleryImage = {
   src: string;
   alt: string;
@@ -77,11 +82,27 @@ function ImageRow({ images }: { images: GalleryImage[] }) {
 }
 
 export default function Carousel() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  const topX = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const bottomX = useTransform(scrollYProgress, [0, 1], [0, 180]);
+
   return (
-    <div className="relative left-1/2 w-[120vw] -translate-x-1/2 overflow-hidden max-w-none">
+    <div
+      ref={sectionRef}
+      className="relative left-1/2 w-[120vw] -translate-x-1/2 overflow-hidden max-w-none"
+    >
       <div className="flex flex-col gap-6 md:gap-8">
-        <ImageRow images={topRowImages} />
-        <ImageRow images={bottomRowImages} />
+        <motion.div style={{ x: topX }}>
+          <ImageRow images={topRowImages} />
+        </motion.div>
+        <motion.div style={{ x: bottomX }}>
+          <ImageRow images={bottomRowImages} />
+        </motion.div>
       </div>
     </div>
   );

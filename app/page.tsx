@@ -32,9 +32,7 @@ export default function Home() {
             <span className="w-3 h-3 bg-cyan-400"></span>
         </div>
         <div className="text-[28px] md:text-[42px] font-semibold leading-tight text-gray-800">
-          We believe in the <span className="text-cyan-400">architectural</span> sovereignty of the grid. 
-          Our practice is dedicated to the reduction of noise, <span className="text-cyan-400">favoring</span> 
-           structural honesty over <span className="text-cyan-400">decorative</span> distraction.
+         we are Innovation Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates voluptatibus iure, vitae nesciunt dicta qui, quasi doloribus explicabo itaque alias ipsa quam non suscipit est ad aut at dolor?
         </div>
       </section>
      

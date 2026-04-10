@@ -3,7 +3,7 @@ import Hero from '@/components/Home-Pg-Hero';
 import Carousel from '@/components/Crausel';
 import Marquee from '@/components/Maruee';
 import NewsSection from '@/components/NewsSection';
-
+import OppositeScrollMotion from '@/components/Framer-Motion-Test';
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
@@ -19,6 +19,10 @@ export default function Home() {
       <Marquee />
 
       <NewsSection />
+
+<div className='w-full flex align-center justify-center'>
+      <OppositeScrollMotion />
+      </div>
       
       
        <section className="py-24 px-10 text-center max-w-4xl mx-auto">

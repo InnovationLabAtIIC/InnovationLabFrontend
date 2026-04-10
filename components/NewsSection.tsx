@@ -1,7 +1,7 @@
 const newsItems = [
-  { category: "Ventures", date: "12 May", title: "Pioneering Modular Urban Systems", desc: "Analyzing the integration of adaptive structural nodes.", img: "99" },
-  { category: "Research", date: "06 May", title: "Synthetic Material Evolution", desc: "New findings in self-repairing polymers for aerospace.", img: "88" },
-  { category: "Studio", date: "03 May", title: "The New Workspace Paradigm", desc: "How collaborative nodes are replacing cubicles.", img: "77" },
+  { category: "Events", date: "12 May", title: "IIC Quest 2026", desc: "Join us for the annual innovation competition.", img: "99" },
+  { category: "Research", date: "06 May", title: "Our Hard Working Researcher's Findings", desc: "New findings in AI development.", img: "88" },
+  { category: "Casual", date: "03 May", title: "Something Paradigm", desc: "How Something Works", img: "77" },
 ];
 
 export default function News() {

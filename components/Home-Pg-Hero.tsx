@@ -15,26 +15,26 @@ export default function Hero() {
 
     
       <div className="flex justify-center gap-4 relative z-10">
-        <button className="bg-black text-white px-9 py-3 rounded-sm text-[11px] font-bold uppercase tracking-widest hover:bg-gray-900 transition-colors">
+        <button className="bg-black text-white px-9 py-3 rounded-sm text-[14px] font-bold uppercase tracking-widest hover:bg-gray-900 transition-colors">
           Explore
         </button>
-        <button className="bg-black text-white px-9 py-3 rounded-sm text-[14px] font-bold uppercase tracking-widest hover:bg-gray-900 transition-colors">
+        <button  className="bg-black text-white px-9 py-3 rounded-sm text-[14px] font-bold uppercase tracking-widest hover:bg-gray-900 transition-colors">
           News
         </button>
       </div>
 
       {/* Decorative Bars (Left) */}
-      <div className="absolute left-12 bottom-0 flex items-end gap-2 hidden lg:flex">
-        <div className="w-4 h-6 bg-cyan-400 opacity-50"></div>
-        <div className="w-4 h-12 bg-cyan-400 opacity-80"></div>
-        <div className="w-4 h-20 bg-cyan-400"></div>
+      <div className="absolute left-7 bottom-0 flex items-end gap-1  lg:flex">
+        <div className="w-5 h-6 bg-cyan-400 opacity-50"></div>
+        <div className="w-5 h-10 bg-cyan-400 opacity-80"></div>
+        <div className="w-5 h-16 bg-cyan-400"></div>
       </div>
 
       {/* Decorative SVG (Right) */}
-      <div className="absolute right-12 bottom-0 w-24 hidden lg:block">
+      <div className="absolute right-7 bottom-0 w-24 hidden lg:block">
         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 100 C0 44.77 44.77 0 100 0 L100 100 Z" fill="black" />
-          <circle cx="20" cy="80" r="20" fill="#22d3ee" /> 
+          <circle cx="23" cy="80" r="20" fill="#22d3ee" /> 
         </svg>
       </div>
     </header>

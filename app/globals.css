@@ -9,3 +9,7 @@
   display: inline-block;
   animation: marquee 25s linear infinite;
 }
+
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}

@@ -1,6 +1,7 @@
 import Navbar from "@/components/NavBar";
 import PartnersGallery from "@/components/Partners/gallery";
 import CompanyList from "@/components/Partners/companyList";
+import type { CompanyListItem } from "@/components/Partners/companyList";
 
 export default function Partner() {
   const galleryItems = [
@@ -61,6 +62,51 @@ export default function Partner() {
     //   span: "md:col-span-2 md:row-span-1",
     // },
   ];
+
+  const companies: CompanyListItem[] = [
+    {
+      companyName: "Aether Dynamics",
+      companyDetails: "Building autonomous sensing systems for smart mobility and logistics.",
+      internsCount: 6,
+      imageUrl:
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80",
+    },
+    {
+      companyName: "Nexa BioLabs",
+      companyDetails: "Applying machine learning to accelerate drug discovery and testing.",
+      internsCount: 4,
+      imageUrl:
+        "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900&q=80",
+    },
+    {
+      companyName: "Forge Robotics",
+      companyDetails: "Designing modular robots for manufacturing and warehouse automation.",
+      internsCount: 8,
+      imageUrl:
+        "https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?w=900&q=80",
+    },
+    {
+      companyName: "Pulse Grid",
+      companyDetails: "Creating energy analytics tools for efficient and resilient city grids.",
+      internsCount: 5,
+      imageUrl:
+        "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=900&q=80",
+    },
+    {
+      companyName: "Cloud Harbor",
+      companyDetails: "Shipping secure cloud infrastructure for fast scaling startup teams.",
+      internsCount: 7,
+      imageUrl:
+        "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80",
+    },
+    {
+      companyName: "Verde Materials",
+      companyDetails: "Developing sustainable materials for low waste product engineering.",
+      internsCount: 3,
+      imageUrl:
+        "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=900&q=80",
+    },
+  ];
   return (
     <>
       <Navbar />
@@ -75,7 +121,7 @@ export default function Partner() {
       <div className="mt-[144px]"></div>
       {/*Section: Company and Internship Offered */}
       <div className="mx-10 antialiased">
-        <CompanyList />
+        <CompanyList companies={companies} />
       </div>
       {/*Section: Description*/}
       {/*Section: Stories*/}

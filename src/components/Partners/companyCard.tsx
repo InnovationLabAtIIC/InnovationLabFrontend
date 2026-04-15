@@ -68,8 +68,8 @@ export default function CompanyCard({
         perspective: '1000px',
       }}
       className={cn(
-        'group relative w-full max-w-sm overflow-hidden bg-card shadow-lg',
-        'text-card-foreground transition-all duration-300 ease-out hover:shadow-2xl',
+        'group relative w-full overflow-hidden bg-card',
+        'text-card-foreground transition-all duration-300 ease-out',
         className
       )}
     >
@@ -99,11 +99,12 @@ export default function CompanyCard({
 
         {/* Footer Section */}
         <div className="grid grid-cols-[1fr_auto] items-center gap-2 px-6 pb-6 pt-1">
-          <span className="whitespace-nowrap text-[12px] font-black uppercase tracking-[2.5px] text-black">
-            INTERNSHIP QUOTA
+          <span className="text-[12px] font-black uppercase tracking-[2.5px] leading-tight text-black">
+            <span className="lg:hidden">INTERNSHIP<br />QUOTA</span>
+            <span className="hidden lg:inline">INTERNSHIP QUOTA</span>
           </span>
           <span
-            className="whitespace-nowrap text-[24px] font-black uppercase leading-none"
+            className="text-right text-[18px] font-black uppercase leading-none sm:text-[20px] lg:text-[24px] lg:whitespace-nowrap"
             style={{ color: internsColor }}
           >
             {internsCount} INTERNS

@@ -1,16 +1,48 @@
 import CompanyCard from "@/components/Partners/companyCard";
 
-export default function companyList() {
+export interface CompanyListItem {
+  companyName: string;
+  companyDetails: string;
+  internsCount: number;
+  imageUrl: string;
+}
+
+interface CompanyListProps {
+  companies: CompanyListItem[];
+}
+
+export default function companyList({ companies }: CompanyListProps) {
+  const getCardBgClass = (index: number) => {
+    const patternIndex = index % 4;
+
+    if (patternIndex === 0) {
+      return "bg-[#FFFFFF] sm:bg-[#FFFFFF] lg:bg-[#FFFFFF]";
+    }
+
+    if (patternIndex === 1) {
+      return "bg-[#F3F3F3] sm:bg-[#F3F3F3] lg:bg-[#F3F3F3]";
+    }
+
+    if (patternIndex === 2) {
+      return "bg-[#FFFFFF] sm:bg-[#F3F3F3] lg:bg-[#FFFFFF]";
+    }
+    return "bg-[#F3F3F3] sm:bg-[#FFFFFF] lg:bg-[#F3F3F3]";
+  };
+
   return (
     <>
-      <div className="grid w-full grid-cols-1 gap-6 bg-background py-4 sm:grid-cols-2 lg:grid-cols-3">
-        <CompanyCard
-          topText=""
-          imageUrl="https://images.unsplash.com/photo-1738490686724-8531f6912fc9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAyfHxXb3JrJTIwZmFzdC4lMjBMaXZlJTIwc2xvd3xlbnwwfHwwfHx8MA%3D%3D?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          companyName="Company Name"
-          companyDetails="From zero to extraordinary. Let's create your digital reality."
-          internsCount={8}
-        />
+      <div className="grid w-full grid-cols-1 gap-0 border border-[#DFDFDF] py-0 sm:grid-cols-2 lg:grid-cols-3">
+        {companies.map((company, index) => (
+          <CompanyCard
+            key={index}
+            topText=""
+            imageUrl={company.imageUrl}
+            companyName={company.companyName}
+            companyDetails={company.companyDetails}
+            internsCount={company.internsCount}
+            className={getCardBgClass(index)}
+          />
+        ))}
       </div>
     </>
   );

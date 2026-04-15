@@ -2,6 +2,8 @@ import Navbar from "@/components/NavBar";
 import PartnersGallery from "@/components/Partners/gallery";
 import CompanyList from "@/components/Partners/companyList";
 import type { CompanyListItem } from "@/components/Partners/companyList";
+import Stories from "@/components/Partners/stories";
+import type { StoryItem } from "@/components/Partners/stories";
 
 export default function Partner() {
   const galleryItems = [
@@ -66,45 +68,84 @@ export default function Partner() {
   const companies: CompanyListItem[] = [
     {
       companyName: "Aether Dynamics",
-      companyDetails: "Building autonomous sensing systems for smart mobility and logistics.",
+      companyDetails:
+        "Building autonomous sensing systems for smart mobility and logistics.",
       internsCount: 6,
       imageUrl:
         "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80",
     },
     {
       companyName: "Nexa BioLabs",
-      companyDetails: "Applying machine learning to accelerate drug discovery and testing.",
+      companyDetails:
+        "Applying machine learning to accelerate drug discovery and testing.",
       internsCount: 4,
       imageUrl:
         "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900&q=80",
     },
     {
       companyName: "Forge Robotics",
-      companyDetails: "Designing modular robots for manufacturing and warehouse automation.",
+      companyDetails:
+        "Designing modular robots for manufacturing and warehouse automation.",
       internsCount: 8,
       imageUrl:
         "https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?w=900&q=80",
     },
     {
       companyName: "Pulse Grid",
-      companyDetails: "Creating energy analytics tools for efficient and resilient city grids.",
+      companyDetails:
+        "Creating energy analytics tools for efficient and resilient city grids.",
       internsCount: 5,
       imageUrl:
         "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=900&q=80",
     },
     {
       companyName: "Cloud Harbor",
-      companyDetails: "Shipping secure cloud infrastructure for fast scaling startup teams.",
+      companyDetails:
+        "Shipping secure cloud infrastructure for fast scaling startup teams.",
       internsCount: 7,
       imageUrl:
         "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80",
     },
     {
       companyName: "Verde Materials",
-      companyDetails: "Developing sustainable materials for low waste product engineering.",
+      companyDetails:
+        "Developing sustainable materials for low waste product engineering.",
       internsCount: 3,
       imageUrl:
         "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=900&q=80",
+    },
+  ];
+
+  const storiesData: StoryItem[] = [
+    {
+      image:
+        "https://images.unsplash.com/photo-1748968218568-a5eac621e65c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1M3x8fGVufDB8fHx8fA%3D%3D",
+      storyTeller: "Rakshak Sigdel",
+      description: "Hold on to your mouse, things are about to get wild!",
+    },
+    {
+      image:
+        "https://zamin.uz/uploads/posts/2025-07/a6273368c2_cristiano-ronaldo-6.webp",
+      storyTeller: "Cristiano Ronaldo",
+      description: "Siuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu!",
+    },
+    {
+      image:
+        "https://wallpapers.com/images/featured/dexter-pictures-fe9qbtzm9bbv0xxj.jpg",
+      storyTeller: "Dexter Morgan",
+      description: "Tonight's the night. It's going to happen again and again. It has to happen.",
+    },
+    {
+      image:
+        "https://wallpapercave.com/wp/wp1932768.png",
+      storyTeller: "Walter White",
+      description: "Say my Name",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1742626157052-f5a373a727ef?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMnx8fGVufDB8fHx8fA%3D%3D",
+      storyTeller: "Epic Finale",
+      description: ":)",
     },
   ];
   return (
@@ -124,11 +165,42 @@ export default function Partner() {
         <CompanyList companies={companies} />
       </div>
       {/*Section: Description*/}
+      <section className="py-24 px-10 text-center max-w-4xl mx-auto">
+        <div className="flex items-center justify-center gap-3 text-[14px] tracking-[4px] font-bold uppercase mb-8">
+          <span className="w-3 h-3 bg-cyan-400"></span>
+          ABOUT OUR PARTNERS
+          <span className="w-3 h-3 bg-cyan-400"></span>
+        </div>
+        <div className="text-[28px] md:text-[42px] font-semibold leading-tight text-gray-800">
+          we are Innovation Labbist lorem gg , Lorem, ipsum dolor sit amet
+          consectetur adipisicing elit. Odit voluptates voluptatibus iure, vitae
+          nesciunt dicta qui, quasi doloribus explicabo itaque alias ipsa quam
+          non suscipit est ad aut at dolor?
+        </div>
+      </section>
       {/*Section: Stories*/}
-      {/*Section: Dummy Section for scrolling */}
+      <div className="w-full h-screen">
+        <Stories storiesData={storiesData} />
+      </div>
+
+      <div className="mt-[200vh]"></div>
+      {/*DUMMY: Dummy Section for scrolling */}
       <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10 mt-[100rem]">
         P<span className="text-cyan-400">A</span>RTNERS
       </h1>
+      <section className="py-24 px-10 text-center max-w-4xl mx-auto">
+        <div className="flex items-center justify-center gap-3 text-[14px] tracking-[4px] font-bold uppercase mb-8">
+          <span className="w-3 h-3 bg-cyan-400"></span>
+          ABOUT OUR PARTNERS
+          <span className="w-3 h-3 bg-cyan-400"></span>
+        </div>
+        <div className="text-[28px] md:text-[42px] font-semibold leading-tight text-gray-800">
+          we are Innovation Labbist lorem gg , Lorem, ipsum dolor sit amet
+          consectetur adipisicing elit. Odit voluptates voluptatibus iure, vitae
+          nesciunt dicta qui, quasi doloribus explicabo itaque alias ipsa quam
+          non suscipit est ad aut at dolor?
+        </div>
+      </section>
     </>
   );
 }

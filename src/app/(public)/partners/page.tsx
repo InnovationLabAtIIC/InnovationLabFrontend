@@ -1,8 +1,9 @@
 import Navbar from "@/components/NavBar";
 import PartnersGallery from "@/components/Partners/gallery";
+import CompanyList from "@/components/Partners/companyList";
 
 export default function Partner() {
-  const imageItems = [
+  const galleryItems = [
     {
       id: 1,
       title: "Mountain Vista",
@@ -63,17 +64,23 @@ export default function Partner() {
   return (
     <>
       <Navbar />
-
+      {/* Section: Heading (PARTNERS) */}
       {/* <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10">
         P<span className="text-cyan-400">A</span>RTNERS
       </h1> */}
+      {/*Section: Gallery*/}
       <div className="mx-10 antialiased">
-        <PartnersGallery imageItems={imageItems} />
+        <PartnersGallery imageItems={galleryItems} />
       </div>
-      <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10  mt-[100]">
-        P<span className="text-cyan-400">A</span>RTNERS
-      </h1>
-      <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10">
+      <div className="mt-[144px]"></div>
+      {/*Section: Company and Internship Offered */}
+      <div className="mx-10 antialiased">
+        <CompanyList />
+      </div>
+      {/*Section: Description*/}
+      {/*Section: Stories*/}
+      {/*Section: Dummy Section for scrolling */}
+      <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10 mt-[100rem]">
         P<span className="text-cyan-400">A</span>RTNERS
       </h1>
     </>

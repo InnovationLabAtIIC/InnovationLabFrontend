@@ -4,9 +4,11 @@ import Carousel from '@/components/Crausel';
 import Marquee from '@/components/Maruee';
 import NewsSection from '@/components/NewsSection';
 import OppositeScrollMotion from '@/components/Framer-Motion-Test';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
+    <>
     <main className="min-h-screen bg-white">
       <Navbar /> 
       
@@ -38,5 +40,7 @@ export default function Home() {
       </section>
      
     </main>
+    <Footer />
+    </>
   );
 }

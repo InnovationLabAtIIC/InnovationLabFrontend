@@ -9,7 +9,7 @@ export default function SmoothScroll() {
     if (prefersReducedMotion) return;
 
     const lenis = new Lenis({
-      duration: 1.9,
+      duration: 1.1,
       smoothWheel: true,
       syncTouch: false,
       wheelMultiplier: 0.95,

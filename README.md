@@ -27,6 +27,30 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+## API Client Generation (Orval)
+
+This project uses Orval to generate typed DTOs and API services from:
+
+- `public/innovation-lab-api-specs.json`
+
+Generated outputs:
+
+- Frontend React Query + fetch client: `src/lib/services/generated/frontend`
+- Node fetch client: `src/lib/services/generated/node`
+
+Commands:
+
+```bash
+npm run api:generate
+npm run api:watch
+```
+
+Convenience re-exports:
+
+- `src/lib/services/apiCall.ts`
+
+Regenerate the client whenever the backend OpenAPI spec changes.
+
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel

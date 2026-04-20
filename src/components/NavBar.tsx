@@ -13,6 +13,7 @@ export default function Navbar() {
         <Link href="/events" className="hover:text-cyan-500 transition-colors">Events</Link>
         <Link href="/about" className="hover:text-cyan-500 transition-colors">About</Link>
         <Link href="/contact" className="hover:text-cyan-500 transition-colors">Contact</Link>
+        <Link href="/company" className="hover:text-cyan-500 transition-colors">Company</Link>
       </div>
 
       <Link 

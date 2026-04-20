@@ -4,6 +4,8 @@ import AboutCardList from "@/components/About/AboutCardList";
 import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardList";
 import Timeline from "@/components/About/Timeline";
 import BentoGrid from "@/components/BentoGrid";
+import LatestEentsList from "@/components/Events/LatestEventsList";
+import type { LatestEventItem } from "@/components/Events/LatestEventsList";
 
 const aboutCards = [
   {
@@ -217,6 +219,27 @@ const galleryItems = [
   },
 ];
 
+const latestEvents: LatestEventItem[] = [
+  {
+    date: "12 May",
+    title: "IIC Quest 2026",
+    desc: "Join us for the annual innovation competition.",
+    img: "99",
+  },
+  {
+    date: "06 May",
+    title: "Our Hard Working Researcher's Findings",
+    desc: "New findings in AI development.",
+    img: "88",
+  },
+  {
+    date: "03 May",
+    title: "Something Paradigm",
+    desc: "How Something Works",
+    img: "77",
+  },
+];
+
 const About = () => {
   return (
     <>
@@ -258,10 +281,11 @@ const About = () => {
       {/**Strategic Pillars Card */}
       <StrategicPillarsCardList items={strategicPillars} />
       <Timeline items={timelineData} />
-      <div className="mx-10 mt-10 antialiased">
+      <div className="mx-10 mt-10 mb-10 antialiased">
         <BentoGrid imageItems={galleryItems} />
       </div>
-      <div className="mt-[100vh]"></div>
+      <LatestEentsList events={latestEvents} />
+      <div className="mt-[30vh]"></div>
     </>
   );
 };

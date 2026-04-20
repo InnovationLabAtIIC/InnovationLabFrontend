@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "@/components/NavBar";
 import AboutCardList from "@/components/About/AboutCardList";
 import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardList";
+import Timeline from "@/components/About/Timeline";
 
 const aboutCards = [
   {
@@ -152,6 +153,38 @@ const strategicPillars = [
   // },
 ];
 
+const timelineData = [
+  {
+    year: "2024",
+    title: "Launch Phase",
+    description: "Built and launched Aceternity UI and Aceternity UI Pro from scratch.",
+    images: [
+      "https://assets.aceternity.com/templates/startup-1.webp",
+      // "https://assets.aceternity.com/templates/startup-2.webp",
+      // "https://assets.aceternity.com/templates/startup-3.webp",
+      // "https://assets.aceternity.com/templates/startup-4.webp",
+    ],
+  },
+  {
+    year: "2023",
+    title: "Design Expansion",
+    description:
+      "Expanded component library with hero, features, and grid systems for faster delivery.",
+    images: [
+      "https://assets.aceternity.com/pro/hero-sections.png",
+      // "https://assets.aceternity.com/features-section.png",
+      // "https://assets.aceternity.com/pro/bento-grids.png",
+    ],
+  },
+  {
+    year: "2022",
+    title: "Foundational Research",
+    description:
+      "Researched interaction patterns, created internal drafts, and validated layout direction.",
+    images: ["https://assets.aceternity.com/features-section.png"],
+  },
+];
+
 const About = () => {
   return (
     <>
@@ -192,6 +225,8 @@ const About = () => {
       <AboutCardList items={aboutCards} />
       {/**Strategic Pillars Card */}
       <StrategicPillarsCardList items={strategicPillars} />
+      <Timeline items={timelineData} />
+      <div className="mt-[100vh]"></div>
     </>
   );
 };

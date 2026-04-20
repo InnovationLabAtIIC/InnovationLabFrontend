@@ -3,6 +3,7 @@ import Navbar from "@/components/NavBar";
 import AboutCardList from "@/components/About/AboutCardList";
 import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardList";
 import Timeline from "@/components/About/Timeline";
+import BentoGrid from "@/components/BentoGrid";
 
 const aboutCards = [
   {
@@ -157,7 +158,8 @@ const timelineData = [
   {
     year: "2024",
     title: "Launch Phase",
-    description: "Built and launched Aceternity UI and Aceternity UI Pro from scratch.",
+    description:
+      "Built and launched Aceternity UI and Aceternity UI Pro from scratch.",
     images: [
       "https://assets.aceternity.com/templates/startup-1.webp",
       // "https://assets.aceternity.com/templates/startup-2.webp",
@@ -182,6 +184,36 @@ const timelineData = [
     description:
       "Researched interaction patterns, created internal drafts, and validated layout direction.",
     images: ["https://assets.aceternity.com/features-section.png"],
+  },
+];
+const galleryItems = [
+  {
+    id: 1,
+    title: "Mountain Vista",
+    desc: "Serenity above the clouds.",
+    url: "https://images.unsplash.com/photo-1486870591958-9b9d0d1dda99?w=800&q=80",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    id: 2,
+    title: "Coastal Arch",
+    desc: "Where the land meets the sea.",
+    url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+    span: "md:col-span-2 md:row-span-1",
+  },
+  {
+    id: 3,
+    title: "Forest Canopy",
+    desc: "Sunlight filtering through leaves.",
+    url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
+    span: "md:col-span-1 md:row-span-1",
+  },
+  {
+    id: 4,
+    title: "Desert Dunes",
+    desc: "Golden sands under the sun.",
+    url: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=800&q=80",
+    span: "md:col-span-1 md:row-span-1",
   },
 ];
 
@@ -226,6 +258,9 @@ const About = () => {
       {/**Strategic Pillars Card */}
       <StrategicPillarsCardList items={strategicPillars} />
       <Timeline items={timelineData} />
+      <div className="mx-10 mt-10 antialiased">
+        <BentoGrid imageItems={galleryItems} />
+      </div>
       <div className="mt-[100vh]"></div>
     </>
   );

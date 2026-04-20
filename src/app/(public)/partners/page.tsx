@@ -1,5 +1,5 @@
 import Navbar from "@/components/NavBar";
-import PartnersGallery from "@/components/Partners/gallery";
+import BentoGrid from "@/components/BentoGrid";
 import CompanyList from "@/components/Partners/companyList";
 import type { CompanyListItem } from "@/components/Partners/companyList";
 import Stories from "@/components/Partners/stories";
@@ -157,7 +157,7 @@ export default function Partner() {
       </h1> */}
       {/*Section: Gallery*/}
       <div className="mx-10 antialiased">
-        <PartnersGallery imageItems={galleryItems} />
+        <BentoGrid imageItems={galleryItems} />
       </div>
       <div className="mt-[144px]"></div>
       {/*Section: Company and Internship Offered */}

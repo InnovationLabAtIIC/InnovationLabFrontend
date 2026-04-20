@@ -49,7 +49,50 @@ Convenience re-exports:
 
 - `src/lib/services/apiCall.ts`
 
+Frontend local BFF helper layer:
+
+- `src/lib/services/bff-client.ts`
+
+Use `bffApi` / `localApi` from `src/lib/services/apiCall.ts` in UI code so client-side code consistently talks only to local `/api/*` routes.
+
+Server-only Orval exports for BFF route handlers:
+
+- `src/lib/services/server-api.ts`
+
 Regenerate the client whenever the backend OpenAPI spec changes.
+
+## BFF Layer (Next.js Route Handlers)
+
+This project now includes a server-side BFF under `src/app/api/**`.
+
+Key design points:
+
+- All backend calls happen server-side via the Orval node client.
+- Frontend can call local Next.js routes (`/api/...`) instead of calling backend APIs directly.
+- Bearer token forwarding is supported by passing the incoming `Authorization` header to the backend.
+- Responses are normalized into a standard envelope with `success`, `data`, `error`, and `meta`.
+
+Configured route groups:
+
+- `src/app/api/about/[[...segments]]/route.ts`
+- `src/app/api/banners/[[...segments]]/route.ts`
+- `src/app/api/categories/[[...segments]]/route.ts`
+- `src/app/api/contacts/[[...segments]]/route.ts`
+- `src/app/api/events/[[...segments]]/route.ts`
+- `src/app/api/faqs/[[...segments]]/route.ts`
+- `src/app/api/testimonials/[[...segments]]/route.ts`
+
+Shared BFF utilities:
+
+- `src/lib/bff/common.ts`
+
+### Environment Variables
+
+Create a local env file from `.env.example` and set:
+
+- `BACKEND_API_BASE_URL` (for example `https://api.example.com`)
+
+The generated node client uses this at runtime.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 

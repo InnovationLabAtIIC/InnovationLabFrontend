@@ -6,8 +6,8 @@ export default defineConfig({
       target: "./public/innovation-lab-api-specs.json",
     },
     output: {
-      target: "./src/lib/services/generated/index.ts",
-      schemas: "./src/lib/services/generated/schemas",
+      target: "./src/lib/services/generated/frontend/index.ts",
+      schemas: "./src/lib/services/generated/frontend/schemas",
       mode: "split",
       indexFiles: true,
       client: "react-query",
@@ -20,6 +20,22 @@ export default defineConfig({
           useInfinite: true,
         },
       },
+    },
+  },
+  innovationLabNode: {
+    input: {
+      target: "./public/innovation-lab-api-specs.json",
+    },
+    output: {
+      target: "./src/lib/services/generated/node/index.ts",
+      schemas: "./src/lib/services/generated/node/schemas",
+      mode: "split",
+      indexFiles: true,
+      client: "fetch",
+      baseUrl: {
+        runtime: "process.env.BACKEND_API_BASE_URL",
+      },
+      clean: true,
     },
   },
 });

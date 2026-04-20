@@ -1,2 +1,3 @@
-export * as frontendApi from "./generated";
-export * as frontendSchemas from "./generated/schemas";
+export * as frontendApi from "./generated/frontend";
+export * as frontendSchemas from "./generated/frontend/schemas";
+export * from "./bff-client";

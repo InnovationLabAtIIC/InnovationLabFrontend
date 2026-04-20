@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "@/components/NavBar";
 import AboutCardList from "@/components/About/AboutCardList";
+import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardList";
 
 const aboutCards = [
   {
@@ -24,8 +25,131 @@ const aboutCards = [
   {
     title: "Artisan Ceramic Mug",
     category: "Home Goods",
-    imageUrl: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=500&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=500&q=80",
   },
+];
+const strategicPillars = [
+  {
+    Section: "Section 01",
+    title: "Mission",
+    items: [
+      {
+        id: "01",
+        title: "Cognition",
+        description:
+          "Dismantle the boundary between human intuition and synthetic logic.",
+      },
+      {
+        id: "02",
+        title: "Integrity",
+        description:
+          "Establish absolute algorithmic structural integrity in every build.",
+      },
+      {
+        id: "03",
+        title: "Sovereignty",
+        description:
+          "Architecting the sovereign layer of autonomous urban intelligence.",
+      },
+      {
+        id: "04",
+        title: "Friction",
+        description:
+          "Embracing the friction of progress to define the new architectural standard.",
+      },
+    ],
+  },
+  {
+    Section: "Section 02",
+    title: "Vision",
+    items: [
+      {
+        id: "V_01",
+        title: "Precision",
+        description:
+          "A future where every pixel of a city is a mathematical proof.",
+      },
+      {
+        id: "V_02",
+        title: "Adaptation",
+        description:
+          "Living structures that evolve in real-time with environmental loads.",
+      },
+      {
+        id: "V_03",
+        title: "Synthesis",
+        description:
+          "The seamless merger of biological habitat and digital substrate.",
+      },
+      {
+        id: "V_04",
+        title: "Expansion",
+        description:
+          "Global deployment of NEO-LAB structures across all physical frontiers.",
+      },
+    ],
+  },
+  // {
+  //   Section: "Section 03",
+  //   title: "Mission",
+  //   items: [
+  //     {
+  //       id: "01",
+  //       title: "Cognition",
+  //       description:
+  //         "Dismantle the boundary between human intuition and synthetic logic.",
+  //     },
+  //     {
+  //       id: "02",
+  //       title: "Integrity",
+  //       description:
+  //         "Establish absolute algorithmic structural integrity in every build.",
+  //     },
+  //     {
+  //       id: "03",
+  //       title: "Sovereignty",
+  //       description:
+  //         "Architecting the sovereign layer of autonomous urban intelligence.",
+  //     },
+  //     {
+  //       id: "04",
+  //       title: "Friction",
+  //       description:
+  //         "Embracing the friction of progress to define the new architectural standard.",
+  //     },
+  //   ],
+  // },
+  // {
+  //   Section: "Section 04",
+  //   title: "Mission",
+  //   items: [
+  //     {
+  //       id: "01",
+  //       title: "Cognition",
+  //       description:
+  //         "Dismantle the boundary between human intuition and synthetic logic.",
+  //     },
+  //     {
+  //       id: "02",
+  //       title: "Integrity",
+  //       description:
+  //         "Establish absolute algorithmic structural integrity in every build.",
+  //     },
+  //     {
+  //       id: "03",
+  //       title: "Sovereignty",
+  //       description:
+  //         "Architecting the sovereign layer of autonomous urban intelligence.",
+  //     },
+  //     {
+  //       id: "04",
+  //       title: "Friction",
+  //       description:
+  //         "Embracing the friction of progress to define the new architectural standard.",
+  //     },
+  //   ],
+  // },
 ];
 
 const About = () => {
@@ -66,6 +190,8 @@ const About = () => {
       </section>
       {/**Features Card (Name TBD)*/}
       <AboutCardList items={aboutCards} />
+      {/**Strategic Pillars Card */}
+      <StrategicPillarsCardList items={strategicPillars} />
     </>
   );
 };

@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState, useEffect } from "react"
+import React, { useRef, useState } from "react"
 import {
   motion,
   useScroll,
@@ -11,21 +11,18 @@ import {
 import { cn } from "@/lib/utils/util"
 import { X } from "lucide-react"
 
-// Defines the structure for each image item in the gallery
 type ImageItem = {
   id: number | string
   title: string
   desc: string
   url: string
-  span: string // Tailwind CSS grid span classes (e.g., "md:col-span-2")
+  span: string
 }
 
-// Defines the props for the main gallery component
-interface PartnersGalleryProps {
+interface BentoGridProps {
   imageItems: ImageItem[]
 }
 
-// Animation variants for the container to stagger children
 const containerVariants: Variants = {
   hidden: {},
   visible: {
@@ -35,7 +32,6 @@ const containerVariants: Variants = {
   },
 }
 
-// Animation variants for each gallery item
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: {
@@ -46,7 +42,6 @@ const itemVariants: Variants = {
   },
 }
 
-// Modal component for displaying the selected image
 const ImageModal = ({
   item,
   onClose,
@@ -86,14 +81,10 @@ const ImageModal = ({
   )
 }
 
-// Main gallery component
-const PartnersGallery: React.FC<
-  PartnersGalleryProps
-> = ({ imageItems }) => {
+const BentoGrid: React.FC<BentoGridProps> = ({ imageItems }) => {
   const [selectedItem, setSelectedItem] = useState<ImageItem | null>(null)
   const targetRef = useRef<HTMLDivElement>(null)
 
-  // Framer Motion scroll animations
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end start"],
@@ -107,9 +98,7 @@ const PartnersGallery: React.FC<
       className="relative w-full overflow-hidden bg-background"
     >
       <div className="relative w-full">
-        <motion.div
-          className="w-full"
-        >
+        <motion.div className="w-full" style={{ opacity, y }}>
           <motion.div
             className="grid grid-cols-1 gap-4 md:grid-cols-4 md:auto-rows-[minmax(18rem,1fr)]"
             variants={containerVariants}
@@ -157,4 +146,4 @@ const PartnersGallery: React.FC<
   )
 }
 
-export default PartnersGallery
+export default BentoGrid

@@ -1,5 +1,5 @@
 import Navbar from "@/components/NavBar";
-import PartnersGallery from "@/components/Partners/gallery";
+import BentoGrid from "@/components/BentoGrid";
 import CompanyList from "@/components/Partners/companyList";
 import type { CompanyListItem } from "@/components/Partners/companyList";
 import Stories from "@/components/Partners/stories";
@@ -152,12 +152,12 @@ export default function Partner() {
     <>
       <Navbar />
       {/* Section: Heading (PARTNERS) */}
-      {/* <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10">
+      <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10">
         P<span className="text-cyan-400">A</span>RTNERS
-      </h1> */}
+      </h1>
       {/*Section: Gallery*/}
       <div className="mx-10 antialiased">
-        <PartnersGallery imageItems={galleryItems} />
+        <BentoGrid imageItems={galleryItems} />
       </div>
       <div className="mt-[144px]"></div>
       {/*Section: Company and Internship Offered */}

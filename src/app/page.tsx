@@ -5,6 +5,8 @@ import Marquee from '@/components/Maruee';
 import NewsSection from '@/components/NewsSection';
 import OppositeScrollMotion from '@/components/About-Extended';
 import Footer from '@/components/Footer';
+import EventsSection from '@/components/EventsSection';
+import LearnMoreSection from '@/components/LearnMoreSection';
 
 export default function Home() {
   return (
@@ -39,7 +41,9 @@ export default function Home() {
        <div className="w-full flex items-center justify-center">
         <OppositeScrollMotion />
       </div>
-     
+     <EventsSection />
+     <LearnMoreSection />
+     <br />
     </main>
     <Footer />
     </>

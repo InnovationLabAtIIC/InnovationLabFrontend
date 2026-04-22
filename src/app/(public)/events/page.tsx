@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 
+import LearnMoreSection from "@/components/LearnMoreSection";
 import Navbar from "@/components/NavBar";
 
 const featuredEvent = {
@@ -196,6 +197,8 @@ export default function EventsPage() {
           </div>
         </div>
       </section>
+
+      <LearnMoreSection />
     </div>
   );
 }

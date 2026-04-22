@@ -1,4 +1,4 @@
-import CompanyCard from "@/components/Partners/companyCard";
+import CompanyCard from "@/components/Company/companyCard";
 
 export interface CompanyListItem {
   companyName: string;

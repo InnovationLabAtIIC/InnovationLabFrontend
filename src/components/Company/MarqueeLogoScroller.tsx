@@ -1,8 +1,10 @@
 "use client"
 
 import React from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
 import { cn } from '@/lib/utils/util'; // Assuming a `cn` utility for classnames
 import CompanyCard from '@/components/Company/companyCard';
+import { AnimatedModal } from '@/components/Animations/animated-modal';
 
 // Define the type for individual logo props
 interface Logo {
@@ -37,20 +39,6 @@ interface MarqueeLogoScrollerProps extends React.HTMLAttributes<HTMLDivElement> 
 const MarqueeLogoScroller = React.forwardRef<HTMLDivElement, MarqueeLogoScrollerProps>(
   ({ title, description, logos, speed = 'normal', className, ...props }, ref) => {
     const [isPaused, setIsPaused] = React.useState(false);
-    const [selectedCompany, setSelectedCompany] = React.useState<SelectedCompany | null>(null);
-
-    React.useEffect(() => {
-      if (!selectedCompany) return;
-
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') {
-          setSelectedCompany(null);
-        }
-      };
-
-      document.addEventListener('keydown', handleKeyDown);
-      return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [selectedCompany]);
 
     // Map speed prop to animation duration
     const durationMap = {
@@ -121,58 +109,56 @@ const MarqueeLogoScroller = React.forwardRef<HTMLDivElement, MarqueeLogoScroller
                 };
 
                 return (
-                  <div
+                  <AnimatedModal
                     key={index}
-                    className="group relative h-24 w-40 shrink-0 flex items-center justify-center border border-[#DFDFDF] bg-white overflow-hidden cursor-pointer"
-                    onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
-                    onClick={() => setSelectedCompany(companyPayload)}
+                    title={companyPayload.companyName}
+                    triggerClassName="group relative h-24 w-40 shrink-0"
+                    overlayClassName="bg-black/35 backdrop-blur-sm"
+                    viewportClassName="p-4"
+                    contentClassName="relative mx-auto mt-10 w-full max-w-xl"
+                    trigger={
+                      <div
+                        className="relative flex h-full w-full cursor-pointer items-center justify-center overflow-hidden border border-[#DFDFDF] bg-white"
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                      >
+                        {/* Single hover color overlay for all logos */}
+                        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 bg-cyan-400/15" />
+                        {/* Logo Image */}
+                        <img
+                          src={imageSrc}
+                          alt={imageAlt}
+                          className="relative h-3/4 w-auto object-contain"
+                        />
+                      </div>
+                    }
                   >
-                    {/* Single hover color overlay for all logos */}
-                    <div className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 bg-cyan-400/15" />
-                    {/* Logo Image */}
-                    <img
-                      src={imageSrc}
-                      alt={imageAlt}
-                      className="relative h-3/4 w-auto object-contain"
-                    />
-                  </div>
+                    <div className="relative">
+                      <Dialog.Close asChild>
+                        <button
+                          type="button"
+                          className="absolute -right-2 -top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-[#DFDFDF] bg-white text-sm font-semibold text-black shadow-sm hover:bg-[#F3F3F3]"
+                          aria-label="Close company details"
+                        >
+                          X
+                        </button>
+                      </Dialog.Close>
+                      <CompanyCard
+                        topText="Partner"
+                        imageUrl={companyPayload.imageUrl}
+                        companyName={companyPayload.companyName}
+                        companyDetails={companyPayload.companyDetails}
+                        internsCount={companyPayload.internsCount}
+                        disableTilt={true}
+                        className="bg-white"
+                      />
+                    </div>
+                  </AnimatedModal>
                 );
               })}
             </div>
           </div>
         </section>
-
-        {selectedCompany && (
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4"
-            onClick={() => setSelectedCompany(null)}
-          >
-            <div
-              className="relative w-full max-w-xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                type="button"
-                onClick={() => setSelectedCompany(null)}
-                className="absolute -right-2 -top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full border border-[#DFDFDF] bg-white text-sm font-semibold text-black shadow-sm hover:bg-[#F3F3F3]"
-                aria-label="Close company details"
-              >
-                X
-              </button>
-
-              <CompanyCard
-                topText="Partner"
-                imageUrl={selectedCompany.imageUrl}
-                companyName={selectedCompany.companyName}
-                companyDetails={selectedCompany.companyDetails}
-                internsCount={selectedCompany.internsCount}
-                disableTilt={true}
-                className="bg-white"
-              />
-            </div>
-          </div>
-        )}
       </>
     );
   }

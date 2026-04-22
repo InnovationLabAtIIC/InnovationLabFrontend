@@ -6,7 +6,7 @@ import type { CompanyListItem } from "@/components/Company/companyList";
 import { MarqueeLogoScroller } from "@/components/Company/MarqueeLogoScroller";
 import Stories from "@/components/Company/stories";
 import type { StoryItem } from "@/components/Company/stories";
-import { ContainerScroll } from "@/components/ContainerScroll";
+import { ContainerScroll } from "@/components/Animations/ContainerScroll";
 
 export default function Partner() {
   const galleryItems = [
@@ -215,11 +215,12 @@ export default function Partner() {
       </div>
       <div className="mt-[144px]"></div>
       {/*Section: Company and Internship Offered */}
-      <div className="flex flex-col overflow-hidden ">
+      <div className="flex flex-col overflow-visible md:overflow-hidden ">
         <ContainerScroll
+          contentClassName="mt-0 md:-mt-12"
           titleComponent={
             <>
-              <h1 className="text-4xl font-semibold text-black">
+              <h1 className="mb-0 text-4xl font-semibold text-black">
                 Companies Providing<br />
                 <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
                   Internships
@@ -228,14 +229,11 @@ export default function Partner() {
             </>
           }
         >
-          <section className="mx-10 antialiased">
+          <section className="mx-10 -mt-8 md:mt-0 antialiased">
             <CompanyList companies={featuredCompanies} />
           </section>
         </ContainerScroll>
       </div>
-      <section className="mx-10 antialiased">
-        <CompanyList companies={featuredCompanies} />
-      </section>
       {/**Section: All Companies marquee section */}
       {marqueeCompanies.length > 0 && (
         <section className="mx-10 mt-10 antialiased">

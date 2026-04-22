@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+html,
+body {
+  overflow-x: clip;
+}
+
+body[data-scroll-locked] {
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+body[data-scroll-locked] .site-navbar {
+  pointer-events: none;
+  user-select: none;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

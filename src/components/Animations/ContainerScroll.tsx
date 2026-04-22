@@ -38,17 +38,19 @@ export const ContainerScroll = ({
   // then keep the card stable for the remaining scroll distance.
   const settleProgress = isMobile ? 0.18 : 0.25;
 
-  const rotate = useTransform(scrollYProgress, [0, settleProgress, 1], [20, 0, 0]);
+  const rotateOutput = isMobile ? [8, 0, 0] : [20, 0, 0];
+  const rotate = useTransform(scrollYProgress, [0, settleProgress, 1], rotateOutput);
   const scale = useTransform(scrollYProgress, [0, settleProgress, 1], [scaleDimensions()[0], 1, 1]);
-  const translate = useTransform(scrollYProgress, [0, settleProgress, 1], [0, -70, -100]);
+  const translateOutput = isMobile ? [0, -20, -36] : [0, -70, -100];
+  const translate = useTransform(scrollYProgress, [0, settleProgress, 1], translateOutput);
 
   return (
     <div
-      className={`h-[60rem] md:h-[80rem] flex items-center justify-center relative ${className ?? ""}`}
+      className={`min-h-[60rem] md:h-[80rem] flex items-start md:items-center justify-center relative ${className ?? ""}`}
       ref={containerRef}
     >
       <div
-        className="py-10 md:py-40 w-full relative"
+        className="py-6 md:py-40 w-full relative"
         style={{
           perspective: "1000px",
         }}
@@ -98,7 +100,7 @@ export const Card = ({
         rotateX: rotate,
         scale,
       }}
-      className={`-mt-12 w-full ${className ?? ""}`}
+      className={`mt-6 md:-mt-12 w-full ${className ?? ""}`}
     >
       {children}
     </motion.div>

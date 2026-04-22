@@ -3,6 +3,7 @@ import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import AboutCardList from "@/components/About/AboutCardList";
 import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardList";
+import SmoothScroll from "@/components/smooth-scroll";
 import Timeline from "@/components/About/Timeline";
 import BentoGrid from "@/components/BentoGrid";
 import LatestEentsList from "@/components/Events/LatestEventsList";
@@ -246,41 +247,51 @@ const About = () => {
     <>
       <Navbar />
       {/**Header at the top */}
-      <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10">
-        A<span className="text-cyan-400">B</span>OUT
-      </h1>
-      {/**First Description */}
-      <section className="py-2 px-10 text-justify max-w-8xl mx-auto">
-        <div className="text-[22px] md:text-[32px]  leading-tight text-gray-800">
-          we are
-          <span className="text-cyan-400 font-semibold">Innovation</span>
-          Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Odit voluptates voluptatibus iure, vitae{" "}
-          <span className="text-cyan-400 font-semibold">nesciunt </span> dicta
-          qui, quasi doloribus{" "}
-          <span className="text-cyan-400 font-semibold">explicabo</span> itaque
-          alias ipsa quam non suscipit est ad aut at{" "}
-          <span className="text-cyan-400 font-semibold">dolor</span>?
-        </div>
-      </section>
-      {/**Second Description */}
-      <section className="py-8 px-10 text-justify max-w-8xl mx-auto">
-        <div className="text-[22px] md:text-[32px] leading-tight text-gray-800">
-          we are
-          <span className="text-cyan-400 font-semibold">Innovation</span>
-          Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur adipisicing
-          elit. Odit voluptates voluptatibus iure, vitae{" "}
-          <span className="text-cyan-400 font-semibold">nesciunt </span> dicta
-          qui, quasi doloribus{" "}
-          <span className="text-cyan-400 font-semiold">explicabo</span> itaque
-          alias ipsa quam non suscipit est ad aut at{" "}
-          <span className="text-cyan-400 font-semibold">dolor</span>?
-        </div>
-      </section>
-      {/**Features Card (Name TBD)*/}
-      <AboutCardList items={aboutCards} />
-      {/**Strategic Pillars Card */}
-      <StrategicPillarsCardList items={strategicPillars} />
+
+      <SmoothScroll>
+        <section>
+          <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10">
+            A<span className="text-cyan-400">B</span>OUT
+          </h1>
+          {/**First Description */}
+          <div className="py-2 px-10 text-justify max-w-8xl mx-auto">
+            <div className="text-[22px] md:text-[32px]  leading-tight text-gray-800">
+              we are
+              <span className="text-cyan-400 font-semibold">Innovation</span>
+              Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur
+              adipisicing elit. Odit voluptates voluptatibus iure, vitae{" "}
+              <span className="text-cyan-400 font-semibold">
+                nesciunt{" "}
+              </span>{" "}
+              dicta qui, quasi doloribus{" "}
+              <span className="text-cyan-400 font-semibold">explicabo</span>{" "}
+              itaque alias ipsa quam non suscipit est ad aut at{" "}
+              <span className="text-cyan-400 font-semibold">dolor</span>?
+            </div>
+          </div>
+          {/**Second Description */}
+          <div className="py-8 px-10 text-justify max-w-8xl mx-auto">
+            <div className="text-[22px] md:text-[32px] leading-tight text-gray-800">
+              we are
+              <span className="text-cyan-400 font-semibold">Innovation</span>
+              Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur
+              adipisicing elit. Odit voluptates voluptatibus iure, vitae{" "}
+              <span className="text-cyan-400 font-semibold">
+                nesciunt{" "}
+              </span>{" "}
+              dicta qui, quasi doloribus{" "}
+              <span className="text-cyan-400 font-semiold">explicabo</span>{" "}
+              itaque alias ipsa quam non suscipit est ad aut at{" "}
+              <span className="text-cyan-400 font-semibold">dolor</span>?
+            </div>
+          </div>
+        </section>
+        {/**Features Card (Name TBD)*/}
+        <AboutCardList items={aboutCards} />
+        {/**Strategic Pillars Card */}
+       
+      </SmoothScroll>
+       <StrategicPillarsCardList items={strategicPillars} />
       <Timeline items={timelineData} />
       <div className="mx-10 mt-10 mb-10 antialiased">
         <BentoGrid imageItems={galleryItems} />

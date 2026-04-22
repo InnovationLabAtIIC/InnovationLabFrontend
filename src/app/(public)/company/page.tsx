@@ -6,6 +6,7 @@ import type { CompanyListItem } from "@/components/Company/companyList";
 import { MarqueeLogoScroller } from "@/components/Company/MarqueeLogoScroller";
 import Stories from "@/components/Company/stories";
 import type { StoryItem } from "@/components/Company/stories";
+import { ContainerScroll } from "@/components/ContainerScroll";
 
 export default function Partner() {
   const galleryItems = [
@@ -214,6 +215,24 @@ export default function Partner() {
       </div>
       <div className="mt-[144px]"></div>
       {/*Section: Company and Internship Offered */}
+      <div className="flex flex-col overflow-hidden ">
+        <ContainerScroll
+          titleComponent={
+            <>
+              <h1 className="text-4xl font-semibold text-black">
+                Companies Providing<br />
+                <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+                  Internships
+                </span>
+              </h1>
+            </>
+          }
+        >
+          <section className="mx-10 antialiased">
+            <CompanyList companies={featuredCompanies} />
+          </section>
+        </ContainerScroll>
+      </div>
       <section className="mx-10 antialiased">
         <CompanyList companies={featuredCompanies} />
       </section>

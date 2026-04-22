@@ -3,10 +3,7 @@ import Footer from "@/components/Footer";
 import BentoGrid from "@/components/BentoGrid";
 import CompanyList from "@/components/Company/companyList";
 import type { CompanyListItem } from "@/components/Company/companyList";
-import { MarqueeLogoScroller } from '@/components/Company/MarqueeLogoScroller';
-
-
-
+import { MarqueeLogoScroller } from "@/components/Company/MarqueeLogoScroller";
 import Stories from "@/components/Company/stories";
 import type { StoryItem } from "@/components/Company/stories";
 
@@ -119,41 +116,58 @@ export default function Partner() {
       imageUrl:
         "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=900&q=80",
     },
+    {
+      companyName: "Vertex Health",
+      companyDetails:
+        "Building AI-powered diagnostics and remote patient monitoring tools.",
+      internsCount: 5,
+      imageUrl:
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80",
+    },
+    {
+      companyName: "Orbit Fintech",
+      companyDetails:
+        "Developing secure payment rails and analytics for digital-first finance teams.",
+      internsCount: 4,
+      imageUrl:
+        "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=900&q=80",
+    },
+    {
+      companyName: "Vertex Health",
+      companyDetails:
+        "Building AI-powered diagnostics and remote patient monitoring tools.",
+      internsCount: 5,
+      imageUrl:
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80",
+    },
+    {
+      companyName: "Orbit Fintech",
+      companyDetails:
+        "Developing secure payment rails and analytics for digital-first finance teams.",
+      internsCount: 4,
+      imageUrl:
+        "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=900&q=80",
+    },
+    {
+      companyName: "Vertex Health",
+      companyDetails:
+        "Building AI-powered diagnostics and remote patient monitoring tools.",
+      internsCount: 5,
+      imageUrl:
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80",
+    },
+    {
+      companyName: "Orbit Fintech",
+      companyDetails:
+        "Developing secure payment rails and analytics for digital-first finance teams.",
+      internsCount: 4,
+      imageUrl:
+        "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=900&q=80",
+    },
   ];
-   const partners = [
-    {
-      src: 'https://svgl.app/library/procure.svg',
-      alt: 'Procure',
-    },
-    {
-      src: 'https://svgl.app/library/shopify.svg',
-      alt: 'Clerk',
-    },
-    {
-      src: 'https://svgl.app/library/blender.svg',
-      alt: 'Blender',
-    },
-    {
-      src: 'https://svgl.app/library/figma.svg',
-      alt: 'Figma',
-    },
-    {
-      src: 'https://svgl.app/library/spotify.svg',
-      alt: 'Mocha',
-    },
-    {
-      src: 'https://svgl.app/library/lottielab.svg',
-      alt: 'Layers',
-    },
-    {
-      src: 'https://svgl.app/library/google-cloud.svg',
-      alt: 'Google Cloud',
-    },
-    {
-      src: 'https://svgl.app/library/bing.svg',
-      alt: 'Framer',
-    },
-  ];
+
+  const featuredCompanies = companies.slice(0, 6);
+  const marqueeCompanies = companies.slice(6);
 
   const storiesData: StoryItem[] = [
     {
@@ -201,17 +215,19 @@ export default function Partner() {
       <div className="mt-[144px]"></div>
       {/*Section: Company and Internship Offered */}
       <section className="mx-10 antialiased">
-        <CompanyList companies={companies} />
+        <CompanyList companies={featuredCompanies} />
       </section>
       {/**Section: All Companies marquee section */}
-      <section className="mx-10 mt-10 antialiased">
-            <MarqueeLogoScroller
-              title="Trusted by Businesses Worldwide"
-              description="Founders, developers, and business leaders across the globe chose us for their digital asset operations."
-              logos={partners}
-              speed="normal"
-            />
-          </section>
+      {marqueeCompanies.length > 0 && (
+        <section className="mx-10 mt-10 antialiased">
+          <MarqueeLogoScroller
+            title="More Companies"
+            description="Trusted by more companies. Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+            logos={marqueeCompanies}
+            speed="normal"
+          />
+        </section>
+      )}
       {/*Section: Description*/}
       <section className="py-24 px-10 text-center max-w-4xl mx-auto">
         <div className="flex items-center justify-center gap-3 text-[14px] tracking-[4px] font-bold uppercase mb-8">

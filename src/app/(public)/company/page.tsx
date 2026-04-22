@@ -1,4 +1,5 @@
 import Navbar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import BentoGrid from "@/components/BentoGrid";
 import CompanyList from "@/components/Partners/companyList";
 import type { CompanyListItem } from "@/components/Partners/companyList";
@@ -133,11 +134,11 @@ export default function Partner() {
       image:
         "https://wallpapers.com/images/featured/dexter-pictures-fe9qbtzm9bbv0xxj.jpg",
       storyTeller: "Dexter Morgan",
-      description: "Tonight's the night. It's going to happen again and again. It has to happen.",
+      description:
+        "Tonight's the night. It's going to happen again and again. It has to happen.",
     },
     {
-      image:
-        "https://wallpapercave.com/wp/wp1932768.png",
+      image: "https://wallpapercave.com/wp/wp1932768.png",
       storyTeller: "Walter White",
       description: "Say my Name",
     },
@@ -182,10 +183,12 @@ export default function Partner() {
       <div className="w-full h-screen">
         <Stories storiesData={storiesData} />
       </div>
+      {/**This is temporsry. Need a permanent fix for margin applied below */}
+      <div className="mt-[350vh]"></div>
+      <Footer />
 
-      <div className="mt-[200vh]"></div>
       {/*DUMMY: Dummy Section for scrolling */}
-      <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10 mt-[100rem]">
+      {/* <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10 mt-[100rem]">
         P<span className="text-cyan-400">A</span>RTNERS
       </h1>
       <section className="py-24 px-10 text-center max-w-4xl mx-auto">
@@ -200,7 +203,7 @@ export default function Partner() {
           nesciunt dicta qui, quasi doloribus explicabo itaque alias ipsa quam
           non suscipit est ad aut at dolor?
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

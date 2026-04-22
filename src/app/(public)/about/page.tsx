@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 import AboutCardList from "@/components/About/AboutCardList";
 import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardList";
 import Timeline from "@/components/About/Timeline";
@@ -285,7 +286,7 @@ const About = () => {
         <BentoGrid imageItems={galleryItems} />
       </div>
       <LatestEentsList events={latestEvents} />
-      <div className="mt-[30vh]"></div>
+      <Footer />
     </>
   );
 };

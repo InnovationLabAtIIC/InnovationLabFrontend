@@ -15,6 +15,7 @@ interface CompanyCardProps {
   internsCount: number;
   internsColor?: string;
   className?: string;
+  disableTilt?: boolean;
 }
 
 export default function CompanyCard({
@@ -25,6 +26,7 @@ export default function CompanyCard({
   internsCount,
   internsColor = '#006875',
   className,
+  disableTilt = false,
 }: CompanyCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -59,11 +61,11 @@ export default function CompanyCard({
   return (
     <motion.div
       ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onMouseMove={disableTilt ? undefined : handleMouseMove}
+      onMouseLeave={disableTilt ? undefined : handleMouseLeave}
       style={{
-        rotateX: springRotateX,
-        rotateY: springRotateY,
+        rotateX: disableTilt ? 0 : springRotateX,
+        rotateY: disableTilt ? 0 : springRotateY,
         transformStyle: 'preserve-3d',
         perspective: '1000px',
       }}

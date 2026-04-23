@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { useRef } from "react";
 
 type GalleryImage = {
@@ -68,12 +69,14 @@ function ImageRow({ images }: { images: GalleryImage[] }) {
       {images.map((image) => (
         <div
           key={image.src}
-          className="h-[32vw] min-h-64 max-h-120 w-[28vw] min-w-[18rem] max-w-[24rem] shrink-0 overflow-hidden rounded-2xl bg-neutral-100"
+          className="relative h-[32vw] min-h-64 max-h-120 w-[28vw] min-w-[18rem] max-w-[24rem] shrink-0 overflow-hidden rounded-2xl bg-neutral-100"
         >
-          <img
+          <Image
             src={image.src}
-            className="h-full w-full object-cover"
             alt={image.alt}
+            fill
+            sizes="(max-width: 768px) 70vw, 24rem"
+            className="object-cover"
           />
         </div>
       ))}

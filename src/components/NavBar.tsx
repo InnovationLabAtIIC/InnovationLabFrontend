@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md flex justify-between items-center px-6 md:px-12 py-5 border-b border-gray-50">
       <div className="text-lg font-black tracking-tighter uppercase">
-        IV Lab
+        <img src="/ivLabsLogo.svg" alt="Innovation Lab Logo" className="h-8 w-auto scale-190" />
       </div>
 
       <div className="hidden md:flex gap-10 text-[14px] font-bold uppercase tracking-[2px]">
@@ -13,6 +13,7 @@ export default function Navbar() {
         <Link href="/events" className="hover:text-cyan-500 transition-colors">Events</Link>
         <Link href="/about" className="hover:text-cyan-500 transition-colors">About</Link>
         <Link href="/contact" className="hover:text-cyan-500 transition-colors">Contact</Link>
+        <Link href="/company" className="hover:text-cyan-500 transition-colors">Company</Link>
       </div>
 
       <Link 

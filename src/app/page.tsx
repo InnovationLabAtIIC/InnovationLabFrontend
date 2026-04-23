@@ -3,8 +3,12 @@ import Hero from '@/components/Home-Pg-Hero';
 import Carousel from '@/components/Crausel';
 import Marquee from '@/components/Maruee';
 import NewsSection from '@/components/NewsSection';
-import OppositeScrollMotion from '@/components/Framer-Motion-Test';
+import OppositeScrollMotion from '@/components/About-Extended';
 import Footer from '@/components/Footer';
+import EventsSection from '@/components/EventsSection';
+import LearnMoreSection from '@/components/LearnMoreSection';
+
+// trynna merge my branch to main
 
 export default function Home() {
   return (
@@ -23,9 +27,7 @@ export default function Home() {
 
       <NewsSection />
 
-<div className='w-full flex align-center justify-center'>
-      <OppositeScrollMotion />
-      </div>
+     
       
       
        <section className="py-24 px-10 text-center max-w-4xl mx-auto">
@@ -38,7 +40,12 @@ export default function Home() {
          we are Innovation Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates voluptatibus iure, vitae nesciunt dicta qui, quasi doloribus explicabo itaque alias ipsa quam non suscipit est ad aut at dolor?
         </div>
       </section>
-     
+       <div className="w-full flex items-center justify-center">
+        <OppositeScrollMotion />
+      </div>
+     <EventsSection />
+     <LearnMoreSection />
+     <br />
     </main>
     <Footer />
     </>

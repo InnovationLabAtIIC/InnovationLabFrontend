@@ -8,6 +8,8 @@ import Footer from '@/components/Footer';
 import EventsSection from '@/components/EventsSection';
 import LearnMoreSection from '@/components/LearnMoreSection';
 
+// trynna merge my branch to main
+
 export default function Home() {
   return (
     <>

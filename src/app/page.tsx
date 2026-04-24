@@ -7,6 +7,8 @@ import OppositeScrollMotion from "@/components/About-Extended";
 import Footer from "@/components/Footer";
 import EventsSection from "@/components/EventsSection";
 import LearnMoreSection from "@/components/LearnMoreSection";
+import FooterNew from "@/components/Footer-new";
+import GridSystem from "@/components/Events/GridSystem";
 
 export default function Home() {
   return (
@@ -44,7 +46,7 @@ export default function Home() {
         <LearnMoreSection />
         <br />
       </main>
-      <Footer />
+      <FooterNew />
     </>
   );
 }

@@ -18,9 +18,9 @@ export default function Home() {
 
         <Hero />
 
-        <div className="overflow-hidden px-0 min-w-full">
+        {/* <div className="overflow-hidden px-0 min-w-full">
           <Carousel />
-        </div>
+        </div> */}
 
         <Marquee />
 

@@ -1,142 +1,120 @@
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import Carousel from "@/components/Crausel";
-import Map from "@/components/Contacts/Map";
-import { FadeIn, StaggerIn } from "@/components/Contacts/FadeIn";
-import {
-  ContactHeading,
-  ContactHeroBox,
-} from "@/components/Contacts/ContactAnimations";
-import { ContactInfoCard } from "@/components/Contacts/ContactInfoCard";
 
 export default function Contact() {
   return (
     <>
-      <main className="min-h-screen text-[#181d22]">
-        <Navbar />
+      <div className="min-h-screen w-full overflow-hidden line-bg px-2 md:px-8">
+        <div className="w-full overflow-hidden border-x border-gray-300">
+          <Navbar />
 
-        <section className="mx-auto w-full max-w-400 px-4 sm:px-6 lg:px-10 py-8 md:py-12">
-          <ContactHeading />
-          <ContactHeroBox />
+          <h2 className="bg-white py-12 border-y border-gray-300 px-6 my-6 text-[clamp(34px,6vw,72px)] font-black uppercase leading-[0.92] tracking-[-0.08em] text-neutral-900">
+            CONTACT US
+          </h2>
 
-          <div className="grid gap-4 lg:grid-cols-[1.35fr_1fr]">
-            <FadeIn delay={0.08} y={26}>
-              <form className="border border-[#d6dadf] p-6 md:p-10 shadow-lg shadow-black/10 hover:shadow-2xl hover:shadow-black/15 transition-shadow duration-300">
-                <div className="relative z-10 mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                    Let&apos;s Start a Conversation
-                  </h2>
-                  <p className="text-gray-500 text-base leading-relaxed">
-                    Share your vision and let&apos;s bring your ideas to life
-                    together.
-                  </p>
-                </div>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className="group">
-                    <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22] [transition-property:color,letter-spacing,transform] duration-300 ease-out group-hover:text-cyan-500 group-hover:tracking-[0.24em] group-hover:translate-x-0.5">
-                      Name
-                    </label>
+          {/* MAIN GRID */}
+          <div className="min-h-screen w-full bg-white grid grid-rows-2 border border-gray-300">
+            {/* ROW 1 */}
+            <div className="grid grid-cols-2 border-b border-gray-300">
+              {/* LEFT: CONTACT FORM */}
+              <div className="p-8 border-r border-gray-300 flex flex-col justify-center">
+                <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
+
+                <form className="flex flex-col gap-4">
+                  <div className="grid grid-cols-2 gap-4">
                     <input
                       type="text"
-                      placeholder="Enter identifier"
-                      className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none placeholder:text-[#b4b7ba] [transition-property:box-shadow] duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:border-r-transparent hover:border-t-transparent hover:border-b-cyan-400 hover:border-l-transparent"
+                      placeholder="First Name"
+                      className="border border-gray-300 p-3 outline-none"
                     />
-                  </div>
-
-                  <div className="group">
-                    <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22] [transition-property:color,letter-spacing,transform] duration-300 ease-out group-hover:text-cyan-500 group-hover:tracking-[0.24em] group-hover:translate-x-0.5">
-                      Email
-                    </label>
                     <input
-                      type="email"
-                      placeholder="Address@protocol.sys"
-                      className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none placeholder:text-[#b4b7ba] [transition-property:box-shadow] duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:border-r-transparent hover:border-t-transparent hover:border-b-cyan-400 hover:border-l-transparent"
+                      type="text"
+                      placeholder="Last Name"
+                      className="border border-gray-300 p-3 outline-none"
                     />
                   </div>
-                </div>
 
-                <div className="mt-4 group">
-                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22] [transition-property:color,letter-spacing,transform] duration-300 ease-out group-hover:text-cyan-500 group-hover:tracking-[0.24em] group-hover:translate-x-0.5">
-                    Title
-                  </label>
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    className="border border-gray-300 p-3 outline-none"
+                  />
+
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    className="border border-gray-300 p-3 outline-none"
+                  />
+
                   <input
                     type="text"
-                    defaultValue="Architectural Consultation"
-                    className="w-full border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none placeholder:text-[#b4b7ba] [transition-property:box-shadow] duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:border-r-transparent hover:border-t-transparent hover:border-b-cyan-400 hover:border-l-transparent"
+                    placeholder="Subject"
+                    className="border border-gray-300 p-3 outline-none"
                   />
-                </div>
 
-                <div className="mt-4 group">
-                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22] [transition-property:color,letter-spacing,transform] duration-300 ease-out group-hover:text-cyan-500 group-hover:tracking-[0.24em] group-hover:translate-x-0.5">
-                    Message
-                  </label>
+                  <input
+                    type="text"
+                    placeholder="Company (optional)"
+                    className="border border-gray-300 p-3 outline-none"
+                  />
+
+                  <select
+                    title="Select"
+                    className="border border-gray-300 p-3 outline-none bg-white"
+                  >
+                    <option value="">Select Inquiry Type</option>
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Support</option>
+                    <option value="sales">Sales</option>
+                    <option value="partnership">Partnership</option>
+                  </select>
+
                   <textarea
+                    placeholder="Your Message"
                     rows={5}
-                    placeholder="Define your vision..."
-                    className="w-full resize-none border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none placeholder:text-[#b4b7ba] [transition-property:box-shadow] duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:border-r-transparent hover:border-t-transparent hover:border-b-cyan-400 hover:border-l-transparent"
+                    className="border border-gray-300 p-3 outline-none"
                   />
-                </div>
 
-                <div className="mt-8 flex items-center justify-between">
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-[#8b8f93] transition-colors duration-300">
-                    <span className="mr-2 inline-block h-2 w-2 bg-cyan-400 animate-pulse" />
-                    Awaiting
-                  </p>
                   <button
                     type="submit"
-                    className="inline-flex h-12 items-center justify-center gap-2 border border-black bg-black px-10 text-[12px] font-extrabold uppercase tracking-[0.2em] text-white transition-all duration-300 ease-out hover:scale-95 hover:-translate-y-px hover:bg-white hover:text-black hover:shadow-lg hover:shadow-black/20 focus-visible:scale-95 focus-visible:-translate-y-px focus-visible:bg-white focus-visible:text-black focus-visible:shadow-lg focus-visible:shadow-black/20"
+                    className="bg-black text-white py-3 hover:opacity-80 transition"
                   >
-                    Send{" "}
-                    <span
-                      aria-hidden
-                      className="transition-transform duration-300 group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
+                    Send Message
                   </button>
-                </div>
-              </form>
-            </FadeIn>
-
-            <FadeIn delay={0.15} y={30}>
-              <div className="relative w-full h-full min-h-90 overflow-hidden border border-[#cfcfcf] bg-linear-to-b from-[#1a1a1a] to-[#0a0a0a]">
-                <Map />
+                </form>
               </div>
-            </FadeIn>
+
+              <div className="grid grid-rows-2 grid-cols-2 aspect-square">
+                <div className="p-8 border-b border-gray-300 flex flex-col justify-center">
+                  <h4 className="text-xl font-semibold mb-2">Email Us</h4>
+                  <p className="text-gray-600">support@example.com</p>
+                </div>
+
+                <div className="p-8 border border-gray-300 flex flex-col justify-center">
+                  <h4 className="text-xl font-semibold mb-2">Call Us</h4>
+                  <p className="text-gray-600">+977-98XXXXXXXX</p>
+                </div>
+                <div className="p-8 border border-gray-300 flex flex-col justify-center">
+                  <h4 className="text-xl font-semibold mb-2">Call Us</h4>
+                  <p className="text-gray-600">+977-98XXXXXXXX</p>
+                </div>
+                <div className="p-8 border border-gray-300 flex flex-col justify-center">
+                  <h4 className="text-xl font-semibold mb-2">Call Us</h4>
+                  <p className="text-gray-600">+977-98XXXXXXXX</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border-t border-gray-300">
+              <div className="w-full h-full flex items-center justify-center text-gray-400">
+                Map Goes Here
+              </div>
+            </div>
           </div>
 
-          <StaggerIn
-            className="mt-8 grid border border-[#d8d8d8] md:grid-cols-4"
-            delayChildren={0.12}
-            staggerChildren={0.09}
-          >
-            <ContactInfoCard
-              title="Email"
-              content="admin@neo-lab.sys"
-              isBordered
-            />
-            <ContactInfoCard
-              title="Phone"
-              content="+44 (0) 20 7946 0142"
-              isBordered
-            />
-            <ContactInfoCard
-              title="Location"
-              content="18 Brutal Wharf, E14 5SX, London"
-              isBordered
-            />
-            <ContactInfoCard
-              title="Uptime"
-              content="09:00 - 21:00 GMT"
-              isBordered={false}
-            />
-          </StaggerIn>
-        </section>
-      </main>
-      <div className="overflow-hidden px-0 min-w-full">
-        <Carousel />
+          <Footer />
+        </div>
       </div>
-      <Footer />
     </>
   );
 }

@@ -245,59 +245,27 @@ const latestEvents: LatestEventItem[] = [
 const About = () => {
   return (
     <>
-      <Navbar />
-      {/**Header at the top */}
-
-      <SmoothScroll>
-        <section>
-          <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10">
-            A<span className="text-cyan-400">B</span>OUT
-          </h1>
-          {/**First Description */}
-          <div className="py-2 px-10 text-justify max-w-8xl mx-auto">
-            <div className="text-[22px] md:text-[32px]  leading-tight text-gray-800">
-              we are
-              <span className="text-cyan-400 font-semibold">Innovation</span>
-              Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Odit voluptates voluptatibus iure, vitae{" "}
-              <span className="text-cyan-400 font-semibold">
-                nesciunt{" "}
-              </span>{" "}
-              dicta qui, quasi doloribus{" "}
-              <span className="text-cyan-400 font-semibold">explicabo</span>{" "}
-              itaque alias ipsa quam non suscipit est ad aut at{" "}
-              <span className="text-cyan-400 font-semibold">dolor</span>?
-            </div>
+      <div className="min-h-screen w-full overflow-hidden line-bg px-2 md:px-8">
+        <div className="w-full overflow-hidden border-x border-gray-300">
+          <Navbar />
+          <SmoothScroll>
+            <section className="bg-white h-full min-h-screen">
+              <div className="py-ds-2 px-ds-5 text-justify max-w-4xl mx-auto"></div>
+              <div className="py-ds-5 px-ds-5 text-justify max-w-4xl mx-auto">
+                <div className="text-h4 md:text-h3 leading-tight text-neutral-900"></div>
+              </div>
+            </section>
+            <AboutCardList items={aboutCards} />
+          </SmoothScroll>
+          <StrategicPillarsCardList items={strategicPillars} />
+          <Timeline items={timelineData} />
+          <div className="mx-ds-5 mt-ds-6 mb-ds-6 antialiased">
+            <BentoGrid imageItems={galleryItems} />
           </div>
-          {/**Second Description */}
-          <div className="py-8 px-10 text-justify max-w-8xl mx-auto">
-            <div className="text-[22px] md:text-[32px] leading-tight text-gray-800">
-              we are
-              <span className="text-cyan-400 font-semibold">Innovation</span>
-              Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Odit voluptates voluptatibus iure, vitae{" "}
-              <span className="text-cyan-400 font-semibold">
-                nesciunt{" "}
-              </span>{" "}
-              dicta qui, quasi doloribus{" "}
-              <span className="text-cyan-400 font-semiold">explicabo</span>{" "}
-              itaque alias ipsa quam non suscipit est ad aut at{" "}
-              <span className="text-cyan-400 font-semibold">dolor</span>?
-            </div>
-          </div>
-        </section>
-        {/**Features Card (Name TBD)*/}
-        <AboutCardList items={aboutCards} />
-        {/**Strategic Pillars Card */}
-       
-      </SmoothScroll>
-       <StrategicPillarsCardList items={strategicPillars} />
-      <Timeline items={timelineData} />
-      <div className="mx-10 mt-10 mb-10 antialiased">
-        <BentoGrid imageItems={galleryItems} />
+          <LatestEentsList events={latestEvents} />
+          <Footer />
+        </div>
       </div>
-      <LatestEentsList events={latestEvents} />
-      <Footer />
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function page() {
+export default function ManageContactpage() {
   return (
-    <div>Contact Overview</div>
+    <div>Manage Contacts</div>
   )
 }

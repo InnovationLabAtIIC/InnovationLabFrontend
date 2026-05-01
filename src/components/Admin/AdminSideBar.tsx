@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   LayoutDashboard as Dashboard,
@@ -20,6 +20,7 @@ import {
   Info,
   Mail,
 } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
 
 // Softer spring animation curve
 const softSpringEasing = "cubic-bezier(0.25, 1.1, 0.4, 1)";
@@ -48,6 +49,7 @@ interface MenuItemT {
   hasDropdown?: boolean;
   isActive?: boolean;
   children?: MenuItemT[];
+  route?: string;
 }
 interface MenuSectionT {
   title: string;
@@ -58,7 +60,20 @@ interface SidebarContent {
   sections: MenuSectionT[];
 }
 
-function getSidebarContent(activeSection: string): SidebarContent {
+function isExactPath(pathname: string | null, target: string) {
+  return pathname === target;
+}
+
+function isPathPrefix(pathname: string | null, target: string) {
+  return Boolean(
+    pathname && (pathname === target || pathname.startsWith(`${target}/`)),
+  );
+}
+
+function getSidebarContent(
+  activeSection: string,
+  pathname: string | null,
+): SidebarContent {
   const contentMap: Record<string, SidebarContent> = {
     dashboard: {
       title: "Dashboard",
@@ -69,35 +84,33 @@ function getSidebarContent(activeSection: string): SidebarContent {
             {
               icon: <View size={16} className="text-neutral-50" />,
               label: "Overview",
-              isActive: true,
-            },
-            {
-              icon: <Dashboard size={16} className="text-neutral-50" />,
-              label: "Dropdown Sample",
-              hasDropdown: true,
-              children: [
-                { label: "Dropdown item" },
-                { label: "Dropdown item" },
-                { label: "Dropdown item" },
-                { label: "Dropdown item" },
-              ],
+              route: "/admin/dashboard",
+              isActive: isExactPath(pathname, "/admin/dashboard"),
             },
           ],
         },
         {
-          title: "Reports",
+          title: "Operations",
           items: [
             {
-              icon: <Report size={16} className="text-neutral-50" />,
-              label: "Weekly Reports",
+              // icon: <Dashboard size={16} className="text-neutral-50" />,
+              label: "Frequently Asked Questions",
+              hasDropdown: true,
+              isActive: isExactPath(pathname, "/admin/faq"),
+              children: [
+                { label: "Add FAQ", route: "/admin/faq" },
+                { label: "Manage FAQ", route: "/admin/faq" },
+              ],
             },
             {
-              icon: <StarFilled size={16} className="text-neutral-50" />,
-              label: "Monthly Report",
-            },
-            {
-              icon: <View size={16} className="text-neutral-50" />,
-              label: "Yearly Report",
+              // icon: <Dashboard size={16} className="text-neutral-50" />,
+              label: "Testimonials",
+              hasDropdown: true,
+              isActive: isExactPath(pathname, "/admin/testimonials"),
+              children: [
+                { label: "Add Testimonial", route: "/admin/testimonials" },
+                { label: "Manage Testimonial", route: "/admin/testimonials" },
+              ],
             },
           ],
         },
@@ -148,6 +161,11 @@ function getSidebarContent(activeSection: string): SidebarContent {
             {
               icon: <AddLarge size={16} className="text-neutral-50" />,
               label: "Create Community",
+              hasDropdown: true,
+              children: [
+                { label: "Manage", route: "/admin/community/manage" },
+                { label: "Create", route: "/admin/community/create" },
+              ],
             },
           ],
         },
@@ -173,6 +191,11 @@ function getSidebarContent(activeSection: string): SidebarContent {
             {
               icon: <AddLarge size={16} className="text-neutral-50" />,
               label: "Create Event",
+              hasDropdown: true,
+              children: [
+                { label: "Manage", route: "/admin/events/manage" },
+                { label: "Create", route: "/admin/events/create" },
+              ],
             },
           ],
         },
@@ -188,7 +211,8 @@ function getSidebarContent(activeSection: string): SidebarContent {
             {
               icon: <View size={16} className="text-neutral-50" />,
               label: "Overview",
-              isActive: true,
+              isActive: isExactPath(pathname, "/admin/company"),
+              route: "/admin/company",
             },
           ],
         },
@@ -196,8 +220,43 @@ function getSidebarContent(activeSection: string): SidebarContent {
           title: "Operations",
           items: [
             {
-              icon: <AddLarge size={16} className="text-neutral-50" />,
-              label: "Create Company",
+              //   icon: <AddLarge size={16} className="text-neutral-50" />,
+              label: "BentoGrid Images",
+              hasDropdown: true,
+              isActive: isPathPrefix(
+                pathname,
+                "/admin/company/bentogridimages",
+              ),
+              children: [
+                { label: "Manage", route: "/admin/company/bentogridimages" },
+                { label: "Create", route: "/admin/company/bentogridimages" },
+                {
+                  label: "View as User",
+                  route: "/admin/company/bentogridimages",
+                },
+              ],
+            },
+            {
+              //   icon: <AddLarge size={16} className="text-neutral-50" />,
+              label: "Companies",
+              hasDropdown: true,
+              isActive: isPathPrefix(pathname, "/admin/company/companies"),
+              children: [
+                { label: "Manage", route: "/admin/company/companies" },
+                { label: "Create", route: "/admin/company/companies" },
+                { label: "View as User", route: "/admin/company/companies" },
+              ],
+            },
+            {
+              //   icon: <AddLarge size={16} className="text-neutral-50" />,
+              label: "Testimonials",
+              hasDropdown: true,
+              isActive: isPathPrefix(pathname, "/admin/company/testimonials"),
+              children: [
+                { label: "Manage", route: "/admin/company/testimonials" },
+                { label: "Create", route: "/admin/company/testimonials" },
+                { label: "View as User", route: "/admin/company/testimonials" },
+              ],
             },
           ],
         },
@@ -223,6 +282,11 @@ function getSidebarContent(activeSection: string): SidebarContent {
             {
               icon: <AddLarge size={16} className="text-neutral-50" />,
               label: "Create About",
+              hasDropdown: true,
+              children: [
+                { label: "Manage", route: "/admin/about/manage" },
+                { label: "Create", route: "/admin/about/create" },
+              ],
             },
           ],
         },
@@ -248,6 +312,11 @@ function getSidebarContent(activeSection: string): SidebarContent {
             {
               icon: <AddLarge size={16} className="text-neutral-50" />,
               label: "Create Event",
+              hasDropdown: true,
+              children: [
+                { label: "Manage", route: "/admin/contact/manage" },
+                { label: "Create", route: "/admin/contact/create" },
+              ],
             },
           ],
         },
@@ -259,8 +328,7 @@ function getSidebarContent(activeSection: string): SidebarContent {
       sections: [
         {
           title: "Empty",
-          items: [
-          ],
+          items: [],
         },
         {
           title: "Operations",
@@ -275,7 +343,8 @@ function getSidebarContent(activeSection: string): SidebarContent {
     },
   };
 
-  return contentMap[activeSection] || contentMap.tasks;
+  // Fall back to the dashboard content when the active section isn't known.
+  return contentMap[activeSection] || contentMap.dashboard;
 }
 
 /* ---------------------------- Left Icon Nav Rail -------------------------- */
@@ -293,7 +362,7 @@ function IconNavButton({
     <button
       type="button"
       className={`flex items-center justify-center rounded-lg size-10 min-w-10 transition-colors duration-500
-        ${isActive ? "bg-neutral-800 text-neutral-50" : "hover:bg-neutral-800 text-neutral-400 hover:text-neutral-300"}`}
+        ${isActive ? "bg-neutral-800 text-neutral-50 border-l-4 border-cyan-500" : "hover:bg-neutral-800 text-neutral-400 hover:text-neutral-300"}`}
       style={{ transitionTimingFunction: softSpringEasing }}
       onClick={onClick}
     >
@@ -311,6 +380,7 @@ function IconNavigation({
   onSectionChange: (section: string) => void;
   onNavigate?: () => void;
 }) {
+  const router = useRouter();
   const navItems = [
     { id: "dashboard", icon: <Dashboard size={16} />, label: "Dashboard" },
     { id: "home", icon: <Home size={16} />, label: "Home" },
@@ -345,6 +415,7 @@ function IconNavigation({
             onClick={() => {
               onSectionChange(item.id);
               onNavigate?.();
+              router.push(`/admin/${item.id}`);
             }}
           >
             {item.icon}
@@ -359,6 +430,7 @@ function IconNavigation({
           onClick={() => {
             onSectionChange("settings");
             onNavigate?.();
+            router.push(`/admin/settings`);
           }}
         >
           <SettingsIcon size={16} />
@@ -435,7 +507,8 @@ function SectionTitle({
 function DetailSidebar({ activeSection }: { activeSection: string }) {
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const content = getSidebarContent(activeSection);
+  const pathname = usePathname();
+  const content = getSidebarContent(activeSection, pathname);
 
   const toggleExpanded = (itemKey: string) => {
     setExpandedItems((prev) => {
@@ -453,7 +526,7 @@ function DetailSidebar({ activeSection }: { activeSection: string }) {
       className={`relative bg-neutral-100 flex flex-col gap-4 items-start p-4 rounded-r-2xl border-r border-neutral-200 transition-all duration-500 h-full min-h-0 overflow-hidden ${
         isCollapsed
           ? "w-16 min-w-16 px-0! justify-center"
-          : "w-[min(18rem,calc(100vw-6rem))] md:w-80"
+          : "w-[min(15.3rem,calc(100vw-6rem))] md:w-72"
       }`}
       style={{ transitionTimingFunction: softSpringEasing }}
     >
@@ -501,7 +574,14 @@ function MenuItem({
   onItemClick?: () => void;
   isCollapsed?: boolean;
 }) {
+  const router = useRouter();
+
   const handleClick = () => {
+    if (item.route && !item.hasDropdown) {
+      router.push(item.route);
+      return;
+    }
+
     if (item.hasDropdown && onToggle) onToggle();
     else onItemClick?.();
   };
@@ -515,14 +595,18 @@ function MenuItem({
     >
       <div
         className={`rounded-lg cursor-pointer transition-all duration-500 flex items-center relative ${
-          item.isActive ? "bg-neutral-800" : "hover:bg-neutral-800"
+          item.isActive ? "bg-cyan-400" : "hover:bg-neutral-800"
         } ${isCollapsed ? "w-10 min-w-10 h-10 justify-center p-4" : "w-full h-10 px-4 py-2"}`}
         style={{ transitionTimingFunction: softSpringEasing }}
         onClick={handleClick}
         title={isCollapsed ? item.label : undefined}
       >
         <div className="flex items-center justify-center shrink-0">
-          {item.icon}
+          {item.icon && item.isActive ? (
+            <div className="text-black">{item.icon}</div>
+          ) : (
+            item.icon
+          )}
         </div>
 
         <div
@@ -531,7 +615,9 @@ function MenuItem({
           }`}
           style={{ transitionTimingFunction: softSpringEasing }}
         >
-          <div className="font-['Lexend:Regular',sans-serif] text-[14px] text-neutral-50 leading-5 truncate">
+          <div
+            className={`font-['Lexend:Regular',sans-serif] text-[14px] ${item.isActive ? "text-black" : "text-neutral-50"} leading-5 truncate`}
+          >
             {item.label}
           </div>
         </div>
@@ -545,7 +631,7 @@ function MenuItem({
           >
             <ChevronDownIcon
               size={16}
-              className="text-neutral-50 transition-transform duration-500"
+              className={`transition-transform duration-500 ${item.isActive ? "text-black" : "text-neutral-50"}`}
               style={{
                 transitionTimingFunction: softSpringEasing,
                 transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
@@ -565,11 +651,20 @@ function SubMenuItem({
   item: MenuItemT;
   onItemClick?: () => void;
 }) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (item.route) {
+      router.push(item.route);
+    }
+    onItemClick?.();
+  };
+
   return (
     <div className="w-full pl-9 pr-1 py-px">
       <div
         className="h-10 w-full rounded-lg cursor-pointer transition-colors hover:bg-neutral-800 flex items-center px-3 py-1"
-        onClick={onItemClick}
+        onClick={handleClick}
       >
         <div className="flex-1 min-w-0">
           <div className="font-['Lexend:Regular',sans-serif] text-[14px] text-neutral-300 leading-4.5 truncate">
@@ -640,7 +735,18 @@ function MenuSection({
 /* --------------------------------- Layout -------------------------------- */
 
 function TwoLevelSidebar({ onNavigate }: { onNavigate?: () => void }) {
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("dashboard");
+
+  useEffect(() => {
+    if (!pathname) return;
+    const parts = pathname.split("/").filter(Boolean);
+    // expected /admin/<section>/...
+    if (parts[0] === "admin") {
+      const section = parts[1] || "dashboard";
+      setActiveSection(section === "faq" || section === "testimonials" ? "dashboard" : section);
+    }
+  }, [pathname]);
 
   return (
     <div className="flex h-full min-h-0 flex-row items-stretch overflow-hidden">
@@ -744,6 +850,10 @@ export function AdminSideBar() {
 
         .admin-sidebar .bg-black {
           background-color: #ffffff !important;
+        }
+
+        .admin-sidebar .bg-cyan-400 {
+          background-color: #06b6d4 !important;
         }
 
         .admin-sidebar .no-scrollbar {

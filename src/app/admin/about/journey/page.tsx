@@ -14,7 +14,7 @@ function ViewAsUser() {
 }
 
 // 2. Export the main Page component
-export default function CompaniesPage() {
+export default function ManageJourney() {
   const tabs = [
     { id: "manage", label: "Manage" },
     { id: "add", label: "Add" },
@@ -23,7 +23,7 @@ export default function CompaniesPage() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Bento-Grid Images</h1>
+      <h1 className="text-2xl font-bold mb-6">Journey</h1>
       
       {/* 3. Pass the tabs mapping to the switcher */}
       <AdminViewSwitcher

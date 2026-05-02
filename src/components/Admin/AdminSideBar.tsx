@@ -9,8 +9,6 @@ import {
   ChevronDown as ChevronDownIcon,
   Plus as AddLarge,
   Eye as View,
-  FileWarning as Report,
-  Star as StarFilled,
   Menu as MenuIcon,
   X as CloseIcon,
   Home,
@@ -95,22 +93,14 @@ function getSidebarContent(
             {
               // icon: <Dashboard size={16} className="text-neutral-50" />,
               label: "Frequently Asked Questions",
-              hasDropdown: true,
               isActive: isExactPath(pathname, "/admin/faq"),
-              children: [
-                { label: "Add FAQ", route: "/admin/faq" },
-                { label: "Manage FAQ", route: "/admin/faq" },
-              ],
+              route: "/admin/faq",
             },
             {
               // icon: <Dashboard size={16} className="text-neutral-50" />,
               label: "Testimonials",
-              hasDropdown: true,
               isActive: isExactPath(pathname, "/admin/testimonials"),
-              children: [
-                { label: "Add Testimonial", route: "/admin/testimonials" },
-                { label: "Manage Testimonial", route: "/admin/testimonials" },
-              ],
+              route: "/admin/testimonials",
             },
           ],
         },
@@ -126,7 +116,8 @@ function getSidebarContent(
             {
               icon: <View size={16} className="text-neutral-50" />,
               label: "Overview",
-              isActive: true,
+              isActive: isExactPath(pathname, "/admin/home"),
+              route: "/admin/home",
             },
           ],
         },
@@ -151,7 +142,8 @@ function getSidebarContent(
             {
               icon: <View size={16} className="text-neutral-50" />,
               label: "Overview",
-              isActive: true,
+              isActive: isExactPath(pathname, "/admin/community"),
+              route: "/admin/community",
             },
           ],
         },
@@ -160,12 +152,9 @@ function getSidebarContent(
           items: [
             {
               icon: <AddLarge size={16} className="text-neutral-50" />,
-              label: "Create Community",
-              hasDropdown: true,
-              children: [
-                { label: "Manage", route: "/admin/community/manage" },
-                { label: "Create", route: "/admin/community/create" },
-              ],
+              label: "Community",
+              isActive: isPathPrefix(pathname, "/admin/community"),
+              route: "/admin/community",
             },
           ],
         },
@@ -181,7 +170,8 @@ function getSidebarContent(
             {
               icon: <View size={16} className="text-neutral-50" />,
               label: "Overview",
-              isActive: true,
+              isActive: isExactPath(pathname, "/admin/events"),
+              route: "/admin/events",
             },
           ],
         },
@@ -190,12 +180,9 @@ function getSidebarContent(
           items: [
             {
               icon: <AddLarge size={16} className="text-neutral-50" />,
-              label: "Create Event",
-              hasDropdown: true,
-              children: [
-                { label: "Manage", route: "/admin/events/manage" },
-                { label: "Create", route: "/admin/events/create" },
-              ],
+              label: "Events",
+              isActive: isPathPrefix(pathname, "/admin/events"),
+              route: "/admin/events",
             },
           ],
         },
@@ -222,41 +209,23 @@ function getSidebarContent(
             {
               //   icon: <AddLarge size={16} className="text-neutral-50" />,
               label: "BentoGrid Images",
-              hasDropdown: true,
               isActive: isPathPrefix(
                 pathname,
                 "/admin/company/bentogridimages",
               ),
-              children: [
-                { label: "Manage", route: "/admin/company/bentogridimages" },
-                { label: "Create", route: "/admin/company/bentogridimages" },
-                {
-                  label: "View as User",
-                  route: "/admin/company/bentogridimages",
-                },
-              ],
+              route: "/admin/company/bentogridimages",
             },
             {
               //   icon: <AddLarge size={16} className="text-neutral-50" />,
               label: "Companies",
-              hasDropdown: true,
               isActive: isPathPrefix(pathname, "/admin/company/companies"),
-              children: [
-                { label: "Manage", route: "/admin/company/companies" },
-                { label: "Create", route: "/admin/company/companies" },
-                { label: "View as User", route: "/admin/company/companies" },
-              ],
+              route: "/admin/company/companies",
             },
             {
               //   icon: <AddLarge size={16} className="text-neutral-50" />,
               label: "Testimonials",
-              hasDropdown: true,
               isActive: isPathPrefix(pathname, "/admin/company/testimonials"),
-              children: [
-                { label: "Manage", route: "/admin/company/testimonials" },
-                { label: "Create", route: "/admin/company/testimonials" },
-                { label: "View as User", route: "/admin/company/testimonials" },
-              ],
+              route: "/admin/company/testimonials",
             },
           ],
         },
@@ -272,21 +241,32 @@ function getSidebarContent(
             {
               icon: <View size={16} className="text-neutral-50" />,
               label: "Overview",
-              isActive: true,
+              isActive: isExactPath(pathname, "/admin/about"),
+              route: "/admin/about",
             },
           ],
         },
+        
         {
-          title: "Operations",
+          title: "About",
           items: [
             {
-              icon: <AddLarge size={16} className="text-neutral-50" />,
-              label: "Create About",
-              hasDropdown: true,
-              children: [
-                { label: "Manage", route: "/admin/about/manage" },
-                { label: "Create", route: "/admin/about/create" },
-              ],
+              //icon: <AddLarge size={16} className="text-neutral-50" />,
+              label: "About",
+              isActive: isPathPrefix(pathname, "/admin/about/about"),
+              route: "/admin/about/about",
+            },
+            {
+              //icon: <AddLarge size={16} className="text-neutral-50" />,
+              label: "Core Values",
+              isActive: isPathPrefix(pathname, "/admin/about/core-values"),
+              route: "/admin/about/core-values",
+            },
+             {
+              //icon: <AddLarge size={16} className="text-neutral-50" />,
+              label: "Journey",
+              isActive: isPathPrefix(pathname, "/admin/about/journey"),
+              route: "/admin/about/journey",
             },
           ],
         },
@@ -302,7 +282,8 @@ function getSidebarContent(
             {
               icon: <View size={16} className="text-neutral-50" />,
               label: "Overview",
-              isActive: true,
+              isActive: isExactPath(pathname, "/admin/contact"),
+              route: "/admin/contact",
             },
           ],
         },
@@ -311,12 +292,9 @@ function getSidebarContent(
           items: [
             {
               icon: <AddLarge size={16} className="text-neutral-50" />,
-              label: "Create Event",
-              hasDropdown: true,
-              children: [
-                { label: "Manage", route: "/admin/contact/manage" },
-                { label: "Create", route: "/admin/contact/create" },
-              ],
+              label: "Contact",
+              isActive: isPathPrefix(pathname, "/admin/contact"),
+              route: "/admin/contact",
             },
           ],
         },

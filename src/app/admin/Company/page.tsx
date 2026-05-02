@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default function ManageCompanyPage() {
-  return <div>Company Overview</div>
+  return <div>This is analytics section of company which will be implemented later</div>
 }

@@ -1,4 +1,5 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
+import AddForms, { FormField } from "@/components/Admin/AddForms";
 
 // 1. Define your individual view components
 function ManageView() {
@@ -6,7 +7,20 @@ function ManageView() {
 }
 
 function AddView() {
-  return <div>Code for the Add form goes here...</div>;
+  const formFields: FormField[] = [
+    { name: "question", label: "Question", type: "text", required: true },
+    { name: "answer", label: "Answer", type: "textarea", required: true },
+    { name: "categoryId", label: "Category ID (Optional)", type: "text", required: false, placeholder: "UUID of category" },
+  ];
+
+  return (
+    <AddForms 
+      title="Add FAQ" 
+      fields={formFields} 
+      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/faqs`}
+      format="json"
+    />
+  );
 }
 
 function ViewAsUser() {

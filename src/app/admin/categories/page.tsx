@@ -8,19 +8,16 @@ function ManageView() {
 
 function AddView() {
   const formFields: FormField[] = [
-    { name: "Mission", label: "Mission", type: "textarea", required: true },
-    { name: "Vision", label: "Vision", type: "textarea", required: true },
-    { name: "ParentOrgName", label: "Parent Organization Name", type: "text", required: true },
-    { name: "ParentOrgDescription", label: "Parent Organization Description", type: "textarea", required: true },
-    { name: "ParentOrgLogo", label: "Parent Organization Logo", type: "file", accept: "image/*", required: true },
-    { name: "ParentOrgWebsiteUrl", label: "Parent Organization Website URL", type: "text", required: true, placeholder: "https://example.com" },
+    { name: "name", label: "Category Name", type: "text", required: true },
+    { name: "parentCategoryId", label: "Parent Category ID (Optional)", type: "text", required: false, placeholder: "UUID of parent category" },
   ];
 
   return (
     <AddForms 
-      title="Add About Information" 
+      title="Create New Category" 
       fields={formFields} 
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/about`}
+      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/categories`}
+      format="json"
     />
   );
 }
@@ -30,7 +27,7 @@ function ViewAsUser() {
 }
 
 // 2. Export the main Page component
-export default function ManageAbout() {
+export default function ManageCategories() {
   const tabs = [
     { id: "manage", label: "Manage" },
     { id: "add", label: "Add" },
@@ -39,7 +36,7 @@ export default function ManageAbout() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Manage About</h1>
+      <h1 className="text-2xl font-bold mb-6">Categories</h1>
       
       {/* 3. Pass the tabs mapping to the switcher */}
       <AdminViewSwitcher

@@ -9,15 +9,19 @@ export type FormField = {
   required?: boolean;
   accept?: string;
   placeholder?: string;
+  omitFromSubmission?: boolean;
+  parseAsJson?: boolean;
 };
 
 interface AddFormsProps {
   title: string;
   fields: FormField[];
   apiEndpoint?: string;
+  endpointBuilder?: (formData: FormData) => string;
+  format?: 'multipart' | 'json'; // 'multipart' for FormData, 'json' for JSON
 }
 
-export default function AddForms({ title, fields, apiEndpoint }: AddFormsProps) {
+export default function AddForms({ title, fields, apiEndpoint, endpointBuilder, format = 'multipart' }: AddFormsProps) {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -29,8 +33,10 @@ export default function AddForms({ title, fields, apiEndpoint }: AddFormsProps) 
 
     const formData = new FormData(e.currentTarget);
 
+    const resolvedEndpoint = endpointBuilder ? endpointBuilder(formData) : apiEndpoint;
+
     // If no endpoint is provided, just log the data (useful for dev/debugging mode)
-    if (!apiEndpoint) {
+    if (!resolvedEndpoint) {
       console.log("Form submitted. Payload:", Object.fromEntries(formData.entries()));
       alert("Form submitted locally (Check console). Add apiEndpoint prop to connect to the backend.");
       return;
@@ -38,11 +44,51 @@ export default function AddForms({ title, fields, apiEndpoint }: AddFormsProps) 
 
     setLoading(true);
     try {
-      const response = await fetch(apiEndpoint, {
+      let body: any;
+      let headers: HeadersInit = {};
+
+      if (format === 'json') {
+        // Convert form data to JSON
+        const formDataObj = new FormData(e.currentTarget);
+        const jsonData: any = {};
+        for (const field of fields) {
+          if (field.omitFromSubmission) {
+            continue;
+          }
+
+          const value = formDataObj.get(field.name);
+          if (value == null) {
+            continue;
+          }
+
+          if (field.parseAsJson && typeof value === 'string') {
+            jsonData[field.name] = JSON.parse(value);
+            continue;
+          }
+
+          if (field.type === 'number') {
+            jsonData[field.name] = value === '' ? null : Number(value);
+            continue;
+          }
+
+          if (field.type === 'file') {
+            continue;
+          }
+
+          jsonData[field.name] = value;
+        }
+        body = JSON.stringify(jsonData);
+        headers['Content-Type'] = 'application/json';
+      } else {
+        // Use FormData for multipart/form-data
+        body = new FormData(e.currentTarget);
+        // Don't set Content-Type header for FormData - browser will do it automatically
+      }
+
+      const response = await fetch(resolvedEndpoint, {
         method: 'POST',
-        // Note: For multipart/form-data, do NOT manually set the Content-Type header.
-        // fetch will automatically set it along with the proper boundary when body is FormData.
-        body: formData,
+        headers,
+        body,
       });
 
       if (!response.ok) {

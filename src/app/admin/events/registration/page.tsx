@@ -1,5 +1,4 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
-import AddForms, { FormField } from "@/components/Admin/AddForms";
 
 // 1. Define your individual view components
 function ManageView() {
@@ -7,20 +6,7 @@ function ManageView() {
 }
 
 function AddView() {
-  const formFields: FormField[] = [
-    { name: "Title", label: "Title", type: "text", required: true },
-    { name: "Description", label: "Description", type: "textarea", required: true },
-    { name: "Icon", label: "Icon", type: "file", accept: "image/*", required: true },
-    { name: "Order", label: "Order", type: "number", required: false },
-  ];
-
-  return (
-    <AddForms 
-      title="Add Core Value" 
-      fields={formFields} 
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/core-values`}
-    />
-  );
+  return <div>Registration is done by page visitors</div>;
 }
 
 function ViewAsUser() {
@@ -28,7 +14,7 @@ function ViewAsUser() {
 }
 
 // 2. Export the main Page component
-export default function ManageCoreValues() {
+export default function ManageEvents() {
   const tabs = [
     { id: "manage", label: "Manage" },
     { id: "add", label: "Add" },
@@ -37,7 +23,7 @@ export default function ManageCoreValues() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Core Values</h1>
+      <h1 className="text-2xl font-bold mb-6">Event Registration</h1>
       
       {/* 3. Pass the tabs mapping to the switcher */}
       <AdminViewSwitcher

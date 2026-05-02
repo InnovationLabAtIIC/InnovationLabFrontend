@@ -82,14 +82,25 @@ function getSidebarContent(
             {
               icon: <View size={16} className="text-neutral-50" />,
               label: "Overview",
-              route: "/admin/dashboard",
-              isActive: isExactPath(pathname, "/admin/dashboard"),
+              route: "/admin",
+              isActive: isExactPath(pathname, "/admin"),
             },
           ],
         },
         {
           title: "Operations",
           items: [
+            {
+              label: "Banner",
+              isActive: isExactPath(pathname, "/admin/banner"),
+              route: "/admin/banner",
+            },
+             {
+              // icon: <Dashboard size={16} className="text-neutral-50" />,
+              label: "Categories",
+              isActive: isExactPath(pathname, "/admin/categories"),
+              route: "/admin/categories",
+            },
             {
               // icon: <Dashboard size={16} className="text-neutral-50" />,
               label: "Frequently Asked Questions",
@@ -107,59 +118,59 @@ function getSidebarContent(
       ],
     },
 
-    home: {
-      title: "Home",
-      sections: [
-        {
-          title: "Analytics",
-          items: [
-            {
-              icon: <View size={16} className="text-neutral-50" />,
-              label: "Overview",
-              isActive: isExactPath(pathname, "/admin/home"),
-              route: "/admin/home",
-            },
-          ],
-        },
-        {
-          title: "Operations",
-          items: [
-            {
-              icon: <AddLarge size={16} className="text-neutral-50" />,
-              label: "Create Something",
-            },
-          ],
-        },
-      ],
-    },
+    // home: {
+    //   title: "Home",
+    //   sections: [
+    //     {
+    //       title: "Analytics",
+    //       items: [
+    //         {
+    //           icon: <View size={16} className="text-neutral-50" />,
+    //           label: "Overview",
+    //           isActive: isExactPath(pathname, "/admin/home"),
+    //           route: "/admin/home",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "Operations",
+    //       items: [
+    //         {
+    //           icon: <AddLarge size={16} className="text-neutral-50" />,
+    //           label: "Create Something",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
 
-    community: {
-      title: "Community",
-      sections: [
-        {
-          title: "Analytics",
-          items: [
-            {
-              icon: <View size={16} className="text-neutral-50" />,
-              label: "Overview",
-              isActive: isExactPath(pathname, "/admin/community"),
-              route: "/admin/community",
-            },
-          ],
-        },
-        {
-          title: "Operations",
-          items: [
-            {
-              icon: <AddLarge size={16} className="text-neutral-50" />,
-              label: "Community",
-              isActive: isPathPrefix(pathname, "/admin/community"),
-              route: "/admin/community",
-            },
-          ],
-        },
-      ],
-    },
+    // community: {
+    //   title: "Community",
+    //   sections: [
+    //     {
+    //       title: "Analytics",
+    //       items: [
+    //         {
+    //           icon: <View size={16} className="text-neutral-50" />,
+    //           label: "Overview",
+    //           isActive: isExactPath(pathname, "/admin/community"),
+    //           route: "/admin/community",
+    //         },
+    //       ],
+    //     },
+    //     {
+    //       title: "Operations",
+    //       items: [
+    //         {
+    //           icon: <AddLarge size={16} className="text-neutral-50" />,
+    //           label: "Community",
+    //           isActive: isPathPrefix(pathname, "/admin/community"),
+    //           route: "/admin/community",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
 
     events: {
       title: "Events",
@@ -179,10 +190,22 @@ function getSidebarContent(
           title: "Operations",
           items: [
             {
-              icon: <AddLarge size={16} className="text-neutral-50" />,
+              //icon: <AddLarge size={16} className="text-neutral-50" />,
               label: "Events",
-              isActive: isPathPrefix(pathname, "/admin/events"),
-              route: "/admin/events",
+              isActive: isPathPrefix(pathname, "/admin/events/events"),
+              route: "/admin/events/events",
+            },
+            {
+              //icon: <AddLarge size={16} className="text-neutral-50" />,
+              label: "Agenda",
+              isActive: isPathPrefix(pathname, "/admin/events/agenda"),
+              route: "/admin/events/agenda",
+            },
+            {
+              //icon: <AddLarge size={16} className="text-neutral-50" />,
+              label: "Registration",
+              isActive: isPathPrefix(pathname, "/admin/events/registration"),
+              route: "/admin/events/registration",
             },
           ],
         },
@@ -276,23 +299,23 @@ function getSidebarContent(
     contact: {
       title: "Contact",
       sections: [
-        {
-          title: "Analytics",
-          items: [
-            {
-              icon: <View size={16} className="text-neutral-50" />,
-              label: "Overview",
-              isActive: isExactPath(pathname, "/admin/contact"),
-              route: "/admin/contact",
-            },
-          ],
-        },
+        // {
+        //   title: "Analytics",
+        //   items: [
+        //     {
+        //       icon: <View size={16} className="text-neutral-50" />,
+        //       label: "Overview",
+        //       isActive: isExactPath(pathname, "/admin/contact"),
+        //       route: "/admin/contact",
+        //     },
+        //   ],
+        // },
         {
           title: "Operations",
           items: [
             {
-              icon: <AddLarge size={16} className="text-neutral-50" />,
-              label: "Contact",
+              // icon: <AddLarge size={16} className="text-neutral-50" />,
+              label: "Contacts",
               isActive: isPathPrefix(pathname, "/admin/contact"),
               route: "/admin/contact",
             },
@@ -361,8 +384,8 @@ function IconNavigation({
   const router = useRouter();
   const navItems = [
     { id: "dashboard", icon: <Dashboard size={16} />, label: "Dashboard" },
-    { id: "home", icon: <Home size={16} />, label: "Home" },
-    { id: "community", icon: <Users size={16} />, label: "Community" },
+    // { id: "home", icon: <Home size={16} />, label: "Home" },
+    // { id: "community", icon: <Users size={16} />, label: "Community" },
     { id: "events", icon: <CalendarIcon size={16} />, label: "Events" },
     { id: "company", icon: <Building2 size={16} />, label: "Company" },
     { id: "about", icon: <Info size={16} />, label: "About" },
@@ -393,7 +416,7 @@ function IconNavigation({
             onClick={() => {
               onSectionChange(item.id);
               onNavigate?.();
-              router.push(`/admin/${item.id}`);
+              router.push(item.id === "dashboard" ? "/admin" : `/admin/${item.id}`);
             }}
           >
             {item.icon}
@@ -722,7 +745,13 @@ function TwoLevelSidebar({ onNavigate }: { onNavigate?: () => void }) {
     // expected /admin/<section>/...
     if (parts[0] === "admin") {
       const section = parts[1] || "dashboard";
-      setActiveSection(section === "faq" || section === "testimonials" ? "dashboard" : section);
+      const dashboardRoutes = new Set([
+        "faq",
+        "testimonials",
+        "banner",
+        "categories",
+      ]);
+      setActiveSection(dashboardRoutes.has(section) ? "dashboard" : section);
     }
   }, [pathname]);
 

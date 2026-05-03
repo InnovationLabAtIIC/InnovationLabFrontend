@@ -1,0 +1,54 @@
+import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
+import AddForms, { FormField } from "@/components/Admin/AddForms";
+
+// 1. Define your individual view components
+function ManageView() {
+  return <div>Code for the Manage table goes here...</div>;
+}
+
+function AddView() {
+  const formFields: FormField[] = [
+    { name: "name", label: "Category Name", type: "text", required: true },
+    { name: "parentCategoryId", label: "Parent Category ID (Optional)", type: "text", required: false, placeholder: "UUID of parent category" },
+  ];
+
+  return (
+    <AddForms 
+      title="Create New Category" 
+      fields={formFields} 
+      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/categories`}
+      format="json"
+    />
+  );
+}
+
+function ViewAsUser() {
+  return <div>Code for the User preview goes here...</div>;
+}
+
+// 2. Export the main Page component
+export default function ManageCategories() {
+  const tabs = [
+    { id: "manage", label: "Manage" },
+    { id: "add", label: "Add" },
+    { id: "preview", label: "View as user" },
+  ];
+
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-6">Categories</h1>
+      
+      {/* 3. Pass the tabs mapping to the switcher */}
+      <AdminViewSwitcher
+        tabs={tabs}
+        defaultTab="manage"
+      >
+        {{
+          manage: <ManageView />,
+          add: <AddView />,
+          preview: <ViewAsUser />,
+        }}
+      </AdminViewSwitcher>
+    </div>
+  );
+}

@@ -12,6 +12,7 @@ type SmoothScrollProps = {
 const SmoothScroll = forwardRef<HTMLElement, SmoothScrollProps>(
   ({ children, className, sectionClassName }, ref) => {
     const sections = Children.toArray(children).filter(Boolean);
+    const zClasses = ["z-10", "z-20", "z-30", "z-40", "z-50"];
 
     return (
       <section ref={ref} className={cn("relative", className)}>
@@ -20,12 +21,12 @@ const SmoothScroll = forwardRef<HTMLElement, SmoothScrollProps>(
             <section
               key={index}
               className={cn(
-                "sticky top-0 min-h-screen",
+                "sticky top-0 h-auto",
                 sectionClassName,
+                zClasses[index] || "z-0",
               )}
-              style={{ zIndex: index + 1 }}
             >
-              <div className="min-h-screen">{section}</div>
+              <div className="h-auto">{section}</div>
             </section>
           ))}
         </article>

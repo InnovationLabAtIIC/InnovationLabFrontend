@@ -245,8 +245,8 @@ const latestEvents: LatestEventItem[] = [
 const About = () => {
   return (
     <>
-      <div className="min-h-screen bg-white w-full overflow-hidden line-bg px-2 md:px-8">
-        <div className="w-full overflow-hidden border-x border-gray-300">
+      <div className="min-h-screen bg-white w-full overflow-visible line-bg px-2 md:px-8">
+        <div className="w-full overflow-visible border-x border-gray-300">
           <Navbar />
           <h2 className="bg-white py-12 border-y border-gray-300 px-6 my-6 text-[clamp(34px,6vw,72px)] font-black uppercase leading-[0.92] tracking-[-0.08em] text-neutral-900">
             ABOUT <span className="text-cyan-400">US</span>

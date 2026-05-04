@@ -64,9 +64,9 @@ export function ContactInfoCard({
       <motion.div className="absolute top-0 left-0 h-0.5 w-0 bg-linear-to-r from-cyan-400 via-cyan-300 to-transparent group-hover:w-full transition-all duration-700 ease-out pointer-events-none" />
 
       {/* Card content with smooth entrance */}
-      <motion.div className="relative z-10">
+      <motion.div className="relative z-10 aspect-square h-64">
         <motion.h3
-          className="mb-3 text-sm font-black uppercase tracking-tight text-[#181d22] transition-colors duration-400 group-hover:text-primary"
+          className="mb-3 text-xl font-black uppercase tracking-tight text-[#181d22] transition-colors duration-400 group-hover:text-primary"
           whileHover={
             reducedMotion
               ? undefined

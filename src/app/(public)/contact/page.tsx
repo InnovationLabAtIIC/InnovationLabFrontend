@@ -1,5 +1,7 @@
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { ContactInfoCard } from "@/components/Contacts/ContactInfoCard";
+import Button from "@/components/primitives/Button";
 
 export default function Contact() {
   return (
@@ -13,7 +15,7 @@ export default function Contact() {
           </h2>
 
           {/* MAIN GRID */}
-          <div className="min-h-screen w-full bg-white grid grid-rows-2 border border-gray-300">
+          <div className=" w-full bg-white grid grid-rows-2 border border-gray-300">
             {/* ROW 1 */}
             <div className="grid grid-cols-2 border-b border-gray-300">
               {/* LEFT: CONTACT FORM */}
@@ -75,40 +77,33 @@ export default function Contact() {
                     className="border border-gray-300 p-3 outline-none"
                   />
 
-                  <button
-                    type="submit"
-                    className="bg-black text-white py-3 hover:opacity-80 transition"
-                  >
-                    Send Message
-                  </button>
+                  <Button>Send Message</Button>
                 </form>
               </div>
 
-              <div className="grid grid-rows-2 grid-cols-2 aspect-square">
-                <div className="p-8 border-b border-gray-300 flex flex-col justify-center">
-                  <h4 className="text-xl font-semibold mb-2">Email Us</h4>
-                  <p className="text-gray-600">support@example.com</p>
-                </div>
-
-                <div className="p-8 border border-gray-300 flex flex-col justify-center">
-                  <h4 className="text-xl font-semibold mb-2">Call Us</h4>
-                  <p className="text-gray-600">+977-98XXXXXXXX</p>
-                </div>
-                <div className="p-8 border border-gray-300 flex flex-col justify-center">
-                  <h4 className="text-xl font-semibold mb-2">Call Us</h4>
-                  <p className="text-gray-600">+977-98XXXXXXXX</p>
-                </div>
-                <div className="p-8 border border-gray-300 flex flex-col justify-center">
-                  <h4 className="text-xl font-semibold mb-2">Call Us</h4>
-                  <p className="text-gray-600">+977-98XXXXXXXX</p>
-                </div>
-              </div>
+              <div className="grid grid-rows-2 grid-cols-2 aspect-square"></div>
             </div>
-
-            <div className="border-t border-gray-300">
-              <div className="w-full h-full flex items-center justify-center text-gray-400">
-                Map Goes Here
-              </div>
+            <div className="flex flex-row">
+              <ContactInfoCard
+                title="Email Us"
+                content="support@example.com"
+                isBordered={true}
+              />
+              <ContactInfoCard
+                title="Email Us"
+                content="support@example.com"
+                isBordered={true}
+              />
+              <ContactInfoCard
+                title="Email Us"
+                content="support@example.com"
+                isBordered={true}
+              />
+              <ContactInfoCard
+                title="Email Us"
+                content="support@example.com"
+                isBordered={true}
+              />
             </div>
           </div>
 

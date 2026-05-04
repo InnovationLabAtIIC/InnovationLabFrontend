@@ -192,7 +192,7 @@ export default function CommunitiesPage() {
                     </p>
                   </div>
                 </div>
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/25 to-transparent opacity-70 transition-opacity duration-300 group-hover:opacity-95" />
+                <div className="pointer-events-none absolute inset-0 bg-white/25 opacity-70 transition-opacity duration-300 group-hover:opacity-95" />
               </Link>
             ))}
           </section>

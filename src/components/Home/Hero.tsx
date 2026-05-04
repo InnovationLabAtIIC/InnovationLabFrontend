@@ -16,13 +16,7 @@ export default function Hero() {
   return (
     <>
       <div className="w-full h-auto relative overflow-hidden">
-        <div
-          className="grid w-full h-full overflow-hidden"
-          style={{
-            gridTemplateColumns: `repeat(${cols}, 1fr)`,
-            gridTemplateRows: `repeat(${rows}, 1fr)`,
-          }}
-        >
+        <div className="grid w-full h-full overflow-hidden [grid-template-columns:repeat(24,1fr)] [grid-template-rows:repeat(8,1fr)]">
           {gridColors.map((color, i) => (
             <div
               key={i}

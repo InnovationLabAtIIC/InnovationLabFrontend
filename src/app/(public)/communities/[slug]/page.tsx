@@ -72,13 +72,12 @@ export default function CommunityDetailPage({
             {profile.teamMembers.map((member, index) => (
               <article
                 key={member.name}
-                className="border-b border-r border-black/10 p-6"
-                style={{
-                  background:
-                    index % 2 === 0
-                      ? "linear-gradient(160deg, rgba(34,211,238,0.1), rgba(255,255,255,1) 55%)"
-                      : "linear-gradient(180deg, rgba(34,211,238,0.06), rgba(255,255,255,1) 45%)",
-                }}
+                className={[
+                  "border-b border-r border-black/10 p-6",
+                  index % 2 === 0
+                    ? "bg-[linear-gradient(160deg,rgba(34,211,238,0.1),rgba(255,255,255,1)_55%)]"
+                    : "bg-[linear-gradient(180deg,rgba(34,211,238,0.06),rgba(255,255,255,1)_45%)]",
+                ].join(" ")}
               >
                 <div className="relative h-44 w-full overflow-hidden border border-black/10">
                   <Image

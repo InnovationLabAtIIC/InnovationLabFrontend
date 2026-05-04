@@ -213,7 +213,7 @@ export default function Partner() {
             PARTNERS
           </h2>
           <div>
-            <div className="mx-ds-5 antialiased">
+            <div className="mx-ds-5 mt-36 antialiased">
               <BentoGrid imageItems={galleryItems} />
             </div>
             <div className="line-bg w-full md:h-16 h-6"></div>
@@ -240,7 +240,7 @@ export default function Partner() {
             </div>
             <div className="line-bg w-full md:h-16 h-6"></div>
             <div className="w-full h-auto">
-              <div className="px-3 py-4 bg-white flex items-center justify-center border-t-1 border-gray-300">
+              <div className="px-3 py-4 bg-white flex items-center justify-center border-t border-gray-300">
                 <h2 className="text-5xl font-semibold">
                   <span className="text-cyan-400">O</span>UR PARTNERS
                 </h2>

@@ -16,7 +16,7 @@ export default function Hero() {
   return (
     <>
       <div className="w-full h-auto relative overflow-hidden">
-        <div className="grid w-full h-full overflow-hidden [grid-template-columns:repeat(24,1fr)] [grid-template-rows:repeat(8,1fr)]">
+        <div className="grid w-full h-full overflow-hidden grid-cols-[repeat(24,1fr)] grid-rows-[repeat(8,1fr)]">
           {gridColors.map((color, i) => (
             <div
               key={i}
@@ -27,7 +27,7 @@ export default function Hero() {
 
         <div className="w-full h-full absolute top-0 flex flex-col">
           <div>
-            <h1 className="text-[11rem] font-bold -mt-12">
+            <h1 className="text-[10rem] font-bold -mt-12">
               INN<span className="text-primary">O</span>VATI
               <span className="text-primary">O</span>N LABS
             </h1>

@@ -92,7 +92,7 @@ export function EmblaCarousel() {
 
               <div className="absolute inset-0 flex items-end p-5 md:p-10">
                 <div className="max-w-3xl text-white">
-                  <p className="mb-3 inline-flex bg-cyan-500 px-2 py-1 text-[0.56rem] font-extrabold uppercase tracking-[0.2em] text-black">
+                  <p className="mb-3 inline-flex var(--color-primary) px-2 py-1 text-[0.56rem] font-extrabold uppercase tracking-[0.2em] text-black">
                     Featured Event
                   </p>
                   <h3 className="text-[clamp(2rem,5vw,4.6rem)] font-black uppercase leading-[0.88] tracking-[-0.06em]">
@@ -103,7 +103,7 @@ export function EmblaCarousel() {
                   </p>
                   <Link
                     href={slide.buttonHref}
-                    className="mt-6 inline-flex border border-white/60 bg-white px-5 py-3 text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-black transition hover:bg-cyan-500 hover:border-cyan-500"
+                    className="mt-6 inline-flex border border-white/60 bg-white px-5 py-3 text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-black transition hover:var(--color-primary) hover:border-cyan-500"
                   >
                     {slide.buttonLabel}
                   </Link>

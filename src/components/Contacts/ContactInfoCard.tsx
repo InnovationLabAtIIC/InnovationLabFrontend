@@ -66,7 +66,7 @@ export function ContactInfoCard({
       {/* Card content with smooth entrance */}
       <motion.div className="relative z-10">
         <motion.h3
-          className="mb-3 text-sm font-black uppercase tracking-tight text-[#181d22] transition-colors duration-400 group-hover:text-cyan-500"
+          className="mb-3 text-sm font-black uppercase tracking-tight text-[#181d22] transition-colors duration-400 group-hover:text-primary"
           whileHover={
             reducedMotion
               ? undefined

@@ -164,7 +164,7 @@ export default function CommunitiesPage() {
       <div className="w-full overflow-hidden border-x border-gray-300">
         <Navbar />
         <h2 className="bg-white py-12 border-y border-gray-300 px-6 my-6 text-[clamp(34px,6vw,72px)] font-black uppercase leading-[0.92] tracking-[-0.08em] text-neutral-900">
-          C<span className="text-cyan-500">O</span>MMUNITIES
+          C<span className="text-primary">O</span>MMUNITIES
         </h2>
         <main className="min-h-screen bg-white text-neutral-900">
           <section className="mx-auto grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
@@ -256,7 +256,7 @@ export default function CommunitiesPage() {
 
                 {/* CONTENT */}
                 <div className="w-7/12 p-10 flex flex-col gap-6">
-                  <span className="text-sm tracking-[0.35em] font-extrabold text-cyan-500">
+                  <span className="text-sm tracking-[0.35em] font-extrabold text-primary">
                     {community.id}
                   </span>
 

@@ -99,7 +99,7 @@ export default function CompanyCard({
             </span>
             <span className="hidden lg:inline">INTERNSHIP QUOTA</span>
           </span>
-          <span className="text-right text-md text-cyan-400 font-black uppercase leading-none  lg:whitespace-nowrap">
+          <span className="text-right text-md text-primary font-black uppercase leading-none  lg:whitespace-nowrap">
             {internsCount} INTERNS
           </span>
         </div>

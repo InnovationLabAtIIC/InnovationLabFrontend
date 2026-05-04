@@ -16,37 +16,37 @@ export default function Navbar() {
       <div className="hidden md:flex gap-10 text-[14px] font-bold uppercase tracking-[2px]">
         <TransitionLink
           href="/"
-          className="hover:text-cyan-500 transition-colors"
+          className="hover:text-primary transition-colors"
         >
           Home
         </TransitionLink>
         <TransitionLink
           href="/about"
-          className="hover:text-cyan-500 transition-colors"
+          className="hover:text-primary transition-colors"
         >
           About
         </TransitionLink>
         <TransitionLink
           href="/events"
-          className="hover:text-cyan-500 transition-colors"
+          className="hover:text-primary transition-colors"
         >
           Events
         </TransitionLink>
         <TransitionLink
           href="/communities"
-          className="hover:text-cyan-500 transition-colors"
+          className="hover:text-primary transition-colors"
         >
           Communities
         </TransitionLink>
         <TransitionLink
           href="/contact"
-          className="hover:text-cyan-500 transition-colors"
+          className="hover:text-primary transition-colors"
         >
           Contact
         </TransitionLink>
         <TransitionLink
           href="/company"
-          className="hover:text-cyan-500 transition-colors"
+          className="hover:text-primary transition-colors"
         >
           Company
         </TransitionLink>

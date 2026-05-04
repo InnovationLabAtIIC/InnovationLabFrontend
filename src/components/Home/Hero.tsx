@@ -28,8 +28,8 @@ export default function Hero() {
         <div className="w-full h-full absolute top-0 flex flex-col">
           <div>
             <h1 className="text-[11rem] font-bold -mt-12">
-              INN<span className="text-cyan-400">O</span>VATI
-              <span className="text-cyan-400">O</span>N LABS
+              INN<span className="text-primary">O</span>VATI
+              <span className="text-primary">O</span>N LABS
             </h1>
           </div>
 
@@ -56,7 +56,7 @@ export default function Hero() {
       <div className="w-full h-auto">
         <div className="px-3 py-4 bg-white flex items-center justify-center border-t border-gray-300">
           <h2 className="text-5xl font-semibold">
-            <span className="text-cyan-400">O</span>UR PARTNERS
+            <span className="text-primary">O</span>UR PARTNERS
           </h2>
         </div>
 

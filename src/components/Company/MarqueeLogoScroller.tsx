@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import React from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
-import { cn } from '@/lib/utils/util'; // Assuming a `cn` utility for classnames
-import CompanyCard from '@/components/Company/companyCard';
-import { AnimatedModal } from '@/components/Animations/animated-modal';
+import React from "react";
+import * as Dialog from "@radix-ui/react-dialog";
+import { cn } from "@/lib/utils/util"; // Assuming a `cn` utility for classnames
+import CompanyCard from "@/components/Company/companyCard";
+import { AnimatedModal } from "@/components/Animations/animated-modal";
 
 // Define the type for individual logo props
 interface Logo {
@@ -28,7 +28,7 @@ interface MarqueeLogoScrollerProps extends React.HTMLAttributes<HTMLDivElement> 
   title: string;
   description: string;
   logos: Logo[];
-  speed?: 'normal' | 'slow' | 'fast';
+  speed?: "normal" | "slow" | "fast";
 }
 
 /**
@@ -36,15 +36,21 @@ interface MarqueeLogoScrollerProps extends React.HTMLAttributes<HTMLDivElement> 
  * It pauses on hover and uses shadcn/ui theme variables for styling.
  * This component includes its own CSS animation and does not require tailwind.config.js modifications.
  */
-const MarqueeLogoScroller = React.forwardRef<HTMLDivElement, MarqueeLogoScrollerProps>(
-  ({ title, description, logos, speed = 'normal', className, ...props }, ref) => {
+const MarqueeLogoScroller = React.forwardRef<
+  HTMLDivElement,
+  MarqueeLogoScrollerProps
+>(
+  (
+    { title, description, logos, speed = "normal", className, ...props },
+    ref,
+  ) => {
     const [isPaused, setIsPaused] = React.useState(false);
 
     // Map speed prop to animation duration
     const durationMap = {
-      normal: '40s',
-      slow: '80s',
-      fast: '5s',
+      normal: "40s",
+      slow: "80s",
+      fast: "5s",
     };
     const animationDuration = durationMap[speed];
 
@@ -57,13 +63,13 @@ const MarqueeLogoScroller = React.forwardRef<HTMLDivElement, MarqueeLogoScroller
             to { transform: translateX(-50%); }
           }
         `}</style>
-        
+
         <section
           ref={ref}
           aria-label={title}
           className={cn(
-            'm-0 w-full bg-background text-foreground border border-[#DFDFDF] overflow-hidden',
-            className
+            "m-0 w-full bg-background text-foreground border border-[#DFDFDF] overflow-hidden",
+            className,
           )}
           {...props}
         >
@@ -84,27 +90,27 @@ const MarqueeLogoScroller = React.forwardRef<HTMLDivElement, MarqueeLogoScroller
             className="w-full overflow-hidden"
             style={{
               maskImage:
-                'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+                "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
             }}
           >
-            <div 
-              className="flex w-max items-center gap-4 py-4 pr-4 transition-all duration-300 ease-in-out" 
+            <div
+              className="flex w-max items-center gap-4 py-4 pr-4 transition-all duration-300 ease-in-out"
               style={{
                 animation: `marquee ${animationDuration} linear infinite`,
-                animationPlayState: isPaused ? 'paused' : 'running',
+                animationPlayState: isPaused ? "paused" : "running",
               }}
             >
               {/* Render logos twice to create a seamless loop */}
               {[...logos, ...logos].map((logo, index) => {
                 const imageSrc = logo.src ?? logo.imageUrl;
-                const imageAlt = logo.alt ?? logo.companyName ?? 'Company logo';
+                const imageAlt = logo.alt ?? logo.companyName ?? "Company logo";
 
                 if (!imageSrc) return null;
 
                 const companyPayload: SelectedCompany = {
                   imageUrl: logo.imageUrl ?? imageSrc,
                   companyName: logo.companyName ?? imageAlt,
-                  companyDetails: logo.companyDetails ?? 'Details coming soon.',
+                  companyDetails: logo.companyDetails ?? "Details coming soon.",
                   internsCount: logo.internsCount ?? 0,
                 };
 
@@ -123,7 +129,7 @@ const MarqueeLogoScroller = React.forwardRef<HTMLDivElement, MarqueeLogoScroller
                         onMouseLeave={() => setIsPaused(false)}
                       >
                         {/* Single hover color overlay for all logos */}
-                        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 bg-cyan-400/15" />
+                        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 var(--color-primary)/15" />
                         {/* Logo Image */}
                         <img
                           src={imageSrc}
@@ -161,9 +167,9 @@ const MarqueeLogoScroller = React.forwardRef<HTMLDivElement, MarqueeLogoScroller
         </section>
       </>
     );
-  }
+  },
 );
 
-MarqueeLogoScroller.displayName = 'MarqueeLogoScroller';
+MarqueeLogoScroller.displayName = "MarqueeLogoScroller";
 
 export { MarqueeLogoScroller };

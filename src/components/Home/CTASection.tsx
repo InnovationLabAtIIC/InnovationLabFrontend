@@ -5,7 +5,7 @@ export function CTASection() {
     <section className="relative w-full min-h-screen bg-gradient-to-b from-white to-gray-50 overflow-hidden flex flex-col items-center justify-center px-4 py-24 md:py-32">
       <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
         <h2 className="text-6xl md:text-8xl font-black uppercase tracking-[-0.08em] text-neutral-900">
-          <span className="text-cyan-500">J</span>OIN NOW
+          <span className="text-primary">J</span>OIN NOW
         </h2>
         <p className="text-lg md:text-xl leading-relaxed text-neutral-600 max-w-xl mx-auto">
           We believe in the sovereignty of the grid. Our practice is dedicated

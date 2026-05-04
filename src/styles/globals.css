@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
-/* Design System Tokens */
 :root {
   /* Colors */
-  --color-primary: #0f4c81;
+  --color-primary: #00cb8e;
   --color-primary-600: #08345a;
   --color-primary-variant: #00d3f2;
   --color-secondary: #f59e0b;
@@ -26,6 +25,14 @@
   --space-5: 2rem; /* 32px */
   --space-6: 3rem; /* 48px */
   --space-7: 4rem; /* 64px */
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
 }
 
 html,

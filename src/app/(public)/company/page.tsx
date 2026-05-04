@@ -242,7 +242,7 @@ export default function Partner() {
             <div className="w-full h-auto">
               <div className="px-3 py-4 bg-white flex items-center justify-center border-t border-gray-300">
                 <h2 className="text-5xl font-semibold">
-                  <span className="text-cyan-400">O</span>UR PARTNERS
+                  <span className="text-primary">O</span>UR PARTNERS
                 </h2>
               </div>
               <Marquee speed={40} gradient={false}>

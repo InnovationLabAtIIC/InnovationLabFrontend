@@ -289,7 +289,7 @@ export default async function EventDetailPage({
                 </p>
                 <Link
                   href="/events"
-                  className="mt-6 inline-flex border border-white/60 bg-white px-5 py-3 text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-black transition hover:bg-cyan-500 hover:border-cyan-500"
+                  className="mt-6 inline-flex border border-white/60 bg-white px-5 py-3 text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-black transition hover:var(--color-primary) hover:border-cyan-500"
                 >
                   Back To Events
                 </Link>

@@ -19,7 +19,7 @@ export default function Footer() {
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-cyan-500"
+              className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-primary"
             >
               Innovation Lab
             </motion.p>
@@ -45,7 +45,7 @@ export default function Footer() {
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center border border-neutral-900 bg-neutral-900 px-6 py-3 text-[11px] font-extrabold uppercase tracking-[0.28em] text-white transition-transform duration-300 hover:-translate-y-0.5 hover:bg-cyan-500"
+                className="inline-flex items-center justify-center border border-neutral-900 bg-neutral-900 px-6 py-3 text-[11px] font-extrabold uppercase tracking-[0.28em] text-white transition-transform duration-300 hover:-translate-y-0.5 hover:var(--color-primary)"
               >
                 Contact the lab
               </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
                     <li key={link}>
                       <Link
                         href="#"
-                        className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-neutral-900 transition-colors hover:text-cyan-500"
+                        className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-neutral-900 transition-colors hover:text-primary"
                       >
                         {link}
                       </Link>

@@ -15,7 +15,7 @@ const titleThemes = [
   },
   {
     background: "bg-[#111417]",
-    text: "text-cyan-400",
+    text: "text-primary",
   },
 ];
 

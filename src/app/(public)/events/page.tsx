@@ -78,7 +78,7 @@ const events = [
 export default function EventsPage() {
   return (
     <PageLayout>
-      <PageHeader title="EVENTS" />
+      {/* <PageHeader title="EVENTS" /> */}
 
       <section className="w-full px-0">
         <EmblaCarousel />

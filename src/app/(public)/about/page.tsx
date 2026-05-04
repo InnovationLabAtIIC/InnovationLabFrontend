@@ -248,7 +248,6 @@ const About = () => {
   return (
     <>
       <PageLayout>
-        <Navbar />
         <PageHeader title="About" />
         <SmoothScroll>
           <section className="bg-white p-12 flex flex-col gap-8 justify-center">
@@ -277,7 +276,6 @@ const About = () => {
           <BentoGrid imageItems={galleryItems} />
         </div>
         <LatestEventsSection events={latestEvents} />
-        <Footer />
       </PageLayout>
     </>
   );

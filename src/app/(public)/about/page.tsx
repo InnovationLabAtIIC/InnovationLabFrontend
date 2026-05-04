@@ -6,7 +6,7 @@ import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardLis
 import SmoothScroll from "@/components/Animations/smooth-scroll";
 import Timeline from "@/components/About/Timeline";
 import BentoGrid from "@/components/BentoGrid";
-import LatestEentsList from "@/components/Events/LatestEventsList";
+import LatestEventsSection from "@/components/Sections/LatestEventsSection";
 import type { LatestEventItem } from "@/components/Events/LatestEventsList";
 
 const aboutCards = [
@@ -245,15 +245,30 @@ const latestEvents: LatestEventItem[] = [
 const About = () => {
   return (
     <>
-      <div className="min-h-screen w-full overflow-hidden line-bg px-2 md:px-8">
+      <div className="min-h-screen bg-white w-full overflow-hidden line-bg px-2 md:px-8">
         <div className="w-full overflow-hidden border-x border-gray-300">
           <Navbar />
+          <h2 className="bg-white py-12 border-y border-gray-300 px-6 my-6 text-[clamp(34px,6vw,72px)] font-black uppercase leading-[0.92] tracking-[-0.08em] text-neutral-900">
+            ABOUT <span className="text-cyan-400">US</span>
+          </h2>
           <SmoothScroll>
-            <section className="bg-white h-full min-h-screen">
-              <div className="py-ds-2 px-ds-5 text-justify max-w-4xl mx-auto"></div>
-              <div className="py-ds-5 px-ds-5 text-justify max-w-4xl mx-auto">
-                <div className="text-h4 md:text-h3 leading-tight text-neutral-900"></div>
-              </div>
+            <section className="bg-white p-12 flex flex-col gap-8 justify-center">
+              <p className="max-w-3xl text-xl text-justify">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry standard dummy text
+                ever since the 1500s, when an unknown printer took a galley of
+                type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged.
+              </p>
+              <p className="max-w-3xl text-xl text-justify">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry standard dummy text
+                ever since the 1500s, when an unknown printer took a galley of
+                type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged.
+              </p>
             </section>
             <AboutCardList items={aboutCards} />
           </SmoothScroll>
@@ -262,7 +277,7 @@ const About = () => {
           <div className="mx-ds-5 mt-ds-6 mb-ds-6 antialiased">
             <BentoGrid imageItems={galleryItems} />
           </div>
-          <LatestEentsList events={latestEvents} />
+          <LatestEventsSection events={latestEvents} />
           <Footer />
         </div>
       </div>

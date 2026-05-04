@@ -4,3 +4,4 @@ export { CommunitiesSection } from "./CommunitiesSection";
 export { EventsSection } from "./EventsSection";
 export { CTASection } from "./CTASection";
 export { TestimonialSection } from "./TestimonialSection";
+export { default as LatestNewsSection } from "./LatestNewsSection";

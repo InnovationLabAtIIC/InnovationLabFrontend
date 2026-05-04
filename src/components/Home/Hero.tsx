@@ -1,7 +1,8 @@
 import { useMemo } from "react";
-import Carousel from "../Crausel";
+import Carousel from "../Carousel";
 import Button from "../primitives/Button";
 import { GridWithPlus } from "./GridWithPlus";
+import LatestNewsSection from "./LatestNewsSection";
 import Marquee from "react-fast-marquee";
 
 export default function Hero() {
@@ -75,6 +76,8 @@ export default function Hero() {
           <GridWithPlus rows={1} />
         </Marquee>
       </div>
+
+      <LatestNewsSection />
     </>
   );
 }

@@ -1,115 +1,139 @@
+"use client";
+
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import PageLayout from "@/components/primitives/PageLayout";
+import PageHeader from "@/components/primitives/PageHeader";
 import { ContactInfoCard } from "@/components/Contacts/ContactInfoCard";
-import Button from "@/components/primitives/Button";
+import Carousel from "@/components/Carousel";
+import { FadeIn, StaggerIn } from "@/components/Contacts/FadeIn";
+import Map from "@/components/Contacts/Map";
+import { Clock3, Mail, MapPin, Phone } from "lucide-react";
 
 export default function Contact() {
   return (
-    <>
-      <div className="min-h-screen w-full overflow-hidden line-bg px-2 md:px-8">
-        <div className="w-full overflow-hidden border-x border-gray-300">
-          <Navbar />
+    <PageLayout>
+      <PageHeader title="CONTACT US" />
 
-          <h2 className="bg-white py-12 border-y border-gray-300 px-6 my-6 text-[clamp(34px,6vw,72px)] font-black uppercase leading-[0.92] tracking-[-0.08em] text-neutral-900">
-            CONTACT US
-          </h2>
-
-          {/* MAIN GRID */}
-          <div className=" w-full bg-white grid grid-rows-2 border border-gray-300">
-            {/* ROW 1 */}
-            <div className="grid grid-cols-2 border-b border-gray-300">
-              {/* LEFT: CONTACT FORM */}
-              <div className="p-8 border-r border-gray-300 flex flex-col justify-center">
-                <h3 className="text-2xl font-bold mb-6">Send us a message</h3>
-
-                <form className="flex flex-col gap-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      placeholder="First Name"
-                      className="border border-gray-300 p-3 outline-none"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Last Name"
-                      className="border border-gray-300 p-3 outline-none"
-                    />
-                  </div>
-
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="border border-gray-300 p-3 outline-none"
-                  />
-
-                  <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    className="border border-gray-300 p-3 outline-none"
-                  />
-
-                  <input
-                    type="text"
-                    placeholder="Subject"
-                    className="border border-gray-300 p-3 outline-none"
-                  />
-
-                  <input
-                    type="text"
-                    placeholder="Company (optional)"
-                    className="border border-gray-300 p-3 outline-none"
-                  />
-
-                  <select
-                    title="Select"
-                    className="border border-gray-300 p-3 outline-none bg-white"
-                  >
-                    <option value="">Select Inquiry Type</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="support">Support</option>
-                    <option value="sales">Sales</option>
-                    <option value="partnership">Partnership</option>
-                  </select>
-
-                  <textarea
-                    placeholder="Your Message"
-                    rows={5}
-                    className="border border-gray-300 p-3 outline-none"
-                  />
-
-                  <Button>Send Message</Button>
-                </form>
+      <div className="w-full bg-white grid grid-rows-2 border border-gray-300">
+        <div className="grid gap-4 lg:grid-cols-[1.35fr_1fr]">
+          <FadeIn delay={0.08} y={26}>
+            <form className="border border-gray-300 p-6 md:p-10 duration-300">
+              <div className="relative z-10 mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                  Let&apos;s Start a Conversation
+                </h2>
+                <p className="text-gray-500 text-base leading-relaxed">
+                  Share your vision and let&apos;s bring your ideas to life
+                  together.
+                </p>
               </div>
 
-              <div className="grid grid-rows-2 grid-cols-2 aspect-square"></div>
-            </div>
-            <div className="flex flex-row">
-              <ContactInfoCard
-                title="Email Us"
-                content="support@example.com"
-                isBordered={true}
-              />
-              <ContactInfoCard
-                title="Email Us"
-                content="support@example.com"
-                isBordered={true}
-              />
-              <ContactInfoCard
-                title="Email Us"
-                content="support@example.com"
-                isBordered={true}
-              />
-              <ContactInfoCard
-                title="Email Us"
-                content="support@example.com"
-                isBordered={true}
-              />
-            </div>
-          </div>
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="group">
+                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter identifier"
+                    className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
+                  />
+                </div>
 
-          <Footer />
+                <div className="group">
+                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Address@protocol.sys"
+                    className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-4 group">
+                <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                  Title
+                </label>
+                <input
+                  type="text"
+                  defaultValue="Architectural Consultation"
+                  className="w-full border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
+                />
+              </div>
+
+              <div className="mt-4 group">
+                <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                  Message
+                </label>
+                <textarea
+                  rows={5}
+                  placeholder="Define your vision..."
+                  className="w-full resize-none border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
+                />
+              </div>
+
+              <div className="mt-8 flex items-center justify-between">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-[#8b8f93]">
+                  <span className="mr-2 inline-block h-2 w-2 bg-cyan-400 animate-pulse" />
+                  Awaiting
+                </p>
+
+                <button
+                  type="submit"
+                  className="inline-flex h-12 items-center justify-center gap-2 border border-black bg-black px-10 text-[12px] font-extrabold uppercase tracking-[0.2em] text-white"
+                >
+                  Send
+                  <span aria-hidden>→</span>
+                </button>
+              </div>
+            </form>
+          </FadeIn>
+
+          <FadeIn delay={0.15} y={30}>
+            <div className="relative w-full h-full min-h-90 overflow-hidden border border-[#cfcfcf] bg-linear-to-b from-[#1a1a1a] to-[#0a0a0a]">
+              <Map />
+            </div>
+          </FadeIn>
         </div>
+
+        <StaggerIn
+          className="mt-8 grid border border-[#d8d8d8] md:grid-cols-4"
+          delayChildren={0.12}
+          staggerChildren={0.09}
+        >
+          <ContactInfoCard
+            title="Email"
+            content="admin@neo-lab.sys"
+            Icon={Mail}
+            isBordered
+          />
+          <ContactInfoCard
+            title="Phone"
+            content="+44 (0) 20 7946 0142"
+            Icon={Phone}
+            isBordered
+          />
+          <ContactInfoCard
+            title="Location"
+            content="18 Brutal Wharf, E14 5SX, London"
+            Icon={MapPin}
+            isBordered
+          />
+          <ContactInfoCard
+            title="Uptime"
+            content="09:00 - 21:00 GMT"
+            Icon={Clock3}
+            isBordered={false}
+          />
+        </StaggerIn>
       </div>
-    </>
+
+      <div className="overflow-hidden px-0 min-w-full">
+        <Carousel />
+      </div>
+    </PageLayout>
   );
 }

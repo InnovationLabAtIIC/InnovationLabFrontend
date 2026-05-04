@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import PageLayout from "@/components/primitives/PageLayout";
+import PageHeader from "@/components/primitives/PageHeader";
 import { EmblaCarousel } from "@/components/Events/Carousel";
 import LearnMoreSection from "@/components/LearnMoreSection";
 
@@ -75,55 +77,48 @@ const events = [
 
 export default function EventsPage() {
   return (
-    <div className="min-h-screen w-full overflow-hidden line-bg px-2 md:px-8">
-      <div className="w-full overflow-hidden border-x border-gray-300">
-        <Navbar />
-        {/* 
-        <h2 className="bg-white py-12 border-y border-gray-300 px-6 my-6 text-[clamp(34px,6vw,72px)] font-black uppercase leading-[0.92] tracking-[-0.08em] text-neutral-900">
-          EV<span className="text-primary">E</span>NTS
-        </h2> */}
+    <PageLayout>
+      <PageHeader title="EVENTS" />
 
-        <section className="w-full px-0">
-          <EmblaCarousel />
-        </section>
+      <section className="w-full px-0">
+        <EmblaCarousel />
+      </section>
 
-        <div className="line-bg w-full md:h-16 h-6"></div>
+      <div className="line-bg w-full md:h-16 h-6"></div>
 
-        <section className="flex flex-col bg-white">
-          {events.slice(0, 4).map((event, index) => (
-            <article
-              key={`${event.code}-feature`}
-              className={[
-                "w-full border-y border-gray-300 flex items-center",
-                index % 2 === 0
-                  ? "flex-col md:flex-row"
-                  : "flex-col md:flex-row-reverse",
-              ].join(" ")}
-            >
-              <div className="relative w-full md:w-5/12 aspect-4/3 md:aspect-square">
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
+      <section className="flex flex-col bg-white">
+        {events.slice(0, 4).map((event, index) => (
+          <article
+            key={`${event.code}-feature`}
+            className={[
+              "w-full border-y border-gray-300 flex items-center",
+              index % 2 === 0
+                ? "flex-col md:flex-row"
+                : "flex-col md:flex-row-reverse",
+            ].join(" ")}
+          >
+            <div className="relative w-full md:w-5/12 aspect-4/3 md:aspect-square">
+              <Image
+                src={event.image}
+                alt={event.title}
+                fill
+                className="object-cover"
+              />
+            </div>
 
-              <div className="w-full md:w-7/12 p-6 md:p-10 gap-6 flex flex-col">
-                <h4 className="mt-3 text-[clamp(28px,3.2vw,52px)] font-black uppercase leading-[0.95] text-ivBlack">
-                  {event.title}
-                </h4>
-                <p className="mt-6 text-base md:text-lg text-gray-700 max-w-2xl leading-relaxed">
-                  {event.description}
-                </p>
-              </div>
-            </article>
-          ))}
-        </section>
-        <div className="line-bg w-full md:h-16 h-6"></div>
-        <LearnMoreSection />
-        <Footer />
-      </div>
-    </div>
+            <div className="w-full md:w-7/12 p-6 md:p-10 gap-6 flex flex-col">
+              <h4 className="mt-3 text-[clamp(28px,3.2vw,52px)] font-black uppercase leading-[0.95] text-ivBlack">
+                {event.title}
+              </h4>
+              <p className="mt-6 text-base md:text-lg text-gray-700 max-w-2xl leading-relaxed">
+                {event.description}
+              </p>
+            </div>
+          </article>
+        ))}
+      </section>
+      <div className="line-bg w-full md:h-16 h-6"></div>
+      <LearnMoreSection />
+    </PageLayout>
   );
 }

@@ -12,23 +12,20 @@ import {
   TestimonialSection,
 } from "@/components/Home";
 import Hero from "@/components/Home/Hero";
+import PageLayout from "@/components/primitives/PageLayout";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full overflow-hidden line-bg px-2 md:px-8">
-      <div className="w-full overflow-hidden border-x border-gray-300">
-        <Navbar />
-        <Hero />
-        <div className="line-bg w-full md:h-16 h-6"></div>
-        <AboutSection />
-        <CommunitiesSection />
-        <EventsSection />
-        <TestimonialSection />
-        <CTASection />
-        <Footer />
-      </div>
-    </div>
+    <PageLayout>
+      <Hero />
+      <div className="line-bg w-full md:h-16 h-6"></div>
+      <AboutSection />
+      <CommunitiesSection />
+      <EventsSection />
+      <TestimonialSection />
+      <CTASection />
+    </PageLayout>
   );
 }

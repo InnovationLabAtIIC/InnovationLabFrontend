@@ -2,6 +2,8 @@
 
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import PageLayout from "@/components/primitives/PageLayout";
+import PageHeader from "@/components/primitives/PageHeader";
 import BentoGrid from "@/components/BentoGrid";
 import CompanyList from "@/components/Company/companyList";
 import type { CompanyListItem } from "@/components/Company/companyList";
@@ -205,77 +207,67 @@ export default function Partner() {
     },
   ];
   return (
-    <>
-      <div className="min-h-screen w-full overflow-hidden line-bg px-2 md:px-8">
-        <div className="w-full overflow-hidden border-x border-gray-300 bg-white">
-          <Navbar />
-          <h2 className="bg-white py-12 border-y border-gray-300 px-6 my-6 text-[clamp(34px,6vw,72px)] font-black uppercase leading-[0.92] tracking-[-0.08em] text-neutral-900">
-            PARTNERS
-          </h2>
-          <div>
-            <div className="mx-ds-5 mt-36 antialiased">
-              <BentoGrid imageItems={galleryItems} />
-            </div>
-            <div className="line-bg w-full md:h-16 h-6"></div>
-            <div className="mt-ds-7"></div>
-            <div className="flex flex-col overflow-visible md:overflow-hidden ">
-              <ContainerScroll
-                contentClassName="mt-0 md:-mt-12"
-                titleComponent={
-                  <>
-                    <h1 className="mb-0 text-4xl font-semibold text-neutral-900">
-                      Companies Providing
-                      <br />
-                      <span className="text-h4 md:text-h1 font-bold mt-ds-1 leading-none">
-                        Internships
-                      </span>
-                    </h1>
-                  </>
-                }
-              >
-                <section className="mx-ds-5 -mt-ds-5 md:mt-0 antialiased">
-                  <CompanyList companies={featuredCompanies} />
-                </section>
-              </ContainerScroll>
-            </div>
-            <div className="line-bg w-full md:h-16 h-6"></div>
-            <div className="w-full h-auto">
-              <div className="px-3 py-4 bg-white flex items-center justify-center border-t border-gray-300">
-                <h2 className="text-5xl font-semibold">
-                  <span className="text-primary">O</span>UR PARTNERS
-                </h2>
-              </div>
-              <Marquee speed={40} gradient={false}>
-                <GridWithPlus rows={1} />
-                <GridWithPlus rows={1} />
-              </Marquee>
-              <Marquee speed={40} delay={2} gradient={false}>
-                <GridWithPlus rows={1} />
-                <GridWithPlus rows={1} />
-              </Marquee>
-            </div>
-            <section className="py-ds-6 px-ds-5 text-center max-w-4xl mx-auto">
-              <div className="flex items-center justify-center gap-ds-3 text-small tracking-[4px] font-bold uppercase mb-ds-5">
-                <span className="w-ds-2 h-ds-2 bg-accent rounded-ds-sm"></span>
-                ABOUT OUR PARTNERS
-                <span className="w-ds-2 h-ds-2 bg-accent rounded-ds-sm"></span>
-              </div>
-              <h2 className="text-h3 md:text-h2 font-semibold leading-tight text-neutral-900">
-                we are Innovation Labbist lorem gg , Lorem, ipsum dolor sit amet
-                consectetur adipisicing elit. Odit voluptates voluptatibus iure,
-                vitae nesciunt dicta qui, quasi doloribus explicabo itaque alias
-                ipsa quam non suscipit est ad aut at dolor?
-              </h2>
-            </section>
-            <div className="w-full h-screen">
-              <Stories storiesData={storiesData} />
-            </div>
-            <div className="mt-[350vh]"></div>
-            <Footer />
-          </div>
-        </div>
+    <PageLayout>
+      <PageHeader title="PARTNERS" />
+      <div className="mx-ds-5 mt-36 antialiased">
+        <BentoGrid imageItems={galleryItems} />
       </div>
-    </>
+      <div className="line-bg w-full md:h-16 h-6"></div>
+      <div className="mt-ds-7"></div>
+      <div className="flex flex-col overflow-visible md:overflow-hidden ">
+        <ContainerScroll
+          contentClassName="mt-0 md:-mt-12"
+          titleComponent={
+            <>
+              <h1 className="mb-0 text-4xl font-semibold text-neutral-900">
+                Companies Providing
+                <br />
+                <span className="text-h4 md:text-h1 font-bold mt-ds-1 leading-none">
+                  Internships
+                </span>
+              </h1>
+            </>
+          }
+        >
+          <section className="mx-ds-5 -mt-ds-5 md:mt-0 antialiased">
+            <CompanyList companies={featuredCompanies} />
+          </section>
+        </ContainerScroll>
+      </div>
+      <div className="line-bg w-full md:h-16 h-6"></div>
+      <div className="w-full h-auto">
+        <div className="px-3 py-4 bg-white flex items-center justify-center border-t border-gray-300">
+          <h2 className="text-5xl font-semibold">
+            <span className="text-primary">O</span>UR PARTNERS
+          </h2>
+        </div>
+        <Marquee speed={40} gradient={false}>
+          <GridWithPlus rows={1} />
+          <GridWithPlus rows={1} />
+        </Marquee>
+        <Marquee speed={40} delay={2} gradient={false}>
+          <GridWithPlus rows={1} />
+          <GridWithPlus rows={1} />
+        </Marquee>
+      </div>
+      <section className="py-ds-6 px-ds-5 text-center max-w-4xl mx-auto">
+        <div className="flex items-center justify-center gap-ds-3 text-small tracking-[4px] font-bold uppercase mb-ds-5">
+          <span className="w-ds-2 h-ds-2 bg-accent rounded-ds-sm"></span>
+          ABOUT OUR PARTNERS
+          <span className="w-ds-2 h-ds-2 bg-accent rounded-ds-sm"></span>
+        </div>
+        <h2 className="text-h3 md:text-h2 font-semibold leading-tight text-neutral-900">
+          we are Innovation Labbist lorem gg , Lorem, ipsum dolor sit amet
+          consectetur adipisicing elit. Odit voluptates voluptatibus iure, vitae
+          nesciunt dicta qui, quasi doloribus explicabo itaque alias ipsa quam
+          non suscipit est ad aut at dolor?
+        </h2>
+      </section>
+      <div className="w-full h-screen">
+        <Stories storiesData={storiesData} />
+      </div>
+      <div className="mt-[350vh]"></div>
+    </PageLayout>
   );
 }
 

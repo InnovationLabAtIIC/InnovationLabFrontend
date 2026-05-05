@@ -37,7 +37,7 @@ const AboutCard = React.forwardRef<HTMLDivElement, AboutCardProps>(
 
         {/* Save button - appears on hover */}
         {/* <Button
-          variant="secondary"
+          variant="accent"
           size="icon"
           className="absolute top-3 right-3 h-8 w-8 rounded-full opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100"
           onClick={handleSaveClick}

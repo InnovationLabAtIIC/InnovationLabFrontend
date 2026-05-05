@@ -120,7 +120,7 @@ export default function LatestNewsShowcase() {
             "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), scale 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
       >
-        <div className="relative w-[280px] h-[180px] bg-secondary rounded-xl overflow-hidden">
+        <div className="relative w-[280px] h-[180px] bg-accent rounded-xl overflow-hidden">
           {projects.map((project, index) => (
             <img
               key={project.title}
@@ -152,7 +152,7 @@ export default function LatestNewsShowcase() {
               {/* Background highlight on hover */}
               <div
                 className={`
-                  absolute inset-0 -mx-4 px-4 bg-secondary/50 rounded-lg
+                  absolute inset-0 -mx-4 px-4 bg-accent/50 rounded-lg
                   transition-all duration-300 ease-out
                   ${hoveredIndex === index ? "opacity-100 scale-100" : "opacity-0 scale-95"}
                 `}

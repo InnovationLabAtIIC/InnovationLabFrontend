@@ -34,7 +34,7 @@ interface MarqueeLogoScrollerProps extends React.HTMLAttributes<HTMLDivElement> 
 /**
  * A responsive, self-contained, and infinitely scrolling marquee component.
  * It pauses on hover and uses shadcn/ui theme variables for styling.
- * This component includes its own CSS animation and does not require tailwind.config.js modifications.
+ * This component includes its own CSS animation and does not require Tailwind config changes.
  */
 const MarqueeLogoScroller = React.forwardRef<
   HTMLDivElement,

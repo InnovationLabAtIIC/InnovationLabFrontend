@@ -1,8 +1,8 @@
-type Variant = "primary" | "secondary" | "outline" | "ghost" | "danger";
+type Variant = "primary" | "accent" | "outline" | "ghost" | "danger";
 
 const styles: Record<Variant, string> = {
   primary: "bg-black text-white border-transparent",
-  secondary: "bg-slate-700 text-white border-transparent",
+  accent: "bg-slate-700 text-white border-transparent",
   outline: "bg-transparent text-black border border-sky-400",
   ghost: "bg-transparent text-black border-transparent",
   danger: "bg-red-600 text-white border-transparent",
@@ -10,7 +10,7 @@ const styles: Record<Variant, string> = {
 
 const accent: Record<Variant, string> = {
   primary: "bg-sky-400",
-  secondary: "bg-slate-400",
+  accent: "bg-slate-400",
   outline: "bg-sky-400",
   ghost: "bg-sky-400",
   danger: "bg-red-400",

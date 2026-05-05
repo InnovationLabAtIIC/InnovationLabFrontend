@@ -1,10 +1,6 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
-
-// 1. Define your individual view components
-function ManageView() {
-  return <div>Code for the Manage Banner goes here...</div>;
-}
+import BannerManageView from "@/components/Admin/BannerManageView";
 
 function AddView() {
   const formFields: FormField[] = [
@@ -71,7 +67,7 @@ export default function ManageBanner() {
       {/* 3. Pass the tabs mapping to the switcher */}
       <AdminViewSwitcher tabs={tabs} defaultTab="manage">
         {{
-          manage: <ManageView />,
+          manage: <BannerManageView />,
           add: <AddView />,
           preview: <ViewAsUser />,
         }}

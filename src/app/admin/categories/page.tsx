@@ -1,10 +1,6 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
-
-// 1. Define your individual view components
-function ManageView() {
-  return <div>Code for the Manage table goes here...</div>;
-}
+import CategoryManageView from "@/components/Admin/CategoryManageView";
 
 function AddView() {
   const formFields: FormField[] = [
@@ -44,7 +40,7 @@ export default function ManageCategories() {
         defaultTab="manage"
       >
         {{
-          manage: <ManageView />,
+            manage: <CategoryManageView />,
           add: <AddView />,
           preview: <ViewAsUser />,
         }}

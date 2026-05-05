@@ -1,5 +1,9 @@
+"use client";
+
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import PageLayout from "@/components/primitives/PageLayout";
+import PageHeader from "@/components/primitives/PageHeader";
 import BentoGrid from "@/components/BentoGrid";
 import CompanyList from "@/components/Company/companyList";
 import type { CompanyListItem } from "@/components/Company/companyList";
@@ -8,6 +12,8 @@ import Component from "@/components/Company/StickyScrollCompanyCard";
 import Stories from "@/components/Company/stories";
 import type { StoryItem } from "@/components/Company/stories";
 import { ContainerScroll } from "@/components/Animations/ContainerScroll";
+import Marquee from "react-fast-marquee";
+import Image from "next/image";
 
 export default function Partner() {
   const galleryItems = [
@@ -141,7 +147,6 @@ export default function Partner() {
   ];
 
   const featuredCompanies = companies.slice(0, 6);
-  const marqueeCompanies = companies.slice(6);
 
   const storiesData: StoryItem[] = [
     {
@@ -176,33 +181,29 @@ export default function Partner() {
     },
   ];
   return (
-    <>
-      <Navbar />
-      {/* Section: Heading (PARTNERS) */}
-      <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10">
-        P<span className="text-cyan-400">A</span>RTNERS
-      </h1>
-      {/*Section: Gallery*/}
-      <div className="mx-10 antialiased">
+    <PageLayout>
+      <PageHeader title="PARTNERS" />
+      <div className="mx-ds-5 mt-36 antialiased">
         <BentoGrid imageItems={galleryItems} />
       </div>
-      <div className="mt-[144px]"></div>
-      {/*Section: Company and Internship Offered */}
+      <div className="line-bg w-full md:h-16 h-6"></div>
+      <div className="mt-ds-7"></div>
       <div className="flex flex-col overflow-visible md:overflow-hidden ">
         <ContainerScroll
           contentClassName="mt-0 md:-mt-12"
           titleComponent={
             <>
-              <h1 className="mb-0 text-4xl font-semibold text-black">
-                Companies Providing<br />
-                <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
+              <h1 className="mb-0 text-4xl font-semibold text-neutral-900">
+                Companies Providing
+                <br />
+                <span className="text-h4 md:text-h1 font-bold mt-ds-1 leading-none">
                   Internships
                 </span>
               </h1>
             </>
           }
         >
-          <section className="mx-10 -mt-8 md:mt-0 antialiased">
+          <section className="mx-ds-5 -mt-ds-5 md:mt-0 antialiased">
             <CompanyList companies={featuredCompanies} />
           </section>
         </ContainerScroll>
@@ -212,22 +213,21 @@ export default function Partner() {
         <div className="flex items-center justify-center gap-3 text-[14px] tracking-[4px] font-bold uppercase mb-8">
           <span className="w-3 h-3 bg-cyan-400"></span>
           ABOUT OUR PARTNERS
-          <span className="w-3 h-3 bg-cyan-400"></span>
+          <span className="w-ds-2 h-ds-2 bg-accent rounded-ds-sm"></span>
         </div>
-        <div className="text-[28px] md:text-[42px] font-semibold leading-tight text-gray-800">
+        <h2 className="text-h3 md:text-h2 font-semibold leading-tight text-neutral-900">
           we are Innovation Labbist lorem gg , Lorem, ipsum dolor sit amet
           consectetur adipisicing elit. Odit voluptates voluptatibus iure, vitae
           nesciunt dicta qui, quasi doloribus explicabo itaque alias ipsa quam
           non suscipit est ad aut at dolor?
-        </div>
+        </h2>
       </section>
       {/*Section: Stories*/}
       <div className="mt-[20vh] w-full h-screen">
         <Stories storiesData={storiesData} />
       </div>
-      {/**This is temporsry. Need a permanent fix for margin applied below */}
       <div className="mt-[350vh]"></div>
       <Footer />
-    </>
+    </PageLayout>
   );
 }

@@ -65,18 +65,18 @@ const bottomRowImages: GalleryImage[] = [
 
 function ImageRow({ images }: { images: GalleryImage[] }) {
   return (
-    <div className="flex w-max gap-4 md:gap-6 overflow-visible py-2">
+    <div className="flex w-max overflow-visible">
       {images.map((image) => (
         <div
           key={image.src}
-          className="relative h-[32vw] min-h-64 max-h-120 w-[28vw] min-w-[18rem] max-w-[24rem] shrink-0 overflow-hidden rounded-2xl bg-neutral-100"
+          className="relative h-[32vw] min-h-64 max-h-120 w-[28vw] min-w-[18rem] max-w-[24rem] shrink-0 overflow-hidden bg-neutral-100"
         >
           <Image
             src={image.src}
             alt={image.alt}
             fill
             sizes="(max-width: 768px) 70vw, 24rem"
-            className="object-cover"
+            className="object-cover border-1 aspect-square border-gray-300"
           />
         </div>
       ))}
@@ -99,7 +99,7 @@ export default function Carousel() {
       ref={sectionRef}
       className="relative left-1/2 w-[120vw] -translate-x-1/2 overflow-hidden max-w-none"
     >
-      <div className="flex flex-col gap-6 md:gap-8">
+      <div className="flex flex-col">
         <motion.div style={{ x: topX }}>
           <ImageRow images={topRowImages} />
         </motion.div>

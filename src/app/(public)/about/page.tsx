@@ -6,8 +6,10 @@ import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardLis
 import SmoothScroll from "@/components/Animations/smooth-scroll";
 import Timeline from "@/components/About/Timeline";
 import BentoGrid from "@/components/BentoGrid";
-import LatestEentsList from "@/components/Events/LatestEventsList";
+import LatestEventsSection from "@/components/Sections/LatestEventsSection";
 import type { LatestEventItem } from "@/components/Events/LatestEventsList";
+import PageLayout from "@/components/primitives/PageLayout";
+import PageHeader from "@/components/primitives/PageHeader";
 
 const aboutCards = [
   {
@@ -245,59 +247,36 @@ const latestEvents: LatestEventItem[] = [
 const About = () => {
   return (
     <>
-      <Navbar />
-      {/**Header at the top */}
-
-      <SmoothScroll>
-        <section>
-          <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10">
-            A<span className="text-cyan-400">B</span>OUT
-          </h1>
-          {/**First Description */}
-          <div className="py-2 px-10 text-justify max-w-8xl mx-auto">
-            <div className="text-[22px] md:text-[32px]  leading-tight text-gray-800">
-              we are
-              <span className="text-cyan-400 font-semibold">Innovation</span>
-              Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Odit voluptates voluptatibus iure, vitae{" "}
-              <span className="text-cyan-400 font-semibold">
-                nesciunt{" "}
-              </span>{" "}
-              dicta qui, quasi doloribus{" "}
-              <span className="text-cyan-400 font-semibold">explicabo</span>{" "}
-              itaque alias ipsa quam non suscipit est ad aut at{" "}
-              <span className="text-cyan-400 font-semibold">dolor</span>?
-            </div>
-          </div>
-          {/**Second Description */}
-          <div className="py-8 px-10 text-justify max-w-8xl mx-auto">
-            <div className="text-[22px] md:text-[32px] leading-tight text-gray-800">
-              we are
-              <span className="text-cyan-400 font-semibold">Innovation</span>
-              Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur
-              adipisicing elit. Odit voluptates voluptatibus iure, vitae{" "}
-              <span className="text-cyan-400 font-semibold">
-                nesciunt{" "}
-              </span>{" "}
-              dicta qui, quasi doloribus{" "}
-              <span className="text-cyan-400 font-semiold">explicabo</span>{" "}
-              itaque alias ipsa quam non suscipit est ad aut at{" "}
-              <span className="text-cyan-400 font-semibold">dolor</span>?
-            </div>
-          </div>
-        </section>
-        {/**Features Card (Name TBD)*/}
-        <AboutCardList items={aboutCards} />
-        {/**Strategic Pillars Card */}
-       
-      </SmoothScroll>
-       <StrategicPillarsCardList items={strategicPillars} />
-      <Timeline items={timelineData} />
-      <div className="mx-10 mt-10 mb-10 antialiased">
-        <BentoGrid imageItems={galleryItems} />
-      </div>
-      <LatestEentsList events={latestEvents} />
-      <Footer />
+      <PageLayout>
+        <PageHeader title="About" />
+        <SmoothScroll>
+          <section className="bg-white p-12 flex flex-col gap-8 justify-center">
+            <p className="max-w-3xl text-xl text-justify">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </p>
+            <p className="max-w-3xl text-xl text-justify">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </p>
+          </section>
+          <AboutCardList items={aboutCards} />
+        </SmoothScroll>
+        <StrategicPillarsCardList items={strategicPillars} />
+        <Timeline items={timelineData} />
+        <div className="mx-ds-5 mt-ds-6 mb-ds-6 antialiased">
+          <BentoGrid imageItems={galleryItems} />
+        </div>
+        <LatestEventsSection events={latestEvents} />
+      </PageLayout>
     </>
   );
 };

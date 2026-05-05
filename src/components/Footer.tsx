@@ -1,97 +1,103 @@
 "use client";
-import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import PageLayout from "./primitives/PageLayout";
 
 const footerNavigation = {
-  services: [
-    "Editorial Design",
-    "Brand Systems",
-    "Digital Strategy",
-    "Art Direction",
-  ],
-  company: ["Philosophy", "Projects", "Archive", "Careers"],
-  resources: ["Newsroom", "White Papers", "Case Studies", "Documentation"],
-  social: ["Instagram", "LinkedIn", "Threads", "Behance"],
+  explore: ["About", "Communities", "Events", "Contact"],
+  lab: ["Programs", "Projects", "Research", "Archive"],
+  connect: ["Instagram", "LinkedIn", "Newsletter", "GitHub"],
 };
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#0a0a0a] text-white py-20 overflow-hidden">
-      {/* Background Image/Overlay Placeholder */}
-      <div 
-        className="absolute inset-0 opacity-30 pointer-events-none"
-        style={{
-          backgroundImage: `url('/path-to-your-abstract-bg.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'hue-rotate(45deg)'
-        }}
-      />
-
-      <div className="relative z-10 max-w-290 w-[94vw] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-          
-          {/* Brand Section */}
-          <div className="lg:col-span-5 flex flex-col items-start">
-            <motion.h2 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl font-extrabold tracking-tighter uppercase mb-8"
-            >
-              Innovation Lab
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-sm md:text-base text-gray-400 max-w-[32ch] leading-relaxed mb-10"
-            >
-              Leading the industry with high-contrast minimalist design and structural authority. 
-              We strip away the unnecessary to reveal the essential.
-            </motion.p>
-            <motion.button 
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-white text-black font-bold uppercase tracking-widest text-[0.7rem] px-8 py-4 transition-colors hover:bg-ivCyan"
-            >
-              Start an Inquiry
-            </motion.button>
-          </div>
-
-          {/* Navigation Links Grid */}
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {Object.entries(footerNavigation).map(([category, links], idx) => (
-              <motion.div 
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
+    <PageLayout>
+      <footer className="border-t border-gray-300 bg-white text-neutral-900">
+        <div className="line-bg w-full md:h-16 h-6"></div>
+        <div className="mx-auto w-full">
+          <div className="grid grid-cols-1 gap-0 border border-gray-300 bg-white lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="border-b border-gray-300 p-6 md:border-b-0 md:border-r md:p-8 lg:p-10">
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 * idx }}
-                className="flex flex-col gap-6"
+                className="text-[11px] font-extrabold uppercase tracking-[0.32em] text-primary"
               >
-                <h4 className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-gray-500">
-                  {category}
-                </h4>
-                <ul className="flex flex-col gap-4">
-                  {links.map((link) => (
-                    <li key={link}>
-                      <a 
-                        href="#" 
-                        className="text-[0.7rem] font-bold uppercase tracking-widest text-white hover:text-ivCyan transition-colors"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+                Innovation Lab
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.05 }}
+                className="mt-4 max-w-[12ch] text-[clamp(28px,5vw,64px)] font-black uppercase leading-[0.92] tracking-[-0.08em] text-neutral-900"
+              >
+                Keep building with us.
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.12 }}
+                className="mt-5 max-w-xl text-sm leading-relaxed text-neutral-600 md:text-base"
+              >
+                A simple, focused system for ideas, communities, events, and
+                collaboration. Join the next cycle when you are ready to ship.
+              </motion.p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center border border-neutral-900 bg-neutral-900 px-6 py-3 text-[11px] font-extrabold uppercase tracking-[0.28em] text-white transition-transform duration-300 hover:-translate-y-0.5 hover:var(--color-primary)"
+                >
+                  Contact the lab
+                </Link>
+                <Link
+                  href="/communities"
+                  className="inline-flex items-center justify-center border border-gray-300 bg-white px-6 py-3 text-[11px] font-extrabold uppercase tracking-[0.28em] text-neutral-900 transition-transform duration-300 hover:-translate-y-0.5 hover:border-neutral-900"
+                >
+                  View communities
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-0 border-l border-gray-300 md:grid-cols-3">
+              {Object.entries(footerNavigation).map(
+                ([category, links], idx) => (
+                  <motion.div
+                    key={category}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.08 * idx }}
+                    className={`border-b border-gray-300 p-6 md:border-b-0 md:p-6 ${idx !== 0 ? "md:border-l md:border-gray-300" : ""}`}
+                  >
+                    <h4 className="text-[11px] font-extrabold uppercase tracking-[0.28em] text-neutral-500">
+                      {category}
+                    </h4>
+                    <ul className="mt-5 flex flex-col gap-3">
+                      {links.map((link) => (
+                        <li key={link}>
+                          <Link
+                            href="#"
+                            className="text-[11px] font-extrabold uppercase tracking-[0.22em] text-neutral-900 transition-colors hover:text-primary"
+                          >
+                            {link}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ),
+              )}
+            </div>
           </div>
 
+          <div className="flex flex-col gap-4 border border-gray-300 px-6 py-5 text-[11px] font-extrabold uppercase tracking-[0.24em] text-neutral-500 md:flex-row md:items-center md:justify-between md:px-8 md:py-6">
+            <span>Innovation Lab © 2026</span>
+            <span>Built for communities that move ideas forward.</span>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </PageLayout>
   );
 }

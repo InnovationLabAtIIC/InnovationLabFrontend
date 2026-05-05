@@ -2,9 +2,9 @@
 
 "use client";
 
-import React, { useRef } from 'react';
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
-import { cn } from "@/lib/utils/util" // Assuming shadcn/ui's utility function
+import React, { useRef } from "react";
+import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
+import { cn } from "@/lib/utils/util"; // Assuming shadcn/ui's utility function
 
 // Define the props for the component
 interface CompanyCardProps {
@@ -25,37 +25,30 @@ export default function CompanyCard({
   companyName,
   companyDetails,
   internsCount,
-  internsColor = '#006875',
   className,
   disableTilt = false,
   compact = false,
 }: CompanyCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Motion values to track mouse position
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Transform mouse position into rotation values
   const rotateX = useTransform(mouseY, [-150, 150], [10, -10]);
   const rotateY = useTransform(mouseX, [-200, 200], [-10, 10]);
 
-  // Apply spring physics for smoother animations
   const springConfig = { damping: 20, stiffness: 150 };
   const springRotateX = useSpring(rotateX, springConfig);
   const springRotateY = useSpring(rotateY, springConfig);
 
-
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    // Update motion values relative to the center of the card
     mouseX.set(e.clientX - rect.left - rect.width / 2);
     mouseY.set(e.clientY - rect.top - rect.height / 2);
   };
 
   const handleMouseLeave = () => {
-    // Reset motion values on mouse leave
     mouseX.set(0);
     mouseY.set(0);
   };
@@ -68,13 +61,13 @@ export default function CompanyCard({
       style={{
         rotateX: disableTilt ? 0 : springRotateX,
         rotateY: disableTilt ? 0 : springRotateY,
-        transformStyle: 'preserve-3d',
-        perspective: '1000px',
+        transformStyle: "preserve-3d",
+        perspective: "1000px",
       }}
       className={cn(
-        'group relative w-full overflow-hidden bg-card',
-        'text-card-foreground transition-all duration-300 ease-out',
-        className
+        "group relative w-full overflow-hidden",
+        "transition-all duration-300 ease-out",
+        className,
       )}
     >
       <div style={{ transform: 'translateZ(20px)' }} className="relative h-full flex flex-col justify-between">
@@ -98,7 +91,7 @@ export default function CompanyCard({
           <p className={`mt-2 ${compact ? 'text-[12px]' : 'text-[14px]'} leading-snug text-[#515151]`}>
             {companyDetails}
           </p>
-          <div className={`${compact ? 'mt-3' : 'mt-4'} border-t`} style={{ borderColor: internsColor }} />
+          <div className={`${compact ? 'mt-3' : 'mt-4'} border-t`}  />
         </div>
 
         {/* Footer Section */}
@@ -109,7 +102,7 @@ export default function CompanyCard({
           </span>
           <span
             className={`text-right ${compact ? 'text-[14px] sm:text-[16px] lg:text-[18px]' : 'text-[18px] sm:text-[20px] lg:text-[24px]'} font-black uppercase leading-none lg:whitespace-nowrap`}
-            style={{ color: internsColor }}
+            
           >
             {internsCount} INTERNS
           </span>

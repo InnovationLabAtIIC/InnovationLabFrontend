@@ -1,5 +1,7 @@
 import React from "react";
-import StrategicPillarsCard, { type StrategicPillarSection } from "./StrategicPillarsCard";
+import StrategicPillarsCard, {
+  type StrategicPillarSection,
+} from "./StrategicPillarsCard";
 import { cn } from "@/lib/utils/util";
 
 type StrategicPillarsCardListProps = {
@@ -13,16 +15,18 @@ const titleThemes = [
   },
   {
     background: "bg-[#111417]",
-    text: "text-cyan-400",
+    text: "text-primary",
   },
 ];
 
-export default function StrategicPillarsCardList({ items }: StrategicPillarsCardListProps) {
+export default function StrategicPillarsCardList({
+  items,
+}: StrategicPillarsCardListProps) {
   const hasTwoSections = items.length === 2;
 
   return (
-    <section className="mb-10 border-y-[3px] border-black">
-      <div className={cn(hasTwoSections && "lg:min-h-screen") }>
+    <section className="mb-10 bg-white">
+      <div className={cn(hasTwoSections && "lg:min-h-screen")}>
         {items.map((section, index) => {
           const theme = titleThemes[index % titleThemes.length];
 
@@ -35,7 +39,7 @@ export default function StrategicPillarsCardList({ items }: StrategicPillarsCard
               titleOnLeft={index % 2 === 0}
               className={cn(
                 "border-black",
-                index !== items.length - 1 && "border-b-[3px]",
+                index !== items.length - 1 && "border-b-1",
                 "lg:min-h-[50vh]",
               )}
             />

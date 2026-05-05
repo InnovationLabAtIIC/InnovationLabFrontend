@@ -1,10 +1,16 @@
 import CompanyCard from "@/components/Company/companyCard";
 
 export interface CompanyListItem {
-  companyName: string;
-  companyDetails: string;
-  internsCount: number;
-  imageUrl: string;
+  name: string;
+  about: string;
+  priority: number;
+  isMouSigned: boolean;
+  isJobFair: boolean;
+  contactEmail: string;
+  websiteUrl: string;
+  logoUrl: string;
+  numberOfInterns: number;
+  numberOfVacancies: number;
 }
 
 interface CompanyListProps {
@@ -12,17 +18,26 @@ interface CompanyListProps {
 }
 
 export default function companyList({ companies }: CompanyListProps) {
+  // Filter for only MoU signed companies, then sort by priority
+  const displayCompanies = companies
+    .filter(company => company.isMouSigned)
+    .sort((a, b) => a.priority - b.priority);
+
   return (
     <>
       <div className="grid w-full grid-cols-1 gap-0 border border-[#DFDFDF] py-0 sm:grid-cols-2 lg:grid-cols-3">
-        {companies.map((company, index) => (
+        {displayCompanies.map((company, index) => (
           <CompanyCard
             key={index}
             topText=""
-            imageUrl={company.imageUrl}
-            companyName={company.companyName}
-            companyDetails={company.companyDetails}
-            internsCount={company.internsCount}
+            logoUrl={company.logoUrl}
+            name={company.name}
+            about={company.about}
+            priority={company.priority}
+            isMouSigned={company.isMouSigned}
+            contactEmail={company.contactEmail}
+            websiteUrl={company.websiteUrl}
+            numberOfInterns={company.numberOfInterns}
             className="border border-gray-300"
           />
         ))}

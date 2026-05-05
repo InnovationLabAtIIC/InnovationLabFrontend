@@ -14,6 +14,7 @@ import type { StoryItem } from "@/components/Company/stories";
 import { ContainerScroll } from "@/components/Animations/ContainerScroll";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
+import CompanyListTable from "@/components/Company/CompanyListTable";
 
 export default function Partner() {
   const galleryItems = [
@@ -49,104 +50,236 @@ export default function Partner() {
 
   const companies: CompanyListItem[] = [
     {
-      companyName: "Aether Dynamics",
-      companyDetails:
+      name: "Aether Dynamics",
+      about:
         "Building autonomous sensing systems for smart mobility and logistics.",
-      internsCount: 6,
-      imageUrl:
+      priority: 1,
+      isMouSigned: true,
+      isJobFair: false,
+      contactEmail: "contact@aetherdynamics.com",
+      websiteUrl: "https://example.com/aether",
+      logoUrl:
         "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80",
+      numberOfInterns: 6,
+      numberOfVacancies: 2,
     },
     {
-      companyName: "Nexa BioLabs",
-      companyDetails:
+      name: "Nexa BioLabs",
+      about:
         "Applying machine learning to accelerate drug discovery and testing.",
-      internsCount: 4,
-      imageUrl:
+      priority: 2,
+      isMouSigned: true,
+      isJobFair: false,
+      contactEmail: "hello@nexabiolabs.com",
+      websiteUrl: "https://example.com/nexa",
+      logoUrl:
         "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900&q=80",
+      numberOfInterns: 4,
+      numberOfVacancies: 1,
     },
     {
-      companyName: "Forge Robotics",
-      companyDetails:
+      name: "Forge Robotics",
+      about:
         "Designing modular robots for manufacturing and warehouse automation.",
-      internsCount: 8,
-      imageUrl:
+      priority: 3,
+      isMouSigned: true,
+      isJobFair: true,
+      contactEmail: "careers@forgerobotics.com",
+      websiteUrl: "https://example.com/forge",
+      logoUrl:
         "https://images.unsplash.com/photo-1561144257-e32e8efc6c4f?w=900&q=80",
+      numberOfInterns: 8,
+      numberOfVacancies: 3,
     },
     {
-      companyName: "Pulse Grid",
-      companyDetails:
+      name: "Pulse Grid",
+      about:
         "Creating energy analytics tools for efficient and resilient city grids.",
-      internsCount: 5,
-      imageUrl:
+      priority: 4,
+      isMouSigned: true,
+      isJobFair: false,
+      contactEmail: "info@pulsegrid.net",
+      websiteUrl: "https://example.com/pulse",
+      logoUrl:
         "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=900&q=80",
+      numberOfInterns: 5,
+      numberOfVacancies: 4,
     },
     {
-      companyName: "Cloud Harbor",
-      companyDetails:
+      name: "Cloud Harbor",
+      about:
         "Shipping secure cloud infrastructure for fast scaling startup teams.",
-      internsCount: 7,
-      imageUrl:
+      priority: 5,
+      isMouSigned: true,
+      isJobFair: true,
+      contactEmail: "partners@cloudharbor.io",
+      websiteUrl: "https://example.com/cloud",
+      logoUrl:
         "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80",
+      numberOfInterns: 7,
+      numberOfVacancies: 2,
     },
     {
-      companyName: "Verde Materials",
-      companyDetails:
+      name: "Verde Materials",
+      about:
         "Developing sustainable materials for low waste product engineering.",
-      internsCount: 3,
-      imageUrl:
+      priority: 6,
+      isMouSigned: true,
+      isJobFair: false,
+      contactEmail: "green@verdematerials.com",
+      websiteUrl: "https://example.com/verde",
+      logoUrl:
         "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=900&q=80",
+      numberOfInterns: 3,
+      numberOfVacancies: 0,
     },
     {
-      companyName: "Vertex Health",
-      companyDetails:
-        "Building AI-powered diagnostics and remote patient monitoring tools.",
-      internsCount: 5,
-      imageUrl:
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80",
-    },
-    {
-      companyName: "Orbit Fintech",
-      companyDetails:
-        "Developing secure payment rails and analytics for digital-first finance teams.",
-      internsCount: 4,
-      imageUrl:
-        "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=900&q=80",
-    },
-    {
-      companyName: "Vertex Health",
-      companyDetails:
-        "Building AI-powered diagnostics and remote patient monitoring tools.",
-      internsCount: 5,
-      imageUrl:
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80",
-    },
-    {
-      companyName: "Orbit Fintech",
-      companyDetails:
-        "Developing secure payment rails and analytics for digital-first finance teams.",
-      internsCount: 4,
-      imageUrl:
-        "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=900&q=80",
-    },
-    {
-      companyName: "Vertex Health",
-      companyDetails:
-        "Building AI-powered diagnostics and remote patient monitoring tools.",
-      internsCount: 5,
-      imageUrl:
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80",
-    },
-    {
-      companyName: "Orbit Fintech",
-      companyDetails:
-        "Developing secure payment rails and analytics for digital-first finance teams.",
-      internsCount: 4,
-      imageUrl:
-        "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=900&q=80",
-    },
+  name: "Nova Quantum",
+  about:
+    "Exploring quantum computing solutions for next-generation cryptography.",
+  priority: 7,
+  isMouSigned: true,
+  isJobFair: false,
+  contactEmail: "info@novaquantum.io",
+  websiteUrl: "https://example.com/nova",
+  logoUrl:
+    "https://images.unsplash.com/photo-1526378722484-cc5c5101f5c1?w=900&q=80",
+  numberOfInterns: 5,
+  numberOfVacancies: 2,
+},
+{
+  name: "Skyline AI",
+  about:
+    "Delivering AI-powered analytics for urban planning and smart cities.",
+  priority: 8,
+  isMouSigned: true,
+  isJobFair: true,
+  contactEmail: "contact@skylineai.com",
+  websiteUrl: "https://example.com/skyline",
+  logoUrl:
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=80",
+  numberOfInterns: 6,
+  numberOfVacancies: 3,
+},
+{
+  name: "Hydra Security",
+  about:
+    "Providing advanced cybersecurity solutions for distributed systems.",
+  priority: 9,
+  isMouSigned: true,
+  isJobFair: false,
+  contactEmail: "secure@hydrasec.com",
+  websiteUrl: "https://example.com/hydra",
+  logoUrl:
+    "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=900&q=80",
+  numberOfInterns: 4,
+  numberOfVacancies: 1,
+},
+{
+  name: "OrbitX Systems",
+  about:
+    "Building scalable satellite communication and space data platforms.",
+  priority: 10,
+  isMouSigned: true,
+  isJobFair: true,
+  contactEmail: "hello@orbitx.space",
+  websiteUrl: "https://example.com/orbitx",
+  logoUrl:
+    "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=900&q=80",
+  numberOfInterns: 7,
+  numberOfVacancies: 2,
+},
+{
+  name: "TerraSense",
+  about:
+    "Using IoT and AI to monitor environmental changes in real time.",
+  priority: 11,
+  isMouSigned: true,
+  isJobFair: false,
+  contactEmail: "team@terrasense.org",
+  websiteUrl: "https://example.com/terra",
+  logoUrl:
+    "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=900&q=80",
+  numberOfInterns: 5,
+  numberOfVacancies: 2,
+},
+{
+  name: "ByteForge Labs",
+  about:
+    "Crafting high-performance developer tools and backend systems.",
+  priority: 12,
+  isMouSigned: true,
+  isJobFair: true,
+  contactEmail: "dev@byteforge.dev",
+  websiteUrl: "https://example.com/byteforge",
+  logoUrl:
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80",
+  numberOfInterns: 6,
+  numberOfVacancies: 3,
+},
+{
+  name: "AquaGen Tech",
+  about:
+    "Innovating water purification and sustainable resource management systems.",
+  priority: 13,
+  isMouSigned: true,
+  isJobFair: false,
+  contactEmail: "info@aquagen.tech",
+  websiteUrl: "https://example.com/aqua",
+  logoUrl:
+    "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=900&q=80",
+  numberOfInterns: 4,
+  numberOfVacancies: 1,
+},
+{
+  name: "NeuroLink Solutions",
+  about:
+    "Developing brain-computer interface technologies for healthcare.",
+  priority: 14,
+  isMouSigned: true,
+  isJobFair: true,
+  contactEmail: "contact@neurolink.ai",
+  websiteUrl: "https://example.com/neuro",
+  logoUrl:
+    "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?w=900&q=80",
+  numberOfInterns: 3,
+  numberOfVacancies: 2,
+},
+{
+  name: "Echo Finance",
+  about:
+    "Building fintech platforms for seamless digital payments and lending.",
+  priority: 15,
+  isMouSigned: true,
+  isJobFair: false,
+  contactEmail: "support@echofinance.com",
+  websiteUrl: "https://example.com/echo",
+  logoUrl:
+    "https://images.unsplash.com/photo-1556745757-8d76bdb6984b?w=900&q=80",
+  numberOfInterns: 5,
+  numberOfVacancies: 2,
+},
+{
+  name: "Zenith Motors",
+  about:
+    "Engineering electric mobility solutions for future transportation.",
+  priority: 16,
+  isMouSigned: true,
+  isJobFair: true,
+  contactEmail: "careers@zenithmotors.com",
+  websiteUrl: "https://example.com/zenith",
+  logoUrl:
+    "https://images.unsplash.com/photo-1493238792000-8113da705763?w=900&q=80",
+  numberOfInterns: 8,
+  numberOfVacancies: 4,
+},
   ];
 
-  const featuredCompanies = companies.slice(0, 6);
+  const signedCompanies = [...companies]
+    .filter((company) => company.isMouSigned)
+    .sort((a, b) => a.priority - b.priority);
+  const featuredCompanies = signedCompanies.slice(0, 6);
+  const remainingCompanies = signedCompanies.slice(6);
 
   const storiesData: StoryItem[] = [
     {
@@ -208,6 +341,17 @@ export default function Partner() {
           </section>
         </ContainerScroll>
       </div>
+      <section className="mx-auto w-full max-w-5xl px-4 pb-20 pt-12">
+        <div className="mb-6 flex flex-col items-start gap-2">
+          <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-neutral-500">
+            More Partners
+          </span>
+          <h2 className="text-h4 md:text-h3 font-semibold text-neutral-900">
+            Explore the full list
+          </h2>
+        </div>
+        <CompanyListTable companies={remainingCompanies} />
+      </section>
       {/*Section: Description*/}
       <section className="py-24 px-10 text-center max-w-4xl mx-auto">
         <div className="flex items-center justify-center gap-3 text-[14px] tracking-[4px] font-bold uppercase mb-8">

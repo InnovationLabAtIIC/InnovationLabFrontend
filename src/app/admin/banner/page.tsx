@@ -47,7 +47,7 @@ function AddView() {
     <AddForms
       title="Add Banner"
       fields={formFields}
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ""}/api/banners`}
+      apiEndpoint="/api/banners"
     />
   );
 }

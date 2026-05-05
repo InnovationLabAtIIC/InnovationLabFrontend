@@ -42,6 +42,12 @@ export default function AddForms({ title, fields, apiEndpoint, endpointBuilder, 
       return;
     }
 
+    const requestUrl = resolvedEndpoint.startsWith("http")
+      ? resolvedEndpoint
+      : resolvedEndpoint.startsWith("/")
+        ? resolvedEndpoint
+        : `/${resolvedEndpoint}`;
+
     setLoading(true);
     try {
       let body: any;
@@ -85,7 +91,7 @@ export default function AddForms({ title, fields, apiEndpoint, endpointBuilder, 
         // Don't set Content-Type header for FormData - browser will do it automatically
       }
 
-      const response = await fetch(resolvedEndpoint, {
+      const response = await fetch(requestUrl, {
         method: 'POST',
         headers,
         body,

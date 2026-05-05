@@ -27,7 +27,7 @@ function AddView() {
     <AddForms 
       title="Add Event" 
       fields={formFields} 
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/events`}
+      apiEndpoint="/api/events"
     />
   );
 }

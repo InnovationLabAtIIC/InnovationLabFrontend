@@ -20,7 +20,7 @@ function AddView() {
     <AddForms 
       title="Add About Information" 
       fields={formFields} 
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/about`}
+      apiEndpoint="/api/about"
     />
   );
 }

@@ -18,7 +18,7 @@ function AddView() {
     <AddForms 
       title="Add Core Value" 
       fields={formFields} 
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/core-values`}
+      apiEndpoint="/api/core-values"
     />
   );
 }

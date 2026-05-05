@@ -19,7 +19,7 @@ function AddView() {
     <AddForms 
       title="Add Journey Milestone" 
       fields={formFields} 
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/journey`}
+      apiEndpoint="/api/journey"
     />
   );
 }

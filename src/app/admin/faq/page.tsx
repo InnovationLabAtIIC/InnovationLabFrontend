@@ -17,7 +17,7 @@ function AddView() {
     <AddForms 
       title="Add FAQ" 
       fields={formFields} 
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/faqs`}
+      apiEndpoint="/api/faqs"
       format="json"
     />
   );

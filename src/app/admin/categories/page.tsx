@@ -16,7 +16,7 @@ function AddView() {
     <AddForms 
       title="Create New Category" 
       fields={formFields} 
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/categories`}
+      apiEndpoint="/api/categories"
       format="json"
     />
   );

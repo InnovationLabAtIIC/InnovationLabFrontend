@@ -1,12 +1,5 @@
 @import "tailwindcss";
 
-.test {
-  color: #1edde1; /* Primary */
-  color: #1edde1; /* Primary */
-  color: #1edde1; /* Primary */
-  color: #1edde1; /* Primary */
-}
-
 @theme {
   --color-primary-50: #edfefd;
   --color-primary-100: #d2fbfa;

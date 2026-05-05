@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
-import Footer from "@/components/Footer";
-import Navbar from "@/components/NavBar";
 import PageLayout from "@/components/primitives/PageLayout";
 import PageHeader from "@/components/primitives/PageHeader";
 
@@ -257,11 +254,10 @@ export default async function EventDetailPage({
 
   return (
     <PageLayout>
-      <Navbar />
       <PageHeader title={event.title} />
 
       <section className="mx-auto w-[94vw] max-w-7xl overflow-hidden border border-black/10 bg-[#f4f4f2]">
-        <div className="relative h-[52vh] min-h-90 w-full md:h-[68vh]">
+        <div className="relative h-[52vh] min-h-72 w-full md:h-[68vh] md:min-h-90">
           <Image
             src={event.heroImage}
             alt={event.title}
@@ -270,12 +266,12 @@ export default async function EventDetailPage({
             className="object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,18,24,0.72)_0%,rgba(7,18,24,0.24)_58%,rgba(7,18,24,0.18)_100%)]" />
-          <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
+          <div className="absolute inset-x-0 bottom-0 p-4 md:p-10">
             <div className="max-w-3xl text-white">
               <span className="inline-flex bg-ivCyan px-2 py-1 text-[0.55rem] font-bold uppercase tracking-[0.2em] text-ivBlack">
                 {event.eyebrow}
               </span>
-              <p className="mt-4 max-w-2xl text-sm leading-6 text-white/82 md:text-base">
+              <p className="mt-3 max-w-2xl text-xs leading-5 text-white/82 sm:text-sm md:mt-4 md:text-base">
                 {event.about}
               </p>
               <Link
@@ -343,13 +339,15 @@ export default async function EventDetailPage({
         <h2 className="text-[clamp(28px,4.5vw,52px)] font-black uppercase tracking-[-0.03em]">
           Gallery
         </h2>
-        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 md:gap-4 md:grid-cols-4">
           {event.gallery.map((image, index) => (
             <div
               key={image}
               className={[
                 "relative overflow-hidden border border-black/10",
-                index === 0 ? "col-span-2 row-span-2 min-h-80" : "min-h-40",
+                index === 0
+                  ? "col-span-2 row-span-2 min-h-48 md:min-h-80"
+                  : "min-h-32 md:min-h-40",
               ].join(" ")}
             >
               <Image
@@ -387,7 +385,6 @@ export default async function EventDetailPage({
           ))}
         </div>
       </section>
-      <Footer />
     </PageLayout>
   );
 }

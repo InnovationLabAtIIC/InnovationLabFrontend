@@ -1,7 +1,5 @@
 "use client";
 
-import Navbar from "@/components/NavBar";
-import Footer from "@/components/Footer";
 import PageLayout from "@/components/primitives/PageLayout";
 import PageHeader from "@/components/primitives/PageHeader";
 import { ContactInfoCard } from "@/components/Contacts/ContactInfoCard";
@@ -15,10 +13,10 @@ export default function Contact() {
     <PageLayout>
       <PageHeader title="CONTACT US" />
 
-      <div className="w-full bg-white grid grid-rows-2 border border-gray-300">
+      <div className="grid w-full border border-gray-300 bg-white">
         <div className="grid gap-4 lg:grid-cols-[1.35fr_1fr]">
           <FadeIn delay={0.08} y={26}>
-            <form className="border border-gray-300 p-6 md:p-10 duration-300">
+            <form className="border border-gray-300 p-4 duration-300 sm:p-6 md:p-10">
               <div className="relative z-10 mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                   Let&apos;s Start a Conversation
@@ -31,10 +29,14 @@ export default function Contact() {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="group">
-                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                  <label
+                    htmlFor="contact-name"
+                    className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]"
+                  >
                     Name
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     placeholder="Enter identifier"
                     className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
@@ -42,10 +44,14 @@ export default function Contact() {
                 </div>
 
                 <div className="group">
-                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                  <label
+                    htmlFor="contact-email"
+                    className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]"
+                  >
                     Email
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     placeholder="Address@protocol.sys"
                     className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
@@ -54,10 +60,14 @@ export default function Contact() {
               </div>
 
               <div className="mt-4 group">
-                <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                <label
+                  htmlFor="contact-title"
+                  className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]"
+                >
                   Title
                 </label>
                 <input
+                  id="contact-title"
                   type="text"
                   defaultValue="Architectural Consultation"
                   className="w-full border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
@@ -65,17 +75,21 @@ export default function Contact() {
               </div>
 
               <div className="mt-4 group">
-                <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                <label
+                  htmlFor="contact-message"
+                  className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]"
+                >
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   rows={5}
                   placeholder="Define your vision..."
                   className="w-full resize-none border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
                 />
               </div>
 
-              <div className="mt-8 flex items-center justify-between">
+              <div className="mt-8 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                 <p className="text-[10px] uppercase tracking-[0.22em] text-[#8b8f93]">
                   <span className="mr-2 inline-block h-2 w-2 bg-cyan-400 animate-pulse" />
                   Awaiting
@@ -83,7 +97,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="inline-flex h-12 items-center justify-center gap-2 border border-black bg-black px-10 text-[12px] font-extrabold uppercase tracking-[0.2em] text-white"
+                  className="inline-flex h-12 w-full items-center justify-center gap-2 border border-black bg-black px-10 text-[12px] font-extrabold uppercase tracking-[0.2em] text-white sm:w-auto"
                 >
                   Send
                   <span aria-hidden>→</span>
@@ -93,14 +107,14 @@ export default function Contact() {
           </FadeIn>
 
           <FadeIn delay={0.15} y={30}>
-            <div className="relative w-full h-full min-h-90 overflow-hidden border border-[#cfcfcf] bg-linear-to-b from-[#1a1a1a] to-[#0a0a0a]">
+            <div className="relative h-full min-h-72 w-full overflow-hidden border border-[#cfcfcf] bg-linear-to-b from-[#1a1a1a] to-[#0a0a0a] md:min-h-90">
               <Map />
             </div>
           </FadeIn>
         </div>
 
         <StaggerIn
-          className="mt-8 grid border border-[#d8d8d8] md:grid-cols-4"
+          className="grid border border-[#d8d8d8] md:grid-cols-4"
           delayChildren={0.12}
           staggerChildren={0.09}
         >

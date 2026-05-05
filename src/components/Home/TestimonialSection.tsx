@@ -87,8 +87,8 @@ export const TestimonialSection = () => {
   return (
     <>
       <div className="line-bg w-full md:h-16 h-6"></div>
-      <section className="flex flex-row bg-white overflow-hidden">
-        <div className="border w-5/12 border-gray-300 aspect-square bg-white flex flex-col items-center justify-center p-8 md:p-12">
+      <section className="flex flex-col overflow-hidden bg-white md:flex-row">
+        <div className="flex w-full flex-col items-center justify-center border border-gray-300 bg-white p-8 md:w-5/12 md:aspect-square md:p-12">
           <div className="text-center space-y-4">
             <h3 className="text-3xl md:text-5xl font-black uppercase tracking-[-0.08em] text-neutral-900">
               TESTIMONIALS
@@ -99,17 +99,17 @@ export const TestimonialSection = () => {
             </p>
           </div>
         </div>
-        <div className="border w-7/12 border-gray-300 grid grid-rows-2">
+        <div className="grid w-full grid-rows-2 border border-gray-300 md:w-7/12">
           <div className="w-full h-full overflow-hidden">
             <Marquee speed={30} gradient={false} direction="left" pauseOnHover>
               {testimonialData.slice(0, 5).map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="border border-gray-300 bg-white flex flex-col items-center justify-center p-6 w-96 aspect-square h-full relative group hover:bg-gray-50 transition-colors"
+                  className="relative flex h-full w-[18rem] aspect-4/5 flex-col items-center justify-center border border-gray-300 bg-white p-5 transition-colors group hover:bg-gray-50 md:w-96 md:aspect-square md:p-6"
                 >
                   <div className="text-center space-y-4 items-center flex flex-col">
                     <div className="w-12 h-12 bg-gray-200"></div>
-                    <p className="text-lg md:text-xl font-black italic text-neutral-900 line-clamp-3">
+                    <p className="text-base font-black italic text-neutral-900 line-clamp-3 md:text-xl">
                       &quot;{testimonial.quote}&quot;
                     </p>
                     <div className="space-y-1">
@@ -130,11 +130,11 @@ export const TestimonialSection = () => {
               {testimonialData.slice(5, 10).map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="border border-gray-300 bg-white flex flex-col items-center justify-center w-96 p-6 aspect-square h-full relative group hover:bg-gray-50 transition-colors"
+                  className="relative flex h-full w-[18rem] aspect-4/5 flex-col items-center justify-center border border-gray-300 bg-white p-5 transition-colors group hover:bg-gray-50 md:w-96 md:aspect-square md:p-6"
                 >
                   <div className="text-center space-y-4 items-center flex flex-col">
                     <div className="w-12 h-12 bg-gray-200"></div>
-                    <p className="text-lg md:text-xl font-black italic text-neutral-900 line-clamp-3">
+                    <p className="text-base font-black italic text-neutral-900 line-clamp-3 md:text-xl">
                       &quot;{testimonial.quote}&quot;
                     </p>
                     <div className="space-y-1">

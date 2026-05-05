@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Navbar from "@/components/NavBar";
-import Footer from "@/components/Footer";
 import PageLayout from "@/components/primitives/PageLayout";
 import PageHeader from "@/components/primitives/PageHeader";
 import {
@@ -38,7 +36,6 @@ export default function CommunityDetailPage({
 
   return (
     <PageLayout>
-      <Navbar />
       <PageHeader title={profile.title} />
 
       <section className="mx-auto grid w-[94vw] max-w-7xl gap-8 border border-black/10 bg-[#f4f4f2] px-6 py-14 md:grid-cols-2 md:px-10">
@@ -153,7 +150,6 @@ export default function CommunityDetailPage({
           ))}
         </div>
       </section>
-      <Footer />
     </PageLayout>
   );
 }

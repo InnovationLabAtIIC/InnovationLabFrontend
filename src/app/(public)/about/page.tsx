@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/components/NavBar";
-import Footer from "@/components/Footer";
 import AboutCardList from "@/components/About/AboutCardList";
 import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardList";
 import SmoothScroll from "@/components/Animations/smooth-scroll";
@@ -250,8 +248,8 @@ const About = () => {
       <PageLayout>
         <PageHeader title="About" />
         <SmoothScroll>
-          <section className="bg-white p-12 flex flex-col gap-8 justify-center">
-            <p className="max-w-3xl text-xl text-justify">
+          <section className="flex flex-col justify-center gap-6 bg-white px-4 py-8 md:gap-8 md:p-12">
+            <p className="max-w-3xl text-base text-justify md:text-xl">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry standard dummy text
               ever since the 1500s, when an unknown printer took a galley of
@@ -259,7 +257,7 @@ const About = () => {
               survived not only five centuries, but also the leap into
               electronic typesetting, remaining essentially unchanged.
             </p>
-            <p className="max-w-3xl text-xl text-justify">
+            <p className="max-w-3xl text-base text-justify md:text-xl">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry standard dummy text
               ever since the 1500s, when an unknown printer took a galley of

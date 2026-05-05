@@ -107,6 +107,12 @@ export function EmblaCarousel() {
                   >
                     {slide.buttonLabel}
                   </Link>
+                  <Link
+                    href="/events"
+                    className="mt-3 inline-flex border border-white/35 bg-white/10 px-5 py-3 text-[0.68rem] font-extrabold uppercase tracking-[0.22em] text-white transition hover:bg-white hover:text-black"
+                  >
+                    View Events
+                  </Link>
                 </div>
               </div>
             </article>

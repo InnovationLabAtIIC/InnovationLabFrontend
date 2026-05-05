@@ -4,7 +4,7 @@ import BentoGrid from "@/components/BentoGrid";
 import CompanyList from "@/components/Company/companyList";
 import type { CompanyListItem } from "@/components/Company/companyList";
 import { MarqueeLogoScroller } from "@/components/Company/MarqueeLogoScroller";
-import Component from "@/components/Company/CompanyCardList2";
+import Component from "@/components/Company/StickyScrollCompanyCard";
 import Stories from "@/components/Company/stories";
 import type { StoryItem } from "@/components/Company/stories";
 import { ContainerScroll } from "@/components/Animations/ContainerScroll";
@@ -39,34 +39,6 @@ export default function Partner() {
       url: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=800&q=80",
       span: "md:col-span-1 md:row-span-1",
     },
-    // {
-    //   id: 5,
-    //   title: "City at Night",
-    //   desc: "A vibrant urban landscape.",
-    //   url: "https://images.unsplash.com/photo-1506606401543-2e73709cebb4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q2l0eSUyMGF0JTIwTmlnaHR8ZW58MHx8MHx8fDA%3D?w=800&q=80",
-    //   span: "md:row-span-1",
-    // },
-    // {
-    //   id: 6,
-    //   title: "Misty Lake",
-    //   desc: "Morning fog over calm waters.",
-    //   url: "https://images.unsplash.com/photo-1634023233766-0c16b151bfb0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWlzdHklMjBMYWtlfGVufDB8fDB8fHww?w=800&q=80",
-    //   span: "md:col-span-2 md:row-span-1",
-    // },
-    // {
-    //   id: 7,
-    //   title: "City at Night",
-    //   desc: "A vibrant urban landscape.",
-    //   url: "https://images.unsplash.com/photo-1506606401543-2e73709cebb4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Q2l0eSUyMGF0JTIwTmlnaHR8ZW58MHx8MHx8fDA%3D?w=800&q=80",
-    //   span: "md:row-span-1",
-    // },
-    // {
-    //   id: 8,
-    //   title: "Misty Lake",
-    //   desc: "Morning fog over calm waters.",
-    //   url: "https://images.unsplash.com/photo-1634023233766-0c16b151bfb0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWlzdHklMjBMYWtlfGVufDB8fDB8fHww?w=800&q=80",
-    //   span: "md:col-span-2 md:row-span-1",
-    // },
   ];
 
   const companies: CompanyListItem[] = [
@@ -235,17 +207,6 @@ export default function Partner() {
           </section>
         </ContainerScroll>
       </div>
-      {/**Section: All Companies marquee section */}
-      {marqueeCompanies.length > 0 && (
-        <section className="mx-10 mt-10 antialiased">
-          <MarqueeLogoScroller
-            title="More Companies"
-            description="Trusted by more companies. Lorem, ipsum dolor sit amet consectetur adipisicing elit."
-            logos={marqueeCompanies}
-            speed="normal"
-          />
-        </section>
-      )}
       {/*Section: Description*/}
       <section className="py-24 px-10 text-center max-w-4xl mx-auto">
         <div className="flex items-center justify-center gap-3 text-[14px] tracking-[4px] font-bold uppercase mb-8">
@@ -260,20 +221,6 @@ export default function Partner() {
           non suscipit est ad aut at dolor?
         </div>
       </section>
-      <section className="mx-10">
-        <Component companies={companies} />
-      </section>
-      {/**Section: All Companies marquee section */}
-      {marqueeCompanies.length > 0 && (
-        <section className="mx-10 mt-10 antialiased">
-          <MarqueeLogoScroller
-            title="More Companies"
-            description="Trusted by more companies. Lorem, ipsum dolor sit amet consectetur adipisicing elit."
-            logos={marqueeCompanies}
-            speed="normal"
-          />
-        </section>
-      )}
       {/*Section: Stories*/}
       <div className="mt-[20vh] w-full h-screen">
         <Stories storiesData={storiesData} />
@@ -281,24 +228,6 @@ export default function Partner() {
       {/**This is temporsry. Need a permanent fix for margin applied below */}
       <div className="mt-[350vh]"></div>
       <Footer />
-
-      {/*DUMMY: Dummy Section for scrolling */}
-      {/* <h1 className="text-[clamp(40px,8vw,90px)] font-black leading-none tracking-tighter uppercase text-gap-2 ml-10 mb-10 mt-[100rem]">
-        P<span className="text-cyan-400">A</span>RTNERS
-      </h1>
-      <section className="py-24 px-10 text-center max-w-4xl mx-auto">
-        <div className="flex items-center justify-center gap-3 text-[14px] tracking-[4px] font-bold uppercase mb-8">
-          <span className="w-3 h-3 bg-cyan-400"></span>
-          ABOUT OUR PARTNERS
-          <span className="w-3 h-3 bg-cyan-400"></span>
-        </div>
-        <div className="text-[28px] md:text-[42px] font-semibold leading-tight text-gray-800">
-          we are Innovation Labbist lorem gg , Lorem, ipsum dolor sit amet
-          consectetur adipisicing elit. Odit voluptates voluptatibus iure, vitae
-          nesciunt dicta qui, quasi doloribus explicabo itaque alias ipsa quam
-          non suscipit est ad aut at dolor?
-        </div>
-      </section> */}
     </>
   );
 }

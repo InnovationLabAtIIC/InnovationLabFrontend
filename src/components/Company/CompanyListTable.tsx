@@ -2,11 +2,12 @@
 
 import React from "react";
 import type { CompanyListItem } from "@/components/Company/companyList";
+import { InteractiveHoverTitle } from "@/components/Company/interactive-hover-links";
 
 interface ColumnDef<T> {
   header: string;
   accessorKey?: keyof T;
-  cell?: (item: T) => React.ReactNode;
+  cell?: (item: T, context: { rowRef: React.RefObject<HTMLDivElement | null> }) => React.ReactNode;
   className?: string;
   headerClassName?: string;
   width?: string;
@@ -14,9 +15,14 @@ interface ColumnDef<T> {
 
 interface CompanyListTableProps {
   companies: CompanyListItem[];
+  title: string;
+  description: string;
 }
 
-export default function CompanyListTable({ companies }: CompanyListTableProps) {
+export default function CompanyListTable({ companies, title, description }: CompanyListTableProps) {
+  const enableRowHoverPreview = true;
+  const pageSize = 10;
+  const [page, setPage] = React.useState(1);
   // Update this array to add/remove columns later.
   const columns: ColumnDef<CompanyListItem>[] = [
     {
@@ -31,15 +37,29 @@ export default function CompanyListTable({ companies }: CompanyListTableProps) {
     },
     {
       header: "Company",
-      accessorKey: "name",
       width: "1.4fr",
       className: "min-w-[200px] text-[15px] font-semibold text-neutral-900",
       headerClassName: "min-w-[200px]",
+      cell: (company, { rowRef }) =>
+        enableRowHoverPreview ? (
+          <InteractiveHoverTitle
+            title={company.name}
+            imageSrc={company.logoUrl}
+            imageHref={company.websiteUrl}
+            targetRef={rowRef}
+            className="text-[15px]"
+            imageOffsetX="70%"
+            imageOffsetY="-50%"
+            imageClassName="h-20 w-28 md:h-32 md:w-44 shadow-lg"
+          />
+        ) : (
+          <span>{company.name}</span>
+        ),
     },
     {
       header: "Contact",
       width: "1.6fr",
-      className: "min-w-[220px]",
+      className: "min-w-[220px] pl-2",
       cell: (company) =>
         company.contactEmail ? (
           <a
@@ -55,7 +75,8 @@ export default function CompanyListTable({ companies }: CompanyListTableProps) {
     {
       header: "Interns",
       width: "140px",
-      className: "w-[140px] text-center",
+      className: "w-[140px] flex justify-center",
+      headerClassName: "flex justify-center",
       cell: (company) => (
         <span className="inline-flex items-center justify-center rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
           {company.numberOfInterns ?? 0}
@@ -69,6 +90,11 @@ export default function CompanyListTable({ companies }: CompanyListTableProps) {
     .sort((a, b) => a.priority - b.priority);
 
   const gridTemplateColumns = columns.map((column) => column.width ?? "1fr").join(" ");
+  const totalPages = Math.max(1, Math.ceil(displayCompanies.length / pageSize));
+  const showPagination = displayCompanies.length > pageSize;
+  const clampedPage = Math.min(page, totalPages);
+  const startIndex = (clampedPage - 1) * pageSize;
+  const pagedCompanies = displayCompanies.slice(startIndex, startIndex + pageSize);
 
   if (!displayCompanies.length) {
     return (
@@ -79,9 +105,19 @@ export default function CompanyListTable({ companies }: CompanyListTableProps) {
   }
 
   return (
-    <div className="w-full overflow-hidden rounded-xl border border-black/10 bg-white shadow-[0_12px_40px_-26px_rgba(0,0,0,0.35)]">
-      <div className="overflow-x-auto">
-        <div className="min-w-[720px]">
+    <section className="w-full border border-[#DFDFDF] bg-white">
+      <div className="p-6 md:p-8 lg:p-10">
+        <div className="grid grid-cols-1 gap-6 border-b border-[#006875] pb-6 md:pb-8 lg:grid-cols-[3fr_2fr]">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-tighter text-balance">
+            {title}
+          </h2>
+          <p className="text-muted-foreground self-start lg:justify-self-end text-balance">
+            {description}
+          </p>
+        </div>
+      </div>
+      <div className="overflow-x-auto overflow-y-visible">
+        <div className="min-w-[720px] pb-10">
           <div
             className="grid items-center gap-4 border-b border-black/10 bg-neutral-50/80 px-6 py-4 text-[11px] font-bold uppercase tracking-[0.2em] text-neutral-500"
             style={{ gridTemplateColumns }}
@@ -93,26 +129,89 @@ export default function CompanyListTable({ companies }: CompanyListTableProps) {
             ))}
           </div>
           <div className="flex flex-col">
-            {displayCompanies.map((company, rowIndex) => (
-              <div
+            {pagedCompanies.map((company, rowIndex) => (
+              <CompanyTableRow
                 key={`${company.name}-${rowIndex}`}
-                className="grid items-center gap-4 border-b border-black/5 px-6 py-4 text-sm text-neutral-700 transition hover:bg-neutral-50/60 last:border-b-0"
-                style={{ gridTemplateColumns }}
-              >
-                {columns.map((column, colIndex) => (
-                  <div key={`${company.name}-${colIndex}`} className={column.className ?? ""}>
-                    {column.cell
-                      ? column.cell(company)
-                      : column.accessorKey
-                        ? (company[column.accessorKey] as React.ReactNode)
-                        : null}
-                  </div>
-                ))}
-              </div>
+                company={company}
+                columns={columns}
+                gridTemplateColumns={gridTemplateColumns}
+              />
             ))}
           </div>
         </div>
       </div>
+      {showPagination && (
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-black/10 px-6 py-4 text-sm text-neutral-600">
+          <span>
+            Showing {startIndex + 1}-{Math.min(startIndex + pageSize, displayCompanies.length)} of {displayCompanies.length}
+          </span>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setPage((prev) => Math.max(1, prev - 1))}
+              disabled={clampedPage === 1}
+              className="rounded-full border border-black/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition hover:border-black/20 hover:text-neutral-900 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Prev
+            </button>
+            <div className="flex items-center gap-2">
+              {Array.from({ length: totalPages }).map((_, index) => {
+                const pageNumber = index + 1;
+                return (
+                  <button
+                    key={pageNumber}
+                    type="button"
+                    onClick={() => setPage(pageNumber)}
+                    className={`h-9 w-9 rounded-full border text-xs font-semibold transition ${
+                      pageNumber === clampedPage
+                        ? "border-accent bg-accent/10 text-accent"
+                        : "border-black/10 text-neutral-600 hover:border-black/20 hover:text-neutral-900"
+                    }`}
+                  >
+                    {pageNumber}
+                  </button>
+                );
+              })}
+            </div>
+            <button
+              type="button"
+              onClick={() => setPage((prev) => Math.min(totalPages, prev + 1))}
+              disabled={clampedPage === totalPages}
+              className="rounded-full border border-black/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600 transition hover:border-black/20 hover:text-neutral-900 disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+interface CompanyTableRowProps {
+  company: CompanyListItem;
+  columns: ColumnDef<CompanyListItem>[];
+  gridTemplateColumns: string;
+}
+
+function CompanyTableRow({ company, columns, gridTemplateColumns }: CompanyTableRowProps) {
+  const rowRef = React.useRef<HTMLDivElement>(null);
+
+  return (
+    <div
+      ref={rowRef}
+      className="group relative grid items-center gap-4 border-b border-black/5 px-6 py-4 text-sm text-neutral-700 transition hover:bg-neutral-50/60 last:border-b-0"
+      style={{ gridTemplateColumns }}
+    >
+      {columns.map((column, colIndex) => (
+        <div key={`${company.name}-${colIndex}`} className={column.className ?? ""}>
+          {column.cell
+            ? column.cell(company, { rowRef })
+            : column.accessorKey
+              ? (company[column.accessorKey] as React.ReactNode)
+              : null}
+        </div>
+      ))}
     </div>
   );
 }

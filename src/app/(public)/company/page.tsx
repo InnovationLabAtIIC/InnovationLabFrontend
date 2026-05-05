@@ -273,6 +273,20 @@ export default function Partner() {
   numberOfInterns: 8,
   numberOfVacancies: 4,
 },
+{
+  name: "Zenith Motors",
+  about:
+    "Engineering electric mobility solutions for future transportation.",
+  priority: 17,
+  isMouSigned: true,
+  isJobFair: true,
+  contactEmail: "careers@zenithmotors.com",
+  websiteUrl: "https://example.com/zenith",
+  logoUrl:
+    "https://images.unsplash.com/photo-1493238792000-8113da705763?w=900&q=80",
+  numberOfInterns: 8,
+  numberOfVacancies: 4,
+},
   ];
 
   const signedCompanies = [...companies]
@@ -341,16 +355,12 @@ export default function Partner() {
           </section>
         </ContainerScroll>
       </div>
-      <section className="mx-auto w-full max-w-5xl px-4 pb-20 pt-12">
-        <div className="mb-6 flex flex-col items-start gap-2">
-          <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-neutral-500">
-            More Partners
-          </span>
-          <h2 className="text-h4 md:text-h3 font-semibold text-neutral-900">
-            Explore the full list
-          </h2>
-        </div>
-        <CompanyListTable companies={remainingCompanies} />
+      <section className="w-full px-4 pb-20 pt-12">
+        <CompanyListTable
+          companies={remainingCompanies}
+          title="More Partners"
+          description="Explore the full list of MoU-signed companies and their internship offerings."
+        />
       </section>
       {/*Section: Description*/}
       <section className="py-24 px-10 text-center max-w-4xl mx-auto">

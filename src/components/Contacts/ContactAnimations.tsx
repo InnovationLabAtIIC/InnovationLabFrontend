@@ -42,7 +42,7 @@ export function ContactHeading() {
           key={`${letter}-${index}`}
           variants={headingChar}
           className={
-            letter === "O" ? "text-cyan-400 inline-block" : "inline-block"
+            letter === "O" ? "text-primary inline-block" : "inline-block"
           }
           animate={
             letter === "O"

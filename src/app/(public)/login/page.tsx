@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
+import PageLayout from "@/components/primitives/PageLayout";
+import PageHeader from "@/components/primitives/PageHeader";
+import Navbar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 const Login = () => {
   return (
-    <div>Feature Not For NOW -- Do Nothing HERE</div>
-  )
-}
+    <PageLayout>
+      <PageHeader title="Login" />
+      <div className="bg-white p-12 min-h-[50vh] flex items-center justify-center">
+        <p className="text-lg text-gray-600">
+          Feature Not For NOW -- Do Nothing HERE
+        </p>
+      </div>
+    </PageLayout>
+  );
+};
 
-export default Login
+export default Login;

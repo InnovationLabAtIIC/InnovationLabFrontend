@@ -1,204 +1,124 @@
 "use client";
 
-import Link from "next/link";
-
-import LearnMoreSection from "@/components/LearnMoreSection";
+import Image from "next/image";
 import Navbar from "@/components/NavBar";
+import Footer from "@/components/Footer";
+import PageLayout from "@/components/primitives/PageLayout";
+import PageHeader from "@/components/primitives/PageHeader";
+import { EmblaCarousel } from "@/components/Events/Carousel";
+import LearnMoreSection from "@/components/LearnMoreSection";
 
-const featuredEvent = {
-  title: "SPRING CARNIVAL",
-  tag: "FEATURED HIGHLIGHT",
-  description:
-    "A multi-sensory immersion into generative environments and metabolic structures. Limited capacity engagement.",
-  date: "MAR 24 — APR 02",
-  venue: "UB BLOCK",
-  button: "JOIN NOW",
-  image: "https://images.pexels.com/photos/36390048/pexels-photo-36390048.jpeg",
-};
-
-const latestEvents = [
+const events = [
   {
-    number: "01",
-    title: "PARAMETRIC CLAY 3D PRINTING",
-    description: "Material exploration in the era of additive manufacturing and soil-based polymers.",
-    date: "MAY 12",
-    note: "8 SEATS REMAINING",
-    mark: "pentagon",
+    code: "EV_01",
+    title: "Material Futures Workshop",
+    description:
+      "Hands-on exploration of adaptive materials and low-energy prototyping pipelines.",
     image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80",
   },
   {
-    number: "02",
-    title: "NEURO-AESTHETIC MAPPING",
-    description: "Biometric response testing for architectural spatial configurations and geometry.",
-    date: "JUN 05",
-    note: "WAIT LIST ONLY",
-    mark: "triangle",
+    code: "EV_02",
+    title: "Creative Systems Sprint",
+    description:
+      "Cross-discipline studio for designing interfaces, visuals, and interactive narratives.",
     image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
   },
   {
-    number: "03",
-    title: "BRUTALIST WEB LOGIC",
-    description: "UI/UX principles founded on honesty, transparency, and raw visual feedback loops.",
-    date: "JUL 19",
-    note: "OPEN ENROLLMENT",
-    mark: "square",
+    code: "EV_03",
+    title: "Urban Data Lab",
+    description:
+      "Collaborative mapping of city signals to build practical, community-facing prototypes.",
     image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    code: "EV_04",
+    title: "XR Habitat Demo",
+    description:
+      "Immersive showcase of spatial ideas with rapid feedback from builders and visitors.",
+    image:
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    code: "EV_05",
+    title: "Public Prototype Review",
+    description:
+      "Open floor critique to refine concepts, improve clarity, and accelerate implementation.",
+    image:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    code: "EV_06",
+    title: "Community Design Jam",
+    description:
+      "Image-first co-creation format where teams iterate live with mentors and peers.",
+    image:
+      "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    code: "EV_07",
+    title: "AI Interaction Sprint",
+    description:
+      "Rapid experiments on conversational interfaces, agent behaviors, and assistive flows.",
+    image:
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    code: "EV_08",
+    title: "Future City Assembly",
+    description:
+      "Large-format visual review of speculative urban systems and implementation pathways.",
+    image:
+      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
 export default function EventsPage() {
   return (
-    <div className="selection:bg-ivCyan selection:text-ivBlack">
-      <Navbar />
-
-      <section className="w-full bg-white px-4 pb-8 pt-5 md:px-8 md:pb-12 md:pt-6">
-        <div className="w-full">
-          <h1 className="text-[clamp(3rem,6vw,5.6rem)] font-black uppercase leading-[0.88] tracking-[-0.06em] text-ivBlack md:tracking-[-0.08em]">
-            Events
-          </h1>
-        </div>
-      </section>
+    <PageLayout>
+      {/* <PageHeader title="EVENTS" /> */}
 
       <section className="w-full px-0">
-        <div className="w-full px-4 md:px-8">
-          <div className="relative overflow-hidden bg-ivBlack">
-            <img
-              src={featuredEvent.image}
-              alt={featuredEvent.title}
-              className="h-108 w-full object-cover md:h-136"
-            />
+        <EmblaCarousel />
+      </section>
 
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,18,24,0.62)_0%,rgba(7,18,24,0.08)_58%,rgba(7,18,24,0.15)_100%)]" />
+      <div className="line-bg w-full md:h-16 h-6"></div>
 
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 p-4 md:p-8">
-              <div className="max-w-136 text-white">
-                <div className="mb-3 inline-flex bg-ivCyan px-2 py-1 text-[0.55rem] font-bold uppercase tracking-[0.2em] text-ivBlack">
-                  {featuredEvent.tag}
-                </div>
-                <h2 className="max-w-[14ch] text-[clamp(2.4rem,5vw,4.75rem)] font-black uppercase leading-[0.88] tracking-[-0.08em] text-white">
-                  {featuredEvent.title.split(" ").map((word, index) => (
-                    <span key={`${word}-${index}`} className="block">
-                      {word}
-                    </span>
-                  ))}
-                </h2>
-                <p className="mt-4 max-w-sm text-[0.75rem] leading-5 text-white/68 md:max-w-md">
-                  {featuredEvent.description}
-                </p>
-              </div>
-
-              <div className="hidden flex-col items-end gap-4 text-right md:flex">
-                <div>
-                  <p className="text-[0.72rem] font-bold uppercase tracking-[0.18em] text-ivCyan">{featuredEvent.date}</p>
-                  <p className="mt-1 text-[0.6rem] font-medium uppercase tracking-[0.24em] text-white/60">
-                    {featuredEvent.venue}
-                  </p>
-                </div>
-                <Link
-                  href=""
-                 
-                  className="inline-flex px-6 py-3 text-[0.68rem] uppercase tracking-[0.24em] text-ivBlack transition  bg-cyan-500 hover:bg-white  text-black font-extrabold "
-                >
-                {featuredEvent.button}
-                </Link>
-              </div>
+      <section className="flex flex-col bg-white">
+        {events.slice(0, 4).map((event, index) => (
+          <article
+            key={`${event.code}-feature`}
+            className={[
+              "w-full border-y border-gray-300 flex items-center",
+              index % 2 === 0
+                ? "flex-col md:flex-row"
+                : "flex-col md:flex-row-reverse",
+            ].join(" ")}
+          >
+            <div className="relative w-full md:w-5/12 aspect-4/3 md:aspect-square">
+              <Image
+                src={event.image}
+                alt={event.title}
+                fill
+                className="object-cover"
+              />
             </div>
-          </div>
-        </div>
+
+            <div className="w-full md:w-7/12 p-6 md:p-10 gap-6 flex flex-col">
+              <h4 className="mt-3 text-[clamp(28px,3.2vw,52px)] font-black uppercase leading-[0.95] text-ivBlack">
+                {event.title}
+              </h4>
+              <p className="mt-6 text-base md:text-lg text-gray-700 max-w-2xl leading-relaxed">
+                {event.description}
+              </p>
+            </div>
+          </article>
+        ))}
       </section>
-
-      <section className="w-full bg-white px-4 py-10 md:px-8 md:py-14">
-        <div className="w-full">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <h2 className="text-[clamp(1.7rem,3vw,2.5rem)] font-black uppercase tracking-[-0.06em] text-ivBlack">
-              Latest Events
-            </h2>
-            
-          </div>
-
-          <div className="grid gap-0 border border-black/10 bg-white md:grid-cols-3">
-            {latestEvents.map((event) => (
-              <article key={event.title} className="border-b border-black/10 md:border-b-0 md:border-r last:border-r-0">
-                <img src={event.image} alt={event.title} className="h-56 w-full object-cover" />
-                <div className="px-4 py-3 md:px-5 md:py-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <h3 className="text-[0.9rem] font-black uppercase tracking-[-0.04em] text-ivBlack">
-                        {event.title}
-                      </h3>
-                      <p className="mt-1 text-[0.52rem] uppercase tracking-[0.28em] text-ivGray-500">
-                        {event.description}
-                      </p>
-                    </div>
-                    <span className="text-[0.55rem] uppercase tracking-[0.28em] text-ivGray-500">{event.date}</span>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full bg-[#f4f4f2] px-4 py-14 md:px-8 md:py-20">
-        <div className="w-full">
-          <div className="mb-10 flex items-center justify-between gap-4">
-            <p className="text-[0.7rem] font-bold uppercase tracking-[0.45em] text-ivCyan">All Events</p>
-            <p className="hidden text-[0.55rem] uppercase tracking-[0.5em] text-ivGray-500 md:block">Chronological Index / 2026</p>
-          </div>
-
-          <div className="divide-y divide-black/10 border-y border-black/10">
-            {latestEvents.map((event) => (
-              <article
-                key={event.title}
-                  className="grid grid-cols-[auto_auto_auto_1fr_auto] items-center gap-4 py-6 md:gap-6 md:py-8"
-              >
-                <div className="min-w-[3.2rem] text-[clamp(2.4rem,4vw,4.3rem)] font-black leading-none tracking-[-0.08em] text-[#c8d5db] md:min-w-16">
-                  {event.number}
-                </div>
-
-                <div className="flex h-11 w-11 items-center justify-center bg-ivBlack md:h-12 md:w-12">
-                  {event.mark === "pentagon" ? (
-                    <span className="h-4 w-4 bg-white [clip-path:polygon(50%_0%,92%_32%,76%_100%,24%_100%,8%_32%)]" />
-                  ) : null}
-                  {event.mark === "triangle" ? (
-                    <span className="h-0 w-0 border-l-12 border-r-12 border-t-20 border-l-transparent border-r-transparent border-t-white" />
-                  ) : null}
-                  {event.mark === "square" ? <span className="h-5 w-5 bg-white" /> : null}
-                </div>
-
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="h-16 w-20 object-cover md:h-18 md:w-24"
-                  />
-
-                <div className="min-w-0">
-                  <h3 className="text-[clamp(1.15rem,2vw,1.65rem)] font-black uppercase leading-[0.95] tracking-[-0.05em] text-ivBlack">
-                    {event.title}
-                  </h3>
-                  <p className="mt-1 max-w-3xl text-[0.72rem] leading-5 text-ivGray-500 md:text-[0.82rem]">
-                    {event.description}
-                  </p>
-                </div>
-
-                <div className="text-right">
-                  <p className="text-[0.72rem] font-bold uppercase tracking-[0.18em] text-ivBlack md:text-[0.78rem]">
-                    {event.date}
-                  </p>
-                  <p className="mt-1 text-[0.55rem] uppercase tracking-[0.24em] text-ivGray-500 md:text-[0.62rem]">
-                    {event.note}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <div className="line-bg w-full md:h-16 h-6"></div>
       <LearnMoreSection />
-    </div>
+    </PageLayout>
   );
 }

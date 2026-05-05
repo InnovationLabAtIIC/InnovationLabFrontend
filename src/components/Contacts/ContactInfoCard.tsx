@@ -1,11 +1,13 @@
 "use client";
 
+import type { LucideIcon } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 
 type ContactInfoCardProps = {
   title: string;
   content: string;
   isBordered?: boolean;
+  Icon?: LucideIcon;
 };
 
 const itemVariants: Variants = {
@@ -24,6 +26,7 @@ export function ContactInfoCard({
   title,
   content,
   isBordered = true,
+  Icon,
 }: ContactInfoCardProps) {
   const reducedMotion = useReducedMotion();
 
@@ -48,7 +51,7 @@ export function ContactInfoCard({
     >
       {/* Animated background glow on hover */}
       <motion.div
-        className="absolute inset-0 -z-10 bg-linear-to-br from-cyan-400/12 via-cyan-400/4 to-transparent rounded-lg opacity-0 pointer-events-none blur-xl"
+        className="absolute inset-0 -z-10 bg-linear-to-br from-cyan-400/12 via-cyan-400/4 to-transparent opacity-0 pointer-events-none blur-xl"
         animate={reducedMotion ? { opacity: 0 } : undefined}
         transition={{ duration: 0.5, ease: "easeOut" }}
         whileHover={
@@ -59,14 +62,27 @@ export function ContactInfoCard({
               }
         }
       />
-
-      {/* Smooth border accent on hover */}
       <motion.div className="absolute top-0 left-0 h-0.5 w-0 bg-linear-to-r from-cyan-400 via-cyan-300 to-transparent group-hover:w-full transition-all duration-700 ease-out pointer-events-none" />
-
-      {/* Card content with smooth entrance */}
-      <motion.div className="relative z-10">
+      <motion.div className="relative z-10 aspect-square">
+        {Icon ? (
+          <motion.div
+            className="mb-4 inline-flex h-10 w-10 items-center justify-center  border border-[#d8d8d8] bg-white text-[#181d22] transition-colors duration-300 group-hover:border-cyan-300 group-hover:text-cyan-600"
+            whileHover={
+              reducedMotion
+                ? undefined
+                : {
+                    rotate: -8,
+                    scale: 1.04,
+                  }
+            }
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            aria-hidden
+          >
+            <Icon size={18} strokeWidth={2.2} />
+          </motion.div>
+        ) : null}
         <motion.h3
-          className="mb-3 text-sm font-black uppercase tracking-tight text-[#181d22] transition-colors duration-400 group-hover:text-cyan-500"
+          className="mb-3 text-xl font-black uppercase tracking-tight text-[#181d22] transition-colors duration-400 group-hover:text-primary"
           whileHover={
             reducedMotion
               ? undefined

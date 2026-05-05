@@ -16,6 +16,7 @@ interface CompanyCardProps {
   internsColor?: string;
   className?: string;
   disableTilt?: boolean;
+  compact?: boolean;
 }
 
 export default function CompanyCard({
@@ -27,6 +28,7 @@ export default function CompanyCard({
   internsColor = '#006875',
   className,
   disableTilt = false,
+  compact = false,
 }: CompanyCardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -75,38 +77,38 @@ export default function CompanyCard({
         className
       )}
     >
-      <div style={{ transform: 'translateZ(20px)' }} className="relative">
+      <div style={{ transform: 'translateZ(20px)' }} className="relative h-full flex flex-col justify-between">
         {/* Image Section */}
-        <div className="relative px-6 pt-6">
-          <div className="absolute top-10 left-10 z-10 text-xs font-semibold uppercase tracking-widest text-white/90 mix-blend-difference">
+        <div className={`relative ${compact ? 'px-4 pt-4' : 'px-6 pt-6'}`}>
+          <div className={`absolute ${compact ? 'top-6 left-6' : 'top-10 left-10'} z-10 text-xs font-semibold uppercase tracking-widest text-white/90 mix-blend-difference`}>
             {topText}
           </div>
           <img
             src={imageUrl}
             alt="Digital Presence"
-            className="h-64 w-full object-cover"
+            className={`w-full object-cover ${compact ? 'h-[25vh] min-h-[120px]' : 'h-64'}`}
           />
         </div>
 
         {/* Content Section */}
-        <div className="p-6">
-          <h2 className="text-[24px] font-bold leading-tight uppercase">
+        <div className={`flex-1 flex flex-col justify-center ${compact ? 'p-4' : 'p-6'}`}>
+          <h2 className={`${compact ? 'text-[18px]' : 'text-[24px]'} font-bold leading-tight uppercase`}>
             {companyName}
           </h2>
-          <p className="mt-2 text-[14px] leading-snug text-[#515151]">
+          <p className={`mt-2 ${compact ? 'text-[12px]' : 'text-[14px]'} leading-snug text-[#515151]`}>
             {companyDetails}
           </p>
-          <div className="mt-4 border-t" style={{ borderColor: internsColor }} />
+          <div className={`${compact ? 'mt-3' : 'mt-4'} border-t`} style={{ borderColor: internsColor }} />
         </div>
 
         {/* Footer Section */}
-        <div className="grid grid-cols-[1fr_auto] items-center gap-2 px-6 pb-6 pt-1">
-          <span className="text-[12px] font-black uppercase tracking-[2.5px] leading-tight text-black">
+        <div className={`grid grid-cols-[1fr_auto] items-center gap-2 ${compact ? 'px-4 pb-4 pt-1' : 'px-6 pb-6 pt-1'}`}>
+          <span className={`${compact ? 'text-[10px]' : 'text-[12px]'} font-black uppercase tracking-[2.5px] leading-tight text-black`}>
             <span className="lg:hidden">INTERNSHIP<br />QUOTA</span>
             <span className="hidden lg:inline">INTERNSHIP QUOTA</span>
           </span>
           <span
-            className="text-right text-[18px] font-black uppercase leading-none sm:text-[20px] lg:text-[24px] lg:whitespace-nowrap"
+            className={`text-right ${compact ? 'text-[14px] sm:text-[16px] lg:text-[18px]' : 'text-[18px] sm:text-[20px] lg:text-[24px]'} font-black uppercase leading-none lg:whitespace-nowrap`}
             style={{ color: internsColor }}
           >
             {internsCount} INTERNS

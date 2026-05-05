@@ -4,6 +4,7 @@ import BentoGrid from "@/components/BentoGrid";
 import CompanyList from "@/components/Company/companyList";
 import type { CompanyListItem } from "@/components/Company/companyList";
 import { MarqueeLogoScroller } from "@/components/Company/MarqueeLogoScroller";
+import Component from "@/components/Company/CompanyCardList2";
 import Stories from "@/components/Company/stories";
 import type { StoryItem } from "@/components/Company/stories";
 import { ContainerScroll } from "@/components/Animations/ContainerScroll";
@@ -259,9 +260,22 @@ export default function Partner() {
           non suscipit est ad aut at dolor?
         </div>
       </section>
-
+      <section className="mx-10">
+        <Component companies={companies} />
+      </section>
+      {/**Section: All Companies marquee section */}
+      {marqueeCompanies.length > 0 && (
+        <section className="mx-10 mt-10 antialiased">
+          <MarqueeLogoScroller
+            title="More Companies"
+            description="Trusted by more companies. Lorem, ipsum dolor sit amet consectetur adipisicing elit."
+            logos={marqueeCompanies}
+            speed="normal"
+          />
+        </section>
+      )}
       {/*Section: Stories*/}
-      <div className="w-full h-screen">
+      <div className="mt-[20vh] w-full h-screen">
         <Stories storiesData={storiesData} />
       </div>
       {/**This is temporsry. Need a permanent fix for margin applied below */}

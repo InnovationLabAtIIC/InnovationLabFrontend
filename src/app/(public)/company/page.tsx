@@ -159,7 +159,7 @@ export default function Partner() {
       image:
         "https://zamin.uz/uploads/posts/2025-07/a6273368c2_cristiano-ronaldo-6.webp",
       storyTeller: "Cristiano Ronaldo",
-      description: "Siuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu!",
+      description: "Siuuuuuuuuuu",
     },
     {
       image:
@@ -181,7 +181,7 @@ export default function Partner() {
     },
   ];
   return (
-    <PageLayout>
+    <PageLayout hideOverflow={false}>
       <PageHeader title="PARTNERS" />
       <div className="mx-ds-5 mt-36 antialiased">
         <BentoGrid imageItems={galleryItems} />
@@ -223,11 +223,9 @@ export default function Partner() {
         </h2>
       </section>
       {/*Section: Stories*/}
-      <div className="mt-[20vh] w-full h-screen">
+      <div className="mt-[20vh] w-full">
         <Stories storiesData={storiesData} />
       </div>
-      <div className="mt-[350vh]"></div>
-      <Footer />
     </PageLayout>
   );
 }

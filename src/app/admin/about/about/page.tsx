@@ -1,25 +1,43 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
-
-// 1. Define your individual view components
-function ManageView() {
-  return <div>Code for the Manage table goes here...</div>;
-}
+import AboutManageView from "@/components/Admin/AboutManageView";
 
 function AddView() {
   const formFields: FormField[] = [
     { name: "Mission", label: "Mission", type: "textarea", required: true },
     { name: "Vision", label: "Vision", type: "textarea", required: true },
-    { name: "ParentOrgName", label: "Parent Organization Name", type: "text", required: true },
-    { name: "ParentOrgDescription", label: "Parent Organization Description", type: "textarea", required: true },
-    { name: "ParentOrgLogo", label: "Parent Organization Logo", type: "file", accept: "image/*", required: true },
-    { name: "ParentOrgWebsiteUrl", label: "Parent Organization Website URL", type: "text", required: true, placeholder: "https://example.com" },
+    {
+      name: "ParentOrgName",
+      label: "Parent Organization Name",
+      type: "text",
+      required: true,
+    },
+    {
+      name: "ParentOrgDescription",
+      label: "Parent Organization Description",
+      type: "textarea",
+      required: true,
+    },
+    {
+      name: "ParentOrgLogo",
+      label: "Parent Organization Logo",
+      type: "file",
+      accept: "image/*",
+      required: true,
+    },
+    {
+      name: "ParentOrgWebsiteUrl",
+      label: "Parent Organization Website URL",
+      type: "text",
+      required: true,
+      placeholder: "https://example.com",
+    },
   ];
 
   return (
-    <AddForms 
-      title="Add About Information" 
-      fields={formFields} 
+    <AddForms
+      title="Add About Information"
+      fields={formFields}
       apiEndpoint="/api/about"
     />
   );
@@ -40,14 +58,11 @@ export default function ManageAbout() {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Manage About</h1>
-      
+
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher
-        tabs={tabs}
-        defaultTab="manage"
-      >
+      <AdminViewSwitcher tabs={tabs} defaultTab="manage">
         {{
-          manage: <ManageView />,
+          manage: <AboutManageView />,
           add: <AddView />,
           preview: <ViewAsUser />,
         }}

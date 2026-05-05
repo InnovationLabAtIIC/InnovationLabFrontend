@@ -1,8 +1,9 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
+import ContactManageView from "@/components/Admin/ContactManageView";
 
 // 1. Define your individual view components
 function ManageView() {
-  return <div>Code for the Manage table goes here...</div>;
+  return <ContactManageView />;
 }
 
 function AddView() {
@@ -24,12 +25,9 @@ export default function ManageContacts() {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Contacts</h1>
-      
+
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher
-        tabs={tabs}
-        defaultTab="manage"
-      >
+      <AdminViewSwitcher tabs={tabs} defaultTab="manage">
         {{
           manage: <ManageView />,
           add: <AddView />,

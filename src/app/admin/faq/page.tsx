@@ -1,22 +1,24 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
-
-// 1. Define your individual view components
-function ManageView() {
-  return <div>Code for the Manage table goes here...</div>;
-}
+import FaqManageView from "@/components/Admin/FaqManageView";
 
 function AddView() {
   const formFields: FormField[] = [
     { name: "question", label: "Question", type: "text", required: true },
     { name: "answer", label: "Answer", type: "textarea", required: true },
-    { name: "categoryId", label: "Category ID (Optional)", type: "text", required: false, placeholder: "UUID of category" },
+    {
+      name: "categoryId",
+      label: "Category ID (Optional)",
+      type: "text",
+      required: false,
+      placeholder: "UUID of category",
+    },
   ];
 
   return (
-    <AddForms 
-      title="Add FAQ" 
-      fields={formFields} 
+    <AddForms
+      title="Add FAQ"
+      fields={formFields}
       apiEndpoint="/api/faqs"
       format="json"
     />
@@ -37,15 +39,14 @@ export default function ManageFAQ() {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">FAQ - Frequently Asked Questions</h1>
-      
+      <h1 className="text-2xl font-bold mb-6">
+        FAQ - Frequently Asked Questions
+      </h1>
+
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher
-        tabs={tabs}
-        defaultTab="manage"
-      >
+      <AdminViewSwitcher tabs={tabs} defaultTab="manage">
         {{
-          manage: <ManageView />,
+          manage: <FaqManageView />,
           add: <AddView />,
           preview: <ViewAsUser />,
         }}

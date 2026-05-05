@@ -40,6 +40,36 @@ export function ensureBackendBaseUrl(requestId: string): NextResponse | null {
   );
 }
 
+export type SegmentRouteContext = {
+  params: Promise<{ segments?: string[] }>;
+};
+
+export type SegmentRouteHandler = (args: {
+  request: NextRequest;
+  requestId: string;
+  segments: string[];
+}) => Promise<NextResponse>;
+
+export async function withSegmentRoute(
+  request: NextRequest,
+  context: SegmentRouteContext,
+  handler: SegmentRouteHandler,
+): Promise<NextResponse> {
+  const requestId = getRequestId(request);
+  const envError = ensureBackendBaseUrl(requestId);
+  if (envError) {
+    return envError;
+  }
+
+  const segments = (await context.params).segments ?? [];
+
+  try {
+    return await handler({ request, requestId, segments });
+  } catch (error) {
+    return handleUnknownError(error, requestId);
+  }
+}
+
 export function forwardedHeaders(request: NextRequest): HeadersInit {
   const headers = new Headers();
   const authorization = request.headers.get("authorization");

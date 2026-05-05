@@ -43,3 +43,6 @@ next-env.d.ts
 
 # orval generated api client
 **/services/generated/
+
+# file history extension
+.history/

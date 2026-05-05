@@ -1,10 +1,7 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
+import TestimonialManageView from "@/components/Admin/TestimonialManageView";
 
-// Manage Testimonials
-function ManageView() {
-  return <div>Code for the Manage table goes here...</div>;
-}
 // Add Testimonials
 function AddView() {
   const formFields: FormField[] = [
@@ -19,8 +16,7 @@ function AddView() {
     <AddForms 
       title="Add Testimonial" 
       fields={formFields} 
-      // Pass the actual backend URL to the component
-      //apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ''}/api/testimonials`}
+      apiEndpoint="/api/testimonials"
     />
   );
 }
@@ -48,7 +44,7 @@ export default function ManageTestimonials() {
         defaultTab="manage"
       >
         {{
-          manage: <ManageView />,
+          manage: <TestimonialManageView />,
           add: <AddView />,
           preview: <ViewAsUser />,
         }}

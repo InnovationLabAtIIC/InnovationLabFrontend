@@ -177,6 +177,21 @@ export function parseEnumValue<T extends Record<string, string>>(
     : undefined;
 }
 
+export function getQueryParamValue(
+  request: NextRequest,
+  name: string,
+  ...aliases: string[]
+): string | null {
+  for (const candidate of [name, ...aliases]) {
+    const value = request.nextUrl.searchParams.get(candidate);
+    if (value && value.length > 0) {
+      return value;
+    }
+  }
+
+  return null;
+}
+
 function formDataToObject(formData: FormData): Record<string, unknown> {
   const result: Record<string, unknown> = {};
 

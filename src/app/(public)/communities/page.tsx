@@ -5,99 +5,19 @@ import Footer from "@/components/Footer";
 import Button from "@/components/primitives/Button";
 import PageLayout from "@/components/primitives/PageLayout";
 import PageHeader from "@/components/primitives/PageHeader";
-
-const latestNews = [
-  {
-    code: "NEWS_01",
-    title: "Cross-Community Build Sprint",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80",
-    details:
-      "Coders and Inventors shipped a testable prototype during a 48-hour sprint.",
-    status: "Published",
-  },
-  {
-    code: "NEWS_02",
-    title: "Creator Studio Release",
-    image:
-      "https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=800&q=80",
-    details:
-      "Creators launched a modular content pack for community events and updates.",
-    status: "New",
-  },
-  {
-    code: "NEWS_03",
-    title: "Research Findings Bulletin",
-    image:
-      "https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=800&q=80",
-    details:
-      "Researchers published trend insights from Q2 experiments and user studies.",
-    status: "Updated",
-  },
-];
-
-const communityCards = [
-  {
-    id: "COM_01",
-    slug: "coders",
-    title: "Coders",
-    description:
-      "A community of developers building scalable applications, tools, and open-source systems.",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
-    focus: "Web development, backend systems, open-source",
-    members: "500+ active developers",
-    activities: "Hackathons, code reviews, system design sessions",
-    projects: "SaaS platforms, APIs, developer tools",
-  },
-  {
-    id: "COM_02",
-    slug: "creators",
-    title: "Creators",
-    description:
-      "Designers, storytellers, and content creators shaping digital experiences and narratives.",
-    image:
-      "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=80",
-    focus: "UI/UX design, branding, content creation",
-    members: "300+ creatives",
-    activities: "Design jams, content labs, portfolio reviews",
-    projects: "Brand identities, campaigns, digital products",
-  },
-  {
-    id: "COM_03",
-    slug: "researchers",
-    title: "Researchers",
-    description:
-      "A knowledge-driven group focused on data, experimentation, and insight generation.",
-    image:
-      "https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&w=800&q=80",
-    focus: "Data analysis, user research, experimentation",
-    members: "150+ analysts",
-    activities: "Research forums, case studies, data reviews",
-    projects: "Trend reports, UX insights, behavioral studies",
-  },
-  {
-    id: "COM_05",
-    slug: "entrepreneurs",
-    title: "Entrepreneurs",
-    description:
-      "Startup founders and business thinkers building scalable ventures and ideas.",
-    image:
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=800&q=80",
-    focus: "Startups, business strategy, growth",
-    members: "180+ founders",
-    activities: "Pitch sessions, networking, mentorship",
-    projects: "Startups, business models, growth strategies",
-  },
-];
+import { publicCommunitiesText, publicPageTitles } from "@/constants/ui/public";
+import {
+  publicCommunitiesLatestNews,
+  publicCommunityCards,
+} from "@/lib/data/public/communities";
 
 export default function CommunitiesPage() {
   return (
     <PageLayout>
       <Navbar />
-      <PageHeader title="COMMUNITIES" />
+      <PageHeader title={publicPageTitles.communities} />
       <section className="mx-auto grid w-full bg-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-        {communityCards.map((community) => (
+        {publicCommunityCards.map((community) => (
           <Link
             key={community.slug}
             href={`/communities/${community.slug}`}
@@ -129,11 +49,11 @@ export default function CommunitiesPage() {
       <section className="mx-auto  bg-white py-14">
         <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <h2 className=" px-3 text-[clamp(30px,4.6vw,54px)] font-black uppercase tracking-[-0.03em] text-ivBlack">
-            Latest News
+            {publicCommunitiesText.latestNews}
           </h2>
         </div>
         <div className="grid  border border-gray-300 bg-white sm:grid-cols-2 lg:grid-cols-3">
-          {latestNews.map((item) => (
+          {publicCommunitiesLatestNews.map((item) => (
             <article
               key={item.code}
               className="flex min-h-80 aspect-square flex-col justify-between border-b border-r border-gray-300 last:border-b-0 sm:last:border-b sm:nth-last-[-n+2]:border-b-0 lg:border-b-0"
@@ -165,7 +85,7 @@ export default function CommunitiesPage() {
       </section>
       <div className="line-bg w-full md:h-16 h-6"></div>
       <section className="flex flex-col bg-white">
-        {communityCards.map((community, index) => (
+        {publicCommunityCards.map((community, index) => (
           <div
             key={community.slug}
             className={[
@@ -200,24 +120,32 @@ export default function CommunitiesPage() {
               {/* EXTRA DETAILS */}
               <div className="grid grid-cols-2 gap-6 mt-6 text-base">
                 <div>
-                  <p className="font-bold text-lg">Focus</p>
+                  <p className="font-bold text-lg">
+                    {publicCommunitiesText.focus}
+                  </p>
                   <p className="text-gray-500 text-base">{community.focus}</p>
                 </div>
 
                 <div>
-                  <p className="font-bold text-lg">Members</p>
+                  <p className="font-bold text-lg">
+                    {publicCommunitiesText.members}
+                  </p>
                   <p className="text-gray-500 text-base">{community.members}</p>
                 </div>
 
                 <div>
-                  <p className="font-bold text-lg">Activities</p>
+                  <p className="font-bold text-lg">
+                    {publicCommunitiesText.activities}
+                  </p>
                   <p className="text-gray-500 text-base">
                     {community.activities}
                   </p>
                 </div>
 
                 <div>
-                  <p className="font-bold text-lg">Projects</p>
+                  <p className="font-bold text-lg">
+                    {publicCommunitiesText.projects}
+                  </p>
                   <p className="text-gray-500 text-base">
                     {community.projects}
                   </p>
@@ -226,7 +154,7 @@ export default function CommunitiesPage() {
 
               <div className="mt-8">
                 <Link href={`/communities/${community.slug}`}>
-                  <Button>Explore Community</Button>
+                  <Button>{publicCommunitiesText.exploreCommunity}</Button>
                 </Link>
               </div>
             </div>

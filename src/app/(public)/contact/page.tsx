@@ -7,11 +7,12 @@ import Carousel from "@/components/Carousel";
 import { FadeIn, StaggerIn } from "@/components/Contacts/FadeIn";
 import Map from "@/components/Contacts/Map";
 import { Clock3, Mail, MapPin, Phone } from "lucide-react";
+import { publicContactText, publicPageTitles } from "@/constants/ui/public";
 
 export default function Contact() {
   return (
     <PageLayout>
-      <PageHeader title="CONTACT US" />
+      <PageHeader title={publicPageTitles.contact} />
 
       <div className="w-full bg-white grid grid-rows-2 border border-gray-300">
         <div className="grid gap-4 lg:grid-cols-[1.35fr_1fr]">
@@ -19,33 +20,32 @@ export default function Contact() {
             <form className="border border-gray-300 p-6 md:p-10 duration-300">
               <div className="relative z-10 mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-                  Let&apos;s Start a Conversation
+                  {publicContactText.heroTitle}
                 </h2>
                 <p className="text-gray-500 text-base leading-relaxed">
-                  Share your vision and let&apos;s bring your ideas to life
-                  together.
+                  {publicContactText.heroSubtitle}
                 </p>
               </div>
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="group">
                   <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
-                    Name
+                    {publicContactText.nameLabel}
                   </label>
                   <input
                     type="text"
-                    placeholder="Enter identifier"
+                    placeholder={publicContactText.namePlaceholder}
                     className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
                   />
                 </div>
 
                 <div className="group">
                   <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
-                    Email
+                    {publicContactText.emailLabel}
                   </label>
                   <input
                     type="email"
-                    placeholder="Address@protocol.sys"
+                    placeholder={publicContactText.emailPlaceholder}
                     className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
                   />
                 </div>
@@ -53,22 +53,22 @@ export default function Contact() {
 
               <div className="mt-4 group">
                 <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
-                  Title
+                  {publicContactText.titleLabel}
                 </label>
                 <input
                   type="text"
-                  defaultValue="Architectural Consultation"
+                  defaultValue={publicContactText.titleDefault}
                   className="w-full border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
                 />
               </div>
 
               <div className="mt-4 group">
                 <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
-                  Message
+                  {publicContactText.messageLabel}
                 </label>
                 <textarea
                   rows={5}
-                  placeholder="Define your vision..."
+                  placeholder={publicContactText.messagePlaceholder}
                   className="w-full resize-none border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
                 />
               </div>
@@ -76,14 +76,14 @@ export default function Contact() {
               <div className="mt-8 flex items-center justify-between">
                 <p className="text-[10px] uppercase tracking-[0.22em] text-[#8b8f93]">
                   <span className="mr-2 inline-block h-2 w-2 bg-cyan-400 animate-pulse" />
-                  Awaiting
+                  {publicContactText.statusAwaiting}
                 </p>
 
                 <button
                   type="submit"
                   className="inline-flex h-12 items-center justify-center gap-2 border border-black bg-black px-10 text-[12px] font-extrabold uppercase tracking-[0.2em] text-white"
                 >
-                  Send
+                  {publicContactText.send}
                   <span aria-hidden>→</span>
                 </button>
               </div>
@@ -103,26 +103,26 @@ export default function Contact() {
           staggerChildren={0.09}
         >
           <ContactInfoCard
-            title="Email"
-            content="admin@neo-lab.sys"
+            title={publicContactText.infoEmailTitle}
+            content={publicContactText.infoEmailContent}
             Icon={Mail}
             isBordered
           />
           <ContactInfoCard
-            title="Phone"
-            content="+44 (0) 20 7946 0142"
+            title={publicContactText.infoPhoneTitle}
+            content={publicContactText.infoPhoneContent}
             Icon={Phone}
             isBordered
           />
           <ContactInfoCard
-            title="Location"
-            content="18 Brutal Wharf, E14 5SX, London"
+            title={publicContactText.infoLocationTitle}
+            content={publicContactText.infoLocationContent}
             Icon={MapPin}
             isBordered
           />
           <ContactInfoCard
-            title="Uptime"
-            content="09:00 - 21:00 GMT"
+            title={publicContactText.infoUptimeTitle}
+            content={publicContactText.infoUptimeContent}
             Icon={Clock3}
             isBordered={false}
           />

@@ -137,5 +137,77 @@
       "question": { "label": "Question", "placeholder": "" },
       "answer": { "label": "Answer", "placeholder": "" }
     }
+  },
+  "public": {
+    "pages": {
+      "about": "About",
+      "partners": "PARTNERS",
+      "contact": "CONTACT US",
+      "communities": "COMMUNITIES",
+      "events": "EVENTS",
+      "lab": "Lab",
+      "login": "Login"
+    },
+    "about": {
+      "introParagraph": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+    },
+    "company": {
+      "companiesProviding": "Companies Providing",
+      "internships": "Internships",
+      "ourPartners": "OUR PARTNERS",
+      "aboutOurPartners": "ABOUT OUR PARTNERS",
+      "aboutPartnersBody": "we are Innovation Labbist lorem gg , Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates voluptatibus iure, vitae nesciunt dicta qui, quasi doloribus explicabo itaque alias ipsa quam non suscipit est ad aut at dolor?"
+    },
+    "contact": {
+      "heroTitle": "Let's Start a Conversation",
+      "heroSubtitle": "Share your vision and let's bring your ideas to life together.",
+      "nameLabel": "Name",
+      "namePlaceholder": "Enter identifier",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Address@protocol.sys",
+      "titleLabel": "Title",
+      "titleDefault": "Architectural Consultation",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Define your vision...",
+      "statusAwaiting": "Awaiting",
+      "send": "Send",
+      "infoEmailTitle": "Email",
+      "infoEmailContent": "admin@neo-lab.sys",
+      "infoPhoneTitle": "Phone",
+      "infoPhoneContent": "+44 (0) 20 7946 0142",
+      "infoLocationTitle": "Location",
+      "infoLocationContent": "18 Brutal Wharf, E14 5SX, London",
+      "infoUptimeTitle": "Uptime",
+      "infoUptimeContent": "09:00 - 21:00 GMT"
+    },
+    "communities": {
+      "latestNews": "Latest News",
+      "focus": "Focus",
+      "members": "Members",
+      "activities": "Activities",
+      "projects": "Projects",
+      "exploreCommunity": "Explore Community"
+    },
+    "communityDetail": {
+      "about": "About",
+      "teamMembers": "Team Members",
+      "news": "News",
+      "backToCommunities": "Back To Communities",
+      "exploreOtherCommunities": "Explore Other Communities"
+    },
+    "eventDetail": {
+      "backToEvents": "Back To Events",
+      "overview": "Overview",
+      "whatYouWillSee": "What You\u2019ll See",
+      "detail": "Detail",
+      "gallery": "Gallery",
+      "relatedEvents": "Related Events"
+    },
+    "lab": {
+      "content": "Lab Page Content"
+    },
+    "login": {
+      "content": "Feature Not For NOW -- Do Nothing HERE"
+    }
   }
 }

@@ -36,7 +36,7 @@ const events: EventItem[] = [
 
 export default function UpcomingEventsSection() {
   return (
-    <section className="py-16 max-w-295 w-full mx-auto">
+    <section className="py-16 max-w-[73.75rem] w-full mx-auto">
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-8">
         <div>
           <h2 className="text-2xl uppercase font-extrabold tracking-tight">

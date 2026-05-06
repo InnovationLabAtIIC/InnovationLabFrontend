@@ -97,13 +97,14 @@ export default function Contact() {
                   </label>
                   <input
                     id="contact-name"
+                    name="contact-name"
                     type="text"
                     placeholder={publicContactText.namePlaceholder}
                     className="h-12 w-full border border-neutral-900 bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
                   />
-                  {fieldErrors.email && (
+                  {fieldErrors.name && (
                     <p className="mt-1 text-xs text-error">
-                      {fieldErrors.email}
+                      {fieldErrors.name}
                     </p>
                   )}
                 </div>
@@ -114,10 +115,16 @@ export default function Contact() {
                   </label>
                   <input
                     id="contact-email"
+                    name="contact-email"
                     type="email"
                     placeholder={publicContactText.emailPlaceholder}
                     className="h-12 w-full border border-neutral-900 bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
                   />
+                  {fieldErrors.email && (
+                    <p className="mt-1 text-xs text-error">
+                      {fieldErrors.email}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -127,6 +134,7 @@ export default function Contact() {
                 </label>
                 <input
                   id="contact-title"
+                  name="contact-title"
                   type="text"
                   defaultValue={publicContactText.titleDefault}
                   className="w-full border border-neutral-900 bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
@@ -139,6 +147,7 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="contact-message"
+                  name="contact-message"
                   rows={5}
                   placeholder={publicContactText.messagePlaceholder}
                   className="w-full resize-none border border-neutral-900 bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
@@ -181,7 +190,7 @@ export default function Contact() {
         </div>
 
         <StaggerIn
-          className="mt-8 grid border border-surface-300 md:grid-cols-4"
+          className="mt-8 grid border border-neutral-300 md:grid-cols-4"
           delayChildren={0.12}
           staggerChildren={0.09}
         >

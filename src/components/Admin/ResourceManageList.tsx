@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { ReactNode } from "react";
 
 import { LocalApiError } from "@/lib/services/bff-client";
 
@@ -10,7 +11,7 @@ type ResourceManageListProps<TItem> = {
   loadingMessage: string;
   errorMessage: string;
   getKey: (item: TItem, index: number) => string;
-  renderItem: (item: TItem) => React.ReactNode;
+  renderItem: (item: TItem) => ReactNode;
 };
 
 export default function ResourceManageList<TItem>({
@@ -80,9 +81,9 @@ export default function ResourceManageList<TItem>({
       {items.map((item, index) => (
         <div
           key={getKey(item, index)}
-          className="rounded-lg border border-(--neutral-200) bg-white p-4 shadow-sm"
+          className="rounded-lg border border-neutral-200 bg-white p-4 shadow-sm"
         >
-          <pre className="whitespace-pre-wrap wrap-break-word text-xs leading-6 text-(--neutral-700)">
+          <pre className="whitespace-pre-wrap break-words text-xs leading-6 text-(--neutral-700)">
             {renderItem(item)}
           </pre>
         </div>

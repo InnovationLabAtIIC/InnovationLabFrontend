@@ -130,7 +130,7 @@ const MarqueeLogoScroller = React.forwardRef<
                         onMouseLeave={() => setIsPaused(false)}
                       >
                         {/* Single hover color overlay for all logos */}
-                        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 var(--color-primary)/15" />
+                        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 bg-primary/15" />
                         {/* Logo Image */}
                         <Image
                           src={imageSrc}

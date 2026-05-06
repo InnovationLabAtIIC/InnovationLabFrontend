@@ -171,7 +171,7 @@ export default function AddForms({
                 className="block w-full rounded-md border border-(--neutral-500) p-2.5 shadow-sm transition-colors focus:border-(--color-primary) focus:ring-(--color-primary)"
               ></textarea>
             ) : field.type === "file" ? (
-              <div className="mt-1 flex justify-center rounded-md border-2 border-(--neutral-500) border-dashed bg-(--neutral-100) px-6 pt-5 pb-6 transition-colors hover:border-(--color-primary-variant)">
+              <div className="mt-1 flex justify-center rounded-md border-2 border-(--neutral-500) border-dashed bg-(--neutral-100) px-6 pt-5 pb-6 transition-colors hover:border-primary-600">
                 <div className="space-y-1 text-center">
                   <svg
                     className="mx-auto h-12 w-12 text-(--neutral-500)"

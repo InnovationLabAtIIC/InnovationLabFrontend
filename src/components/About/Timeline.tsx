@@ -126,7 +126,7 @@ export default function Timeline({ items }: TimelineProps) {
                   height={500}
                   unoptimized
                   sizes="(min-width: 1024px) 24rem, 100vw"
-                  className="h-20 w-full object-cover _inset] md:h-44 lg:h-60"
+                  className="h-20 w-full object-cover md:h-44 lg:h-60"
                 />
               ))}
             </div>

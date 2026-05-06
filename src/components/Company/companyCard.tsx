@@ -2,6 +2,7 @@
 
 "use client";
 
+import Image from "next/image";
 import React, { useRef } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils/util"; // Assuming shadcn/ui's utility function
@@ -73,9 +74,13 @@ export default function CompanyCard({
           <div className="absolute top-10 left-10 z-10 text-xs font-semibold uppercase tracking-widest text-white/90 mix-blend-difference">
             {topText}
           </div>
-          <img
+          <Image
             src={imageUrl}
             alt="Digital Presence"
+            width={1200}
+            height={800}
+            unoptimized
+            sizes="(min-width: 1024px) 50vw, 100vw"
             className="h-64 w-full object-cover"
           />
         </div>

@@ -6,5 +6,3 @@ export async function listContacts(): Promise<ContactResponseDto[]> {
   const response = await bffApi.contacts.list();
   return response.data ?? [];
 }
-
-export default {};

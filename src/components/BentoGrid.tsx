@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+import Image from "next/image";
 import {
   motion,
   useScroll,
@@ -64,9 +65,13 @@ const ImageModal = ({
         className="relative w-full max-w-4xl p-4"
         onClick={(e) => e.stopPropagation()}
       >
-        <img
+        <Image
           src={item.url}
           alt={item.title}
+          width={1600}
+          height={1000}
+          unoptimized
+          sizes="(min-width: 1280px) 1200px, 100vw"
           className="h-auto max-h-[90vh] w-full rounded-lg object-contain"
         />
       </motion.div>
@@ -121,12 +126,15 @@ const BentoGrid: React.FC<BentoGridProps> = ({ imageItems }) => {
                 tabIndex={0}
                 aria-label={`View ${item.title}`}
               >
-                <img
+                <Image
                   src={item.url}
                   alt={item.title}
+                  fill
+                  unoptimized
+                  sizes="(min-width: 768px) 25vw, 100vw"
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <div className="relative z-10 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   <h3 className="text-lg font-bold text-white">{item.title}</h3>
                   <p className="mt-1 text-sm text-white/80">{item.desc}</p>

@@ -129,7 +129,7 @@ export async function parseJsonBodyAs<T extends object>(
     return { error: parsed.error };
   }
 
-  return { value: parsed.value as unknown as T };
+  return { value: parsed.value as T };
 }
 
 export async function parseMultipartBody(
@@ -160,7 +160,7 @@ export async function parseMultipartBodyAs<T extends object>(
     return { error: parsed.error };
   }
 
-  return { value: parsed.value as unknown as T };
+  return { value: parsed.value as T };
 }
 
 export function parseEnumValue<T extends Record<string, string>>(

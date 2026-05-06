@@ -11,5 +11,3 @@ export async function getFaqById(id: string): Promise<FaqResponseDto | null> {
   const response = await bffApi.faqs.getById(id);
   return response.data ?? null;
 }
-
-export default {};

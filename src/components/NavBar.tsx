@@ -1,6 +1,5 @@
-import Link from "next/link";
+import Image from "next/image";
 import TransitionLink from "./TransitionLink";
-import Button from "./primitives/Button";
 import PageLayout from "./primitives/PageLayout";
 
 export default function Navbar() {
@@ -8,9 +7,11 @@ export default function Navbar() {
     <PageLayout>
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md flex justify-between items-center px-6 md:px-12 py-5 border-b border-gray-300">
         <div className="text-lg font-black tracking-tighter uppercase">
-          <img
+          <Image
             src="/ivLabsLogo.svg"
             alt="Innovation Lab Logo"
+            width={120}
+            height={32}
             className="h-8 w-auto scale-190"
           />
         </div>

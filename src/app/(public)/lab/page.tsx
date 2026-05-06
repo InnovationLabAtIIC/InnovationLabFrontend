@@ -1,8 +1,6 @@
 import React from "react";
 import PageLayout from "@/components/primitives/PageLayout";
 import PageHeader from "@/components/primitives/PageHeader";
-import Navbar from "@/components/NavBar";
-import Footer from "@/components/Footer";
 
 const Lab = () => {
   return (

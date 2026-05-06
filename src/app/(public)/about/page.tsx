@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "@/components/NavBar";
-import Footer from "@/components/Footer";
 import AboutCardList from "@/components/About/AboutCardList";
 import StrategicPillarsCardList from "@/components/About/StrategicPillarsCardList";
 import SmoothScroll from "@/components/Animations/smooth-scroll";

@@ -1,6 +1,5 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import EventAgendaManageView from "@/components/Admin/EventAgendaManageView";
-import { div } from "framer-motion/client";
 
 // 1. Define your individual view components
 function ManageView() {

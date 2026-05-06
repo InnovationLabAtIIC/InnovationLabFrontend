@@ -1,6 +1,5 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
-import { div } from "framer-motion/client";
 
 // Define your individual view components
 function ManageView() {

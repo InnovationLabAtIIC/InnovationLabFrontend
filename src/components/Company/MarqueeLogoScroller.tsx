@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { cn } from "@/lib/utils/util"; // Assuming a `cn` utility for classnames
@@ -131,9 +132,13 @@ const MarqueeLogoScroller = React.forwardRef<
                         {/* Single hover color overlay for all logos */}
                         <div className="absolute inset-0 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 var(--color-primary)/15" />
                         {/* Logo Image */}
-                        <img
+                        <Image
                           src={imageSrc}
                           alt={imageAlt}
+                          width={120}
+                          height={72}
+                          unoptimized
+                          sizes="160px"
                           className="relative h-3/4 w-auto object-contain"
                         />
                       </div>

@@ -1,7 +1,5 @@
 "use client";
 
-import Navbar from "@/components/NavBar";
-import Footer from "@/components/Footer";
 import PageLayout from "@/components/primitives/PageLayout";
 import PageHeader from "@/components/primitives/PageHeader";
 import BentoGrid from "@/components/BentoGrid";

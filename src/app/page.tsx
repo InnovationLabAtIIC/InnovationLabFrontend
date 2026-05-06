@@ -2,8 +2,6 @@
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/NavBar";
 import {
   AboutSection,
   CommunitiesSection,

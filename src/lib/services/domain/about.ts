@@ -21,5 +21,3 @@ export async function listJourney(): Promise<JourneyItemResponseDto[]> {
   const response = await bffApi.about.getJourney();
   return response.data ?? [];
 }
-
-export default {};

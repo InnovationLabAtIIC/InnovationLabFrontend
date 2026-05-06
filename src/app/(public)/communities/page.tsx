@@ -12,7 +12,6 @@ import {
 export default function CommunitiesPage() {
   return (
     <PageLayout>
-      <Navbar />
       <PageHeader title={publicPageTitles.communities} />
       <section className="mx-auto grid w-full bg-white grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {publicCommunityCards.map((community) => (

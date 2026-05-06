@@ -82,7 +82,7 @@ export default function Stories({ storiesData }: StoriesProps) {
             <div key={i} className="absolute inset-0">
               {/* Left Half */}
               <div
-                className="absolute top-0 left-0 w-1/2 h-full transition-transform duration-[1000ms]"
+                className="absolute top-0 left-0 w-1/2 h-full transition-transform duration-1000"
                 style={{ transform: leftTrans }}
               >
                 <div
@@ -110,7 +110,7 @@ export default function Stories({ storiesData }: StoriesProps) {
 
               {/* Right Half */}
               <div
-                className="absolute top-0 left-1/2 w-1/2 h-full transition-transform duration-[1000ms]"
+                className="absolute top-0 left-1/2 w-1/2 h-full transition-transform duration-1000"
                 style={{ transform: rightTrans }}
               >
                 <div

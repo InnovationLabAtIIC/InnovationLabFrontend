@@ -39,7 +39,7 @@ export default function StrategicPillarsCardList({
               titleOnLeft={index % 2 === 0}
               className={cn(
                 "border-black",
-                index !== items.length - 1 && "border-b-1",
+                index !== items.length - 1 && "border-b",
                 "lg:min-h-[50vh]",
               )}
             />

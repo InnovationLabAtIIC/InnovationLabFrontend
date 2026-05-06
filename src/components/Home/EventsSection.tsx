@@ -1,7 +1,10 @@
+"use client";
+
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -94,12 +97,14 @@ function EventSlide({
         </div>
 
         <div className="relative overflow-hidden border-t border-neutral-200 md:border-l md:border-t-0">
-          <motion.img
-            src={slide.image}
-            alt={slide.title}
-            style={{ y: imageY }}
-            className="h-full w-full object-cover"
-          />
+          <motion.div style={{ y: imageY }} className="relative h-full w-full">
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              className="object-cover"
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-linear-to-tr from-white/35 via-white/8 to-transparent" />
         </div>
       </div>
@@ -110,6 +115,14 @@ function EventSlide({
 export function EventsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const updateViewport = () => setIsMobile(window.innerWidth < 768);
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -121,6 +134,10 @@ export function EventsSection() {
     const track = trackRef.current;
 
     if (!section || !track) {
+      return;
+    }
+
+    if (isMobile) {
       return;
     }
 
@@ -147,26 +164,72 @@ export function EventsSection() {
     }, section);
 
     return () => context.revert();
-  }, []);
+  }, [isMobile]);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative overflow-hidden bg-neutral-100"
-    >
-      <motion.div
-        ref={trackRef}
-        className="flex h-screen w-max will-change-transform"
+    <>
+      <section className="border-t border-gray-300 bg-neutral-100 px-4 py-10 md:hidden">
+        <div className="mb-6">
+          <h2 className="text-[clamp(2rem,10vw,3rem)] font-black uppercase tracking-[-0.06em] text-neutral-900">
+            Latest Events
+          </h2>
+        </div>
+        <div className="space-y-5">
+          {eventSlides.map((slide, index) => (
+            <article
+              key={slide.title}
+              className="overflow-hidden border border-gray-300 bg-white"
+            >
+              <div className="relative h-56 overflow-hidden border-b border-gray-200">
+                <Image
+                  src={slide.image}
+                  alt={slide.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="space-y-3 p-4">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.3em] text-primary">
+                  {slide.kicker}
+                </p>
+                <h3 className="text-3xl font-black uppercase tracking-[-0.06em] text-neutral-900">
+                  {slide.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-neutral-600">
+                  {slide.description}
+                </p>
+                <div className="flex items-center justify-between border-t border-gray-200 pt-3">
+                  <p className="max-w-[75%] text-xs text-neutral-500">
+                    {slide.meta}
+                  </p>
+                  <span className="inline-flex h-9 w-9 items-center justify-center border border-neutral-300 bg-neutral-50 text-xs font-extrabold text-neutral-900">
+                    0{index + 1}
+                  </span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section
+        ref={sectionRef}
+        className="relative hidden overflow-hidden bg-neutral-100 md:block"
       >
-        {eventSlides.map((slide, index) => (
-          <EventSlide
-            key={slide.title}
-            slide={slide}
-            scrollYProgress={scrollYProgress}
-            index={index}
-          />
-        ))}
-      </motion.div>
-    </section>
+        <motion.div
+          ref={trackRef}
+          className="flex h-screen w-max will-change-transform"
+        >
+          {eventSlides.map((slide, index) => (
+            <EventSlide
+              key={slide.title}
+              slide={slide}
+              scrollYProgress={scrollYProgress}
+              index={index}
+            />
+          ))}
+        </motion.div>
+      </section>
+    </>
   );
 }

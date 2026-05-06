@@ -1,77 +1,98 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
-
-// 1. Define your individual view components
-function ManageView() {
-  return <div>Code for the Manage Banner goes here...</div>;
-}
+import BannerManageView from "@/components/Admin/BannerManageView";
+import { ADMIN_VIEW_TABS } from "@/constants/ui/admin";
+import { t } from "@/lib/i18n/messages";
+import { adminPlaceholders } from "@/constants/ui/placeholders";
+import { adminPageTitles } from "@/constants/ui/adminPages";
 
 function AddView() {
   const formFields: FormField[] = [
     {
       name: "Image",
-      label: "Banner Image",
+      label: t("admin.fields.BannerImage.label" as const),
       type: "file",
       accept: "image/*",
       required: true,
     },
     {
       name: "Type",
-      label: "Type",
+      label: t("admin.fields.Type.label" as const),
       type: "text",
       required: true,
-      placeholder: "e.g., Hero, Promo",
+      placeholder: t("admin.fields.Type.placeholder" as const),
     },
-    { name: "Title", label: "Title", type: "text", required: true },
-    { name: "SubTitle", label: "Subtitle", type: "text", required: false },
-    { name: "Caption", label: "Caption", type: "textarea", required: false },
-    { name: "Version", label: "Version", type: "number", required: false },
-    { name: "ParentId", label: "Parent ID", type: "text", required: false },
     {
-      name: "ScheduledStart",
-      label: "Scheduled Start",
+      name: "Title",
+      label: t("admin.fields.Title.label" as const),
+      type: "text",
+      required: true,
+    },
+    {
+      name: "SubTitle",
+      label: t("admin.fields.SubTitle.label" as const),
       type: "text",
       required: false,
-      placeholder: "YYYY-MM-DDTHH:MM:SS",
+    },
+    {
+      name: "Caption",
+      label: t("admin.fields.Caption.label" as const),
+      type: "textarea",
+      required: false,
+    },
+    {
+      name: "Version",
+      label: t("admin.fields.Version.label" as const),
+      type: "number",
+      required: false,
+    },
+    {
+      name: "ParentId",
+      label: t("admin.fields.ParentId.label" as const),
+      type: "text",
+      required: false,
+    },
+    {
+      name: "ScheduledStart",
+      label: t("admin.fields.ScheduledStart.label" as const),
+      type: "text",
+      required: false,
+      placeholder: t("admin.fields.ScheduledStart.placeholder" as const),
     },
     {
       name: "ScheduledEnd",
-      label: "Scheduled End",
+      label: t("admin.fields.ScheduledEnd.label" as const),
       type: "text",
       required: false,
-      placeholder: "YYYY-MM-DDTHH:MM:SS",
+      placeholder: t("admin.fields.ScheduledEnd.placeholder" as const),
     },
   ];
 
   return (
     <AddForms
-      title="Add Banner"
+      title={adminPageTitles.banners.addTitle}
       fields={formFields}
-      apiEndpoint={`${process.env.NEXT_PUBLIC_API_URL || ""}/api/banners`}
+      apiEndpoint="/api/banners"
     />
   );
 }
 
 function ViewAsUser() {
-  return <div>Code for the User preview goes here...</div>;
+  return <div>{adminPlaceholders.viewAsUser}</div>;
 }
 
 // 2. Export the main Page component
 export default function ManageBanner() {
-  const tabs = [
-    { id: "manage", label: "Manage" },
-    { id: "add", label: "Add" },
-    { id: "preview", label: "View as user" },
-  ];
-
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Banners</h1>
+      <h1 className="mb-6 text-2xl font-bold">
+        {adminPageTitles.banners.heading}
+      </h1>
 
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher tabs={tabs} defaultTab="manage">
+      <AdminViewSwitcher tabs={ADMIN_VIEW_TABS} defaultTab="manage">
         {{
-          manage: <ManageView />,
+          manage: <BannerManageView />,
           add: <AddView />,
           preview: <ViewAsUser />,
         }}

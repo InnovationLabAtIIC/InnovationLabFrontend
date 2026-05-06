@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Navbar from "@/components/NavBar";
-import Footer from "@/components/Footer";
 import PageLayout from "@/components/primitives/PageLayout";
 import PageHeader from "@/components/primitives/PageHeader";
 import {
@@ -11,6 +9,7 @@ import {
   communitySlugs,
   type CommunitySlug,
 } from "@/lib/data/communities";
+import { publicCommunityDetailText } from "@/constants/ui/public";
 
 type CommunityDetailPageProps = {
   params: {
@@ -38,13 +37,12 @@ export default function CommunityDetailPage({
 
   return (
     <PageLayout>
-      <Navbar />
       <PageHeader title={profile.title} />
 
-      <section className="mx-auto grid w-[94vw] max-w-7xl gap-8 border border-black/10 bg-[#f4f4f2] px-6 py-14 md:grid-cols-2 md:px-10">
+      <section className="mx-auto grid w-full max-w-7xl gap-8 border border-black/10 bg-neutral-100 px-6 py-14 md:grid-cols-2 md:px-10">
         <div>
           <h2 className="text-[clamp(30px,4.8vw,56px)] font-black uppercase tracking-[-0.03em]">
-            About
+            {publicCommunityDetailText.about}
           </h2>
           <div className="mt-3 h-1 w-24 bg-ivCyan" />
         </div>
@@ -55,9 +53,9 @@ export default function CommunityDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-white px-6 py-14 md:px-10">
+      <section className="mx-auto w-full max-w-7xl border-x border-b border-black/10 bg-white px-6 py-14 md:px-10">
         <h2 className="text-[clamp(28px,4.5vw,52px)] font-black uppercase tracking-[-0.03em]">
-          Team Members
+          {publicCommunityDetailText.teamMembers}
         </h2>
         <div className="mt-8 grid grid-cols-1 border border-black/10 md:grid-cols-2">
           {profile.teamMembers.map((member, index) => (
@@ -66,8 +64,8 @@ export default function CommunityDetailPage({
               className={[
                 "border-b border-r border-black/10 p-6",
                 index % 2 === 0
-                  ? "bg-[linear-gradient(160deg,rgba(34,211,238,0.1),rgba(255,255,255,1)_55%)]"
-                  : "bg-[linear-gradient(180deg,rgba(34,211,238,0.06),rgba(255,255,255,1)_45%)]",
+                  ? "bg-gradient-to-br from-cyan-400/10 to-white"
+                  : "bg-gradient-to-b from-cyan-400/6 to-white",
               ].join(" ")}
             >
               <div className="relative h-44 w-full overflow-hidden border border-black/10">
@@ -92,16 +90,16 @@ export default function CommunityDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-[#f4f4f2] px-6 py-14 md:px-10">
+      <section className="mx-auto w-full max-w-7xl border-x border-b border-black/10 bg-neutral-100 px-6 py-14 md:px-10">
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 className="text-[clamp(28px,4.5vw,52px)] font-black uppercase tracking-[-0.03em]">
-            News
+            {publicCommunityDetailText.news}
           </h2>
           <Link
             href="/communities"
             className="text-[11px] font-bold uppercase tracking-[0.2em] text-ivCyan"
           >
-            Back To Communities
+            {publicCommunityDetailText.backToCommunities}
           </Link>
         </div>
         <div className="space-y-4 border border-black/10 bg-white p-4 md:p-6">
@@ -137,9 +135,9 @@ export default function CommunityDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-white px-6 py-12 md:px-10">
+      <section className="mx-auto w-full max-w-7xl border-x border-b border-black/10 bg-white px-6 py-12 md:px-10">
         <h2 className="text-2xl font-black uppercase tracking-tight">
-          Explore Other Communities
+          {publicCommunityDetailText.exploreOtherCommunities}
         </h2>
         <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-3">
           {relatedCommunities.map((community) => (
@@ -153,7 +151,6 @@ export default function CommunityDetailPage({
           ))}
         </div>
       </section>
-      <Footer />
     </PageLayout>
   );
 }

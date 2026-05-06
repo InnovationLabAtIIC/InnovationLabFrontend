@@ -35,7 +35,7 @@ export default async function EventDetailPage({
     <PageLayout>
       <PageHeader title={event.title} />
 
-      <section className="mx-auto w-[94vw] max-w-7xl overflow-hidden border border-black/10 bg-neutral-100">
+      <section className="mx-auto w-full max-w-7xl overflow-hidden border border-black/10 bg-neutral-100">
         <div className="relative h-[52vh] min-h-72 w-full md:h-[68vh] md:min-h-90">
           <Image
             src={event.heroImage}
@@ -44,7 +44,7 @@ export default async function EventDetailPage({
             priority
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,18,24,0.72)_0%,rgba(7,18,24,0.24)_58%,rgba(7,18,24,0.18)_100%)]" />
+          <div className="absolute inset-0 bg-linear-to-r from-neutral-900/72 via-neutral-900/24 to-neutral-900/18" />
           <div className="absolute inset-x-0 bottom-0 p-4 md:p-10">
             <div className="max-w-3xl text-white">
               <span className="inline-flex bg-ivCyan px-2 py-1 text-[0.55rem] font-bold uppercase tracking-[0.2em] text-ivBlack">
@@ -64,7 +64,7 @@ export default async function EventDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto grid w-[94vw] max-w-7xl gap-8 border-x border-b border-black/10 bg-white px-6 py-14 md:grid-cols-[0.9fr_1.1fr] md:px-10">
+      <section className="mx-auto grid w-full max-w-7xl gap-8 border-x border-b border-black/10 bg-white px-6 py-14 md:grid-cols-[0.9fr_1.1fr] md:px-10">
         <div>
           <h2 className="text-[clamp(30px,4.8vw,56px)] font-black uppercase tracking-[-0.03em]">
             {publicEventDetailText.overview}
@@ -88,7 +88,7 @@ export default async function EventDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-neutral-100 px-6 py-14 md:px-10">
+      <section className="mx-auto w-full max-w-7xl border-x border-b border-black/10 bg-neutral-100 px-6 py-14 md:px-10">
         <h2 className="text-[clamp(28px,4.5vw,52px)] font-black uppercase tracking-[-0.03em]">
           {publicEventDetailText.whatYouWillSee}
         </h2>
@@ -99,8 +99,8 @@ export default async function EventDetailPage({
               className={[
                 "border border-black/10 p-5",
                 index % 2 === 0
-                  ? "bg-[linear-gradient(160deg,rgba(34,211,238,0.08),rgba(255,255,255,1)_55%)]"
-                  : "bg-[linear-gradient(180deg,rgba(34,211,238,0.05),rgba(255,255,255,1)_45%)]",
+                  ? "bg-linear-to-br from-cyan-400/8 to-white"
+                  : "bg-linear-to-b from-cyan-400/5 to-white",
               ].join(" ")}
             >
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-ivCyan">
@@ -114,7 +114,7 @@ export default async function EventDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-white px-6 py-14 md:px-10">
+      <section className="mx-auto w-full max-w-7xl border-x border-b border-black/10 bg-white px-6 py-14 md:px-10">
         <h2 className="text-[clamp(28px,4.5vw,52px)] font-black uppercase tracking-[-0.03em]">
           {publicEventDetailText.gallery}
         </h2>
@@ -140,7 +140,7 @@ export default async function EventDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-neutral-100 px-6 py-14 md:px-10">
+      <section className="mx-auto w-full max-w-7xl border-x border-b border-black/10 bg-neutral-100 px-6 py-14 md:px-10">
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 className="text-[clamp(28px,4.5vw,52px)] font-black uppercase tracking-[-0.03em]">
             {publicEventDetailText.relatedEvents}

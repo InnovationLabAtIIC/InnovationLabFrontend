@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import TransitionLink from "./TransitionLink";
 import PageLayout from "./primitives/PageLayout";
+import { navigationRoutes } from "@/constants/ui/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,37 +28,37 @@ export default function Navbar() {
 
           <div className="hidden md:flex gap-10 text-[14px] font-bold uppercase tracking-[2px]">
             <TransitionLink
-              href="/"
+              href={navigationRoutes.home}
               className="hover:text-primary transition-colors"
             >
               Home
             </TransitionLink>
             <TransitionLink
-              href="/about"
+              href={navigationRoutes.about}
               className="hover:text-primary transition-colors"
             >
               About
             </TransitionLink>
             <TransitionLink
-              href="/events"
+              href={navigationRoutes.events}
               className="hover:text-primary transition-colors"
             >
               Events
             </TransitionLink>
             <TransitionLink
-              href="/communities"
+              href={navigationRoutes.communities}
               className="hover:text-primary transition-colors"
             >
               Communities
             </TransitionLink>
             <TransitionLink
-              href="/contact"
+              href={navigationRoutes.contact}
               className="hover:text-primary transition-colors"
             >
               Contact
             </TransitionLink>
             <TransitionLink
-              href="/company"
+              href={navigationRoutes.company}
               className="hover:text-primary transition-colors"
             >
               Company
@@ -65,7 +66,7 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="/login"
+            href={navigationRoutes.login}
             className="hidden border border-gray-300 px-6 py-3 md:block"
           >
             login
@@ -93,49 +94,49 @@ export default function Navbar() {
           <div className="min-h-0">
             <div className="grid gap-1 border border-gray-300 bg-white p-2 text-xs font-bold uppercase tracking-[0.2em]">
               <Link
-                href="/"
+                href={navigationRoutes.home}
                 className="border border-transparent px-3 py-2 hover:border-gray-300"
                 onClick={closeMenu}
               >
                 Home
               </Link>
               <Link
-                href="/about"
+                href={navigationRoutes.about}
                 className="border border-transparent px-3 py-2 hover:border-gray-300"
                 onClick={closeMenu}
               >
                 About
               </Link>
               <Link
-                href="/events"
+                href={navigationRoutes.events}
                 className="border border-transparent px-3 py-2 hover:border-gray-300"
                 onClick={closeMenu}
               >
                 Events
               </Link>
               <Link
-                href="/communities"
+                href={navigationRoutes.communities}
                 className="border border-transparent px-3 py-2 hover:border-gray-300"
                 onClick={closeMenu}
               >
                 Communities
               </Link>
               <Link
-                href="/contact"
+                href={navigationRoutes.contact}
                 className="border border-transparent px-3 py-2 hover:border-gray-300"
                 onClick={closeMenu}
               >
                 Contact
               </Link>
               <Link
-                href="/company"
+                href={navigationRoutes.company}
                 className="border border-transparent px-3 py-2 hover:border-gray-300"
                 onClick={closeMenu}
               >
                 Company
               </Link>
               <Link
-                href="/login"
+                href={navigationRoutes.login}
                 onClick={closeMenu}
                 className="mt-2 border border-gray-300 px-3 py-2 text-left"
               >

@@ -136,6 +136,11 @@
       },
       "question": { "label": "Question", "placeholder": "" },
       "answer": { "label": "Answer", "placeholder": "" }
+    },
+    "shared": {
+      "loadingItems": "Loading {resource}...",
+      "noItems": "No {resource} available.",
+      "loadError": "Unable to load {resource}."
     }
   },
   "public": {
@@ -178,7 +183,14 @@
       "infoLocationTitle": "Location",
       "infoLocationContent": "18 Brutal Wharf, E14 5SX, London",
       "infoUptimeTitle": "Uptime",
-      "infoUptimeContent": "09:00 - 21:00 GMT"
+      "infoUptimeContent": "09:00 - 21:00 GMT",
+      "sendSuccess": "Message sent — thank you!",
+      "sendError": "Unable to send message. Please try again later.",
+      "validation": {
+        "emailRequired": "Email is required.",
+        "messageRequired": "Message is required.",
+        "invalidEmail": "Please enter a valid email address."
+      }
     },
     "communities": {
       "latestNews": "Latest News",

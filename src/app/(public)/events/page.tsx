@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import PageLayout from "@/components/primitives/PageLayout";
+import PageHeader from "@/components/primitives/PageHeader";
 import { EmblaCarousel } from "@/components/Events/Carousel";
 import LearnMoreSection from "@/components/LearnMoreSection";
 import { publicPageTitles } from "@/constants/ui/public";

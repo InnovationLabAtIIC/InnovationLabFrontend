@@ -88,7 +88,7 @@ export function EmblaCarousel() {
                 priority
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,18,24,0.78)_0%,rgba(7,18,24,0.35)_55%,rgba(7,18,24,0.2)_100%)]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-neutral-900/78 via-neutral-900/35 to-neutral-900/20" />
 
               <div className="absolute inset-0 flex items-end p-5 md:p-10">
                 <div className="max-w-3xl text-white">

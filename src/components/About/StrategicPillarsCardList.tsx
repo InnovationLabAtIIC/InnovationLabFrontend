@@ -1,8 +1,7 @@
-import React from "react";
+import { cn } from "@/lib/utils/util";
 import StrategicPillarsCard, {
   type StrategicPillarSection,
 } from "./StrategicPillarsCard";
-import { cn } from "@/lib/utils/util";
 
 type StrategicPillarsCardListProps = {
   items: StrategicPillarSection[];

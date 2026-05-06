@@ -24,7 +24,7 @@ export default function LearnMoreSection() {
     <section className="w-full bg-neutral-300 px-4 py-12 md:px-8 md:py-16">
       <div className="mx-auto grid w-full max-w-300 gap-8 md:grid-cols-[240px_minmax(0,1fr)] md:gap-14">
         <div className="pt-2">
-          <h2 className="text-[clamp(1.8rem,2.3vw,2.4rem)] font-black uppercase tracking-[-0.03em] text-ivBlack">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-[-0.03em] text-ivBlack">
             Learn More
           </h2>
           <div className="mt-3 h-1 w-40 bg-ivCyan" />
@@ -37,7 +37,7 @@ export default function LearnMoreSection() {
               className="grid grid-cols-[1fr_auto] items-center gap-6 border-b border-black/10 px-5 py-7 last:border-b-0 md:px-7"
             >
               <div>
-                <h3 className="text-[clamp(1.4rem,1.7vw,1.9rem)] font-black uppercase leading-none tracking-[-0.02em] text-ivBlack">
+                <h3 className="text-lg md:text-xl font-black uppercase leading-none tracking-[-0.02em] text-ivBlack">
                   {item.id}. {item.title}
                 </h3>
                 <p className="mt-4 max-w-2xl text-[0.85rem] leading-6 text-ivBlack/70 md:text-[0.92rem]">

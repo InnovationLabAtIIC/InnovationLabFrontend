@@ -2,6 +2,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -94,12 +95,14 @@ function EventSlide({
         </div>
 
         <div className="relative overflow-hidden border-t border-neutral-200 md:border-l md:border-t-0">
-          <motion.img
-            src={slide.image}
-            alt={slide.title}
-            style={{ y: imageY }}
-            className="h-full w-full object-cover"
-          />
+          <motion.div style={{ y: imageY }} className="relative h-full w-full">
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              className="object-cover"
+            />
+          </motion.div>
           <div className="absolute inset-0 bg-linear-to-tr from-white/35 via-white/8 to-transparent" />
         </div>
       </div>
@@ -176,10 +179,11 @@ export function EventsSection() {
               className="overflow-hidden border border-gray-300 bg-white"
             >
               <div className="relative h-56 overflow-hidden border-b border-gray-200">
-                <img
+                <Image
                   src={slide.image}
                   alt={slide.title}
-                  className="h-full w-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
               <div className="space-y-3 p-4">

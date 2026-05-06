@@ -2,7 +2,6 @@
 
 import React from "react";
 import type { CompanyListItem } from "@/components/Company/companyList";
-import { InteractiveHoverTitle } from "@/components/Company/interactive-hover-links";
 
 interface ColumnDef<T> {
   header: string;
@@ -20,7 +19,6 @@ interface CompanyListTableProps {
 }
 
 export default function CompanyListTable({ companies, title, description }: CompanyListTableProps) {
-  const enableRowHoverPreview = true;
   const pageSize = 10;
   const [page, setPage] = React.useState(1);
   // Update this array to add/remove columns later.
@@ -40,21 +38,7 @@ export default function CompanyListTable({ companies, title, description }: Comp
       width: "1.4fr",
       className: "min-w-[200px] text-[15px] font-semibold text-neutral-900",
       headerClassName: "min-w-[200px]",
-      cell: (company, { rowRef }) =>
-        enableRowHoverPreview ? (
-          <InteractiveHoverTitle
-            title={company.name}
-            imageSrc={company.logoUrl}
-            imageHref={company.websiteUrl}
-            targetRef={rowRef}
-            className="text-[15px]"
-            imageOffsetX="70%"
-            imageOffsetY="-50%"
-            imageClassName="h-20 w-28 md:h-32 md:w-44 shadow-lg"
-          />
-        ) : (
-          <span>{company.name}</span>
-        ),
+      cell: (company) => <span>{company.name}</span>,
     },
     {
       header: "Contact",

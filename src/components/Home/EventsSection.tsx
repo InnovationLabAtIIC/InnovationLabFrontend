@@ -96,15 +96,13 @@ function EventSlide({
           </div>
         </div>
 
-        <div className="relative overflow-hidden border-t border-neutral-200 md:border-l md:border-t-0">
-          <motion.div style={{ y: imageY }} className="relative h-full w-full">
-            <Image
-              src={slide.image}
-              alt={slide.title}
-              fill
-              className="object-cover"
-            />
-          </motion.div>
+        <div className="relative min-h-[40vh] overflow-hidden border-t border-neutral-200 sm:min-h-[45vh] md:min-h-0 md:border-l md:border-t-0">
+          <motion.img
+            src={slide.image}
+            alt={slide.title}
+            style={{ y: imageY }}
+            className="h-full w-full object-cover"
+          />
           <div className="absolute inset-0 bg-linear-to-tr from-white/35 via-white/8 to-transparent" />
         </div>
       </div>

@@ -1,5 +1,5 @@
+import { size } from "zod";
 import Button from "@/components/primitives/Button";
-import Link from "next/link";
 
 const barHeights = [
   "h-[64%]",
@@ -16,25 +16,24 @@ const barHeights = [
 
 export function CTASection() {
   return (
-    <section className="relative flex min-h-[75vh] w-full flex-col items-center justify-center overflow-hidden bg-linear-to-b from-white to-gray-50 px-4 py-20 md:min-h-screen md:py-32">
-      <div className="relative z-10 mx-auto max-w-3xl space-y-6 text-center md:space-y-8">
-        <h2 className="text-[clamp(2.4rem,13vw,6rem)] font-black uppercase tracking-[-0.08em] text-neutral-900">
-          <span className="text-primary">J</span>OIN NOW
+    <section className="relative w-full min-h-screen bg-linear-to-b from-white to-gray-50 overflow-hidden flex flex-col items-center justify-center px-4 py-24 md:py-32">
+      <div className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
+        <h2 className="text-[clamp(3rem,9vw,7rem)] font-black uppercase tracking-[-0.08em] text-neutral-900">
+          <span className="text-primary">C</span>ONNECT WITH US
         </h2>
-        <p className="mx-auto max-w-xl text-base leading-relaxed text-neutral-600 md:text-xl">
-          We believe in the sovereignty of the grid. Our practice is dedicated
-          to the reduction of noise.
+        <p className="mx-auto max-w-xl text-[clamp(1rem,1.25vw,1.25rem)] leading-relaxed text-neutral-600">
+          Build meaningful collaborations, share your ideas, and become part of
+          a growing innovation community.
         </p>
-        <Link href="/contact">
-          <Button>Become a Member</Button>
-        </Link>
+        <Button href="/contact">Reach Us</Button>
       </div>
       <div>
         <div className="absolute bottom-0 left-0 right-0 flex h-7/12 flex-row items-end justify-end overflow-hidden md:h-8/12">
           {barHeights.map((heightClass, i) => (
             <div
               key={i}
-              className={`mb-1 flex flex-1 bg-linear-to-t from-cyan-500 to-white ${heightClass}`}
+              style={{ height: `${size}%` }}
+              className="bg-linear-to-t from-cyan-500 to-white mb-1 flex flex-1"
             />
           ))}
         </div>

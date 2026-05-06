@@ -185,14 +185,14 @@ export default function Timeline({ items }: TimelineProps) {
             maskImage:
               "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
           }}
-          className="absolute top-0 left-8 w-0.5 overflow-hidden bg-gradient-to-b from-transparent via-neutral-200 to-transparent md:left-8"
+          className="absolute top-0 left-8 w-0.5 overflow-hidden bg-linear-to-b from-transparent via-neutral-200 to-transparent md:left-8"
         >
           <motion.div
             style={{
               height: heightTransform,
               opacity: opacityTransform,
             }}
-            className="absolute inset-x-0 top-0 w-0.5 rounded-full bg-gradient-to-t from-black via-cyan-400/20 to-transparent"
+            className="absolute inset-x-0 top-0 w-0.5 rounded-full bg-linear-to-t from-black via-cyan-400/20 to-transparent"
           />
         </div>
       </div>

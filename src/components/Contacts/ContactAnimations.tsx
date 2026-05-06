@@ -80,7 +80,7 @@ export function ContactHeroBox() {
 
   return (
     <motion.div
-      className="relative mb-10 h-32.5 w-full overflow-hidden border border-neutral-300 bg-gradient-to-r from-pink-300 via-violet-200 to-rose-200 md:h-47.5"
+      className="relative mb-10 h-32.5 w-full overflow-hidden border border-neutral-300 bg-linear-to-r from-pink-300 via-violet-200 to-rose-200 md:h-47.5"
       initial={{ opacity: 0, y: 22 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.35 }}
@@ -178,7 +178,7 @@ export function ContactHeroBox() {
       />
 
       <motion.div
-        className="absolute inset-y-0 -left-1/4 w-1/3 bg-gradient-to-r from-transparent via-white/30 to-transparent blur-xl"
+        className="absolute inset-y-0 -left-1/4 w-1/3 bg-linear-to-r from-transparent via-white/30 to-transparent blur-xl"
         animate={reducedMotion ? undefined : { x: ["0%", "410%"] }}
         transition={
           reducedMotion

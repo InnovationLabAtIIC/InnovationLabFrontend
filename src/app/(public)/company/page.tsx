@@ -26,7 +26,7 @@ export default function Partner() {
         <BentoGrid imageItems={companyGalleryItems} />
       </div>
       <div className="line-bg w-full md:h-16 h-6"></div>
-      <div className="mt-ds-7"></div>
+      <div className="mt-6 md:mt-ds-7"></div>
       <div className="flex flex-col overflow-visible md:overflow-hidden ">
         <ContainerScroll
           contentClassName="mt-0 md:-mt-12"
@@ -64,7 +64,7 @@ export default function Partner() {
           <GridWithPlus rows={1} />
         </Marquee>
       </div>
-      <section className="py-ds-6 px-ds-5 text-center max-w-4xl mx-auto">
+      <section className="mx-auto max-w-4xl px-4 py-10 text-center md:px-ds-5 md:py-ds-6">
         <div className="flex items-center justify-center gap-ds-3 text-small tracking-[4px] font-bold uppercase mb-ds-5">
           <span className="w-ds-2 h-ds-2 bg-accent rounded-ds-sm"></span>
           {publicCompanyText.aboutOurPartners}
@@ -77,7 +77,6 @@ export default function Partner() {
       <div className="w-full h-screen">
         <Stories storiesData={partnerStoriesData} />
       </div>
-      <div className="mt-[350vh]"></div>
     </PageLayout>
   );
 }

@@ -1,4 +1,3 @@
-import React from "react";
 import PageLayout from "@/components/primitives/PageLayout";
 import PageHeader from "@/components/primitives/PageHeader";
 import { publicLoginText, publicPageTitles } from "@/constants/ui/public";
@@ -7,8 +6,10 @@ const Login = () => {
   return (
     <PageLayout>
       <PageHeader title={publicPageTitles.login} />
-      <div className="bg-white p-12 min-h-[50vh] flex items-center justify-center">
-        <p className="text-lg text-gray-600">{publicLoginText.content}</p>
+      <div className="flex min-h-[50vh] items-center justify-center bg-white p-6 md:p-12">
+        <p className="text-center text-base text-gray-600 md:text-lg">
+          {publicLoginText.content}
+        </p>
       </div>
     </PageLayout>
   );

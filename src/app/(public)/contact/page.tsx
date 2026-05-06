@@ -14,10 +14,10 @@ export default function Contact() {
     <PageLayout>
       <PageHeader title={publicPageTitles.contact} />
 
-      <div className="w-full bg-white grid grid-rows-2 border border-gray-300">
+      <div className="grid w-full border border-gray-300 bg-white">
         <div className="grid gap-4 lg:grid-cols-[1.35fr_1fr]">
           <FadeIn delay={0.08} y={26}>
-            <form className="border border-gray-300 p-6 md:p-10 duration-300">
+            <form className="border border-gray-300 p-4 duration-300 sm:p-6 md:p-10">
               <div className="relative z-10 mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                   {publicContactText.heroTitle}
@@ -33,6 +33,7 @@ export default function Contact() {
                     {publicContactText.nameLabel}
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     placeholder={publicContactText.namePlaceholder}
                     className="h-12 w-full border border-neutral-900 bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
@@ -44,6 +45,7 @@ export default function Contact() {
                     {publicContactText.emailLabel}
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     placeholder={publicContactText.emailPlaceholder}
                     className="h-12 w-full border border-neutral-900 bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
@@ -56,6 +58,7 @@ export default function Contact() {
                   {publicContactText.titleLabel}
                 </label>
                 <input
+                  id="contact-title"
                   type="text"
                   defaultValue={publicContactText.titleDefault}
                   className="w-full border border-neutral-900 bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
@@ -67,6 +70,7 @@ export default function Contact() {
                   {publicContactText.messageLabel}
                 </label>
                 <textarea
+                  id="contact-message"
                   rows={5}
                   placeholder={publicContactText.messagePlaceholder}
                   className="w-full resize-none border border-neutral-900 bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
@@ -81,7 +85,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="inline-flex h-12 items-center justify-center gap-2 border border-black bg-black px-10 text-[12px] font-extrabold uppercase tracking-[0.2em] text-white"
+                  className="inline-flex h-12 w-full items-center justify-center gap-2 border border-black bg-black px-10 text-[12px] font-extrabold uppercase tracking-[0.2em] text-white sm:w-auto"
                 >
                   {publicContactText.send}
                   <span aria-hidden>→</span>

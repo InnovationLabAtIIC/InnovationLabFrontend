@@ -1,8 +1,10 @@
-type Variant = "primary" | "accent" | "outline" | "ghost" | "danger";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
+type Variant = "primary" | "secondary" | "outline" | "ghost" | "danger";
 
 const styles: Record<Variant, string> = {
   primary: "bg-black text-white border-transparent",
-  accent: "bg-slate-700 text-white border-transparent",
+  secondary: "bg-slate-700 text-white border-transparent",
   outline: "bg-transparent text-black border border-sky-400",
   ghost: "bg-transparent text-black border-transparent",
   danger: "bg-red-600 text-white border-transparent",
@@ -10,7 +12,7 @@ const styles: Record<Variant, string> = {
 
 const accent: Record<Variant, string> = {
   primary: "bg-sky-400",
-  accent: "bg-slate-400",
+  secondary: "bg-slate-400",
   outline: "bg-sky-400",
   ghost: "bg-sky-400",
   danger: "bg-red-400",
@@ -19,13 +21,19 @@ const accent: Record<Variant, string> = {
 const Button = ({
   children,
   variant = "primary",
+  className = "",
+  type = "button",
   ...rest
-}: {
-  children: React.ReactNode;
+}: ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: ReactNode;
   variant?: Variant;
 }) => {
   return (
-    <button {...rest} className="relative inline-block group font-medium">
+    <button
+      type={type}
+      {...rest}
+      className={`relative inline-block group font-medium ${className}`.trim()}
+    >
       <span
         className={`
           absolute left-0 bottom-0 w-full h-1

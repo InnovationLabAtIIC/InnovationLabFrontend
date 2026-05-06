@@ -19,7 +19,7 @@ export function CommunitiesSection() {
           {communityCards.map((community, index) => (
             <Link
               key={community.slug}
-              href={`/communities/${community.slug}`}
+              href="/communities"
               className="group overflow-hidden border border-gray-300 bg-white"
             >
               <div className="relative h-72 overflow-hidden">

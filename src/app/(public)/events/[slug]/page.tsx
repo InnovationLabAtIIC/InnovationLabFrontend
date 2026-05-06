@@ -39,7 +39,7 @@ export default async function EventDetailPage({
       <Navbar />
       <PageHeader title={event.title} />
 
-      <section className="mx-auto w-[94vw] max-w-7xl overflow-hidden border border-black/10 bg-[#f4f4f2]">
+      <section className="mx-auto w-[94vw] max-w-7xl overflow-hidden border border-black/10 bg-neutral-100">
         <div className="relative h-[52vh] min-h-90 w-full md:h-[68vh]">
           <Image
             src={event.heroImage}
@@ -83,7 +83,7 @@ export default async function EventDetailPage({
             {event.focus.map((item) => (
               <span
                 key={item}
-                className="border border-black/10 bg-[#f4f4f2] px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em]"
+                className="border border-black/10 bg-neutral-100 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em]"
               >
                 {item}
               </span>
@@ -92,7 +92,7 @@ export default async function EventDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-[#f4f4f2] px-6 py-14 md:px-10">
+      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-neutral-100 px-6 py-14 md:px-10">
         <h2 className="text-[clamp(28px,4.5vw,52px)] font-black uppercase tracking-[-0.03em]">
           {publicEventDetailText.whatYouWillSee}
         </h2>
@@ -142,7 +142,7 @@ export default async function EventDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-[#f4f4f2] px-6 py-14 md:px-10">
+      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-neutral-100 px-6 py-14 md:px-10">
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 className="text-[clamp(28px,4.5vw,52px)] font-black uppercase tracking-[-0.03em]">
             {publicEventDetailText.relatedEvents}

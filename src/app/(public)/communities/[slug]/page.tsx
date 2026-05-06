@@ -42,7 +42,7 @@ export default function CommunityDetailPage({
       <Navbar />
       <PageHeader title={profile.title} />
 
-      <section className="mx-auto grid w-[94vw] max-w-7xl gap-8 border border-black/10 bg-[#f4f4f2] px-6 py-14 md:grid-cols-2 md:px-10">
+      <section className="mx-auto grid w-[94vw] max-w-7xl gap-8 border border-black/10 bg-neutral-100 px-6 py-14 md:grid-cols-2 md:px-10">
         <div>
           <h2 className="text-[clamp(30px,4.8vw,56px)] font-black uppercase tracking-[-0.03em]">
             {publicCommunityDetailText.about}
@@ -93,7 +93,7 @@ export default function CommunityDetailPage({
         </div>
       </section>
 
-      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-[#f4f4f2] px-6 py-14 md:px-10">
+      <section className="mx-auto w-[94vw] max-w-7xl border-x border-b border-black/10 bg-neutral-100 px-6 py-14 md:px-10">
         <div className="mb-8 flex items-end justify-between gap-4">
           <h2 className="text-[clamp(28px,4.5vw,52px)] font-black uppercase tracking-[-0.03em]">
             {publicCommunityDetailText.news}

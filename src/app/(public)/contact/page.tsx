@@ -29,52 +29,52 @@ export default function Contact() {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="group">
-                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-900">
                     {publicContactText.nameLabel}
                   </label>
                   <input
                     type="text"
                     placeholder={publicContactText.namePlaceholder}
-                    className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
+                    className="h-12 w-full border border-neutral-900 bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
                   />
                 </div>
 
                 <div className="group">
-                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                  <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-900">
                     {publicContactText.emailLabel}
                   </label>
                   <input
                     type="email"
                     placeholder={publicContactText.emailPlaceholder}
-                    className="h-12 w-full border border-[#181d22] bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
+                    className="h-12 w-full border border-neutral-900 bg-white px-4 text-xs uppercase tracking-[0.12em] outline-none"
                   />
                 </div>
               </div>
 
               <div className="mt-4 group">
-                <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-900">
                   {publicContactText.titleLabel}
                 </label>
                 <input
                   type="text"
                   defaultValue={publicContactText.titleDefault}
-                  className="w-full border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
+                  className="w-full border border-neutral-900 bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
                 />
               </div>
 
               <div className="mt-4 group">
-                <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#181d22]">
+                <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-900">
                   {publicContactText.messageLabel}
                 </label>
                 <textarea
                   rows={5}
                   placeholder={publicContactText.messagePlaceholder}
-                  className="w-full resize-none border border-[#181d22] bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
+                  className="w-full resize-none border border-neutral-900 bg-white px-4 py-3 text-xs uppercase tracking-[0.12em] outline-none"
                 />
               </div>
 
               <div className="mt-8 flex items-center justify-between">
-                <p className="text-[10px] uppercase tracking-[0.22em] text-[#8b8f93]">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-neutral-400">
                   <span className="mr-2 inline-block h-2 w-2 bg-cyan-400 animate-pulse" />
                   {publicContactText.statusAwaiting}
                 </p>
@@ -91,14 +91,14 @@ export default function Contact() {
           </FadeIn>
 
           <FadeIn delay={0.15} y={30}>
-            <div className="relative w-full h-full min-h-90 overflow-hidden border border-[#cfcfcf] bg-linear-to-b from-[#1a1a1a] to-[#0a0a0a]">
+            <div className="relative w-full h-full min-h-90 overflow-hidden border border-neutral-300 bg-linear-to-b from-[#1a1a1a] to-[#0a0a0a]">
               <Map />
             </div>
           </FadeIn>
         </div>
 
         <StaggerIn
-          className="mt-8 grid border border-[#d8d8d8] md:grid-cols-4"
+          className="mt-8 grid border border-surface-300 md:grid-cols-4"
           delayChildren={0.12}
           staggerChildren={0.09}
         >

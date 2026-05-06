@@ -80,7 +80,7 @@ export function ContactHeroBox() {
 
   return (
     <motion.div
-      className="relative mb-10 h-32.5 w-full overflow-hidden border border-[#d7d7d7] bg-linear-to-r from-[#e988c8] via-[#dfbce9] to-[#f3a2a0] md:h-47.5"
+      className="relative mb-10 h-32.5 w-full overflow-hidden border border-neutral-300 bg-linear-to-r from-pink-300 via-violet-200 to-rose-200 md:h-47.5"
       initial={{ opacity: 0, y: 22 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.35 }}

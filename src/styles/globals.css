@@ -157,18 +157,6 @@ body[data-scroll-locked] .site-navbar {
   transform: translateY(0);
 }
 
-/* .line-bg {
-  background-color: #ffffff;
-  opacity: 1;
-  background: repeating-linear-gradient(
-    -45deg,
-    #d1d5de,
-    #d1d5de 2.5px,
-    #ffffff 2.5px,
-    #ffffff 12.5px
-  );
-} */
-
 .pixelated-image-card__pixel {
   aspect-ratio: 1 / 1;
   background-color: cyan;

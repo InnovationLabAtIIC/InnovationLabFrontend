@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
 export interface StoryItem {
   image: string;
@@ -46,9 +46,9 @@ export default function Stories({ storiesData }: StoriesProps) {
       setCurrentStory(Math.floor(scrolledInto / stepPx));
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // set initial state on mount
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [numOfStories]);
 
   return (
@@ -66,17 +66,17 @@ export default function Stories({ storiesData }: StoriesProps) {
 
           // Left half enters from below, exits upward
           const leftTrans = isActive
-            ? 'translateY(0)'
+            ? "translateY(0)"
             : isPast
-              ? 'translateY(-100%)'
-              : 'translateY(100%)';
+              ? "translateY(-100%)"
+              : "translateY(100%)";
 
           // Right half enters from above, exits downward
           const rightTrans = isActive
-            ? 'translateY(0)'
+            ? "translateY(0)"
             : isPast
-              ? 'translateY(100%)'
-              : 'translateY(-100%)';
+              ? "translateY(100%)"
+              : "translateY(-100%)";
 
           return (
             <div key={i} className="absolute inset-0">
@@ -87,16 +87,20 @@ export default function Stories({ storiesData }: StoriesProps) {
               >
                 <div
                   className="w-full h-full bg-cover bg-center bg-no-repeat"
-                  style={{ backgroundImage: isImageOnLeft ? `url(${story.image})` : undefined }}
+                  style={{
+                    backgroundImage: isImageOnLeft
+                      ? `url(${story.image})`
+                      : undefined,
+                  }}
                 >
                   <div className="flex flex-col items-center justify-center h-full text-black p-8">
                     {!isImageOnLeft && (
                       <>
-                        <h2 className="mb-4 text-center text-[34px] font-bold uppercase leading-tight">
-                            {story.storyTeller}
+                        <h2 className="mb-4 text-center text-3xl font-bold uppercase leading-tight">
+                          {story.storyTeller}
                         </h2>
-                        <p className="text-center text-[18px] leading-snug text-[#515151]">
-                            {story.description}
+                        <p className="text-center text-lg leading-snug text-neutral-600">
+                          {story.description}
                         </p>
                       </>
                     )}
@@ -111,17 +115,21 @@ export default function Stories({ storiesData }: StoriesProps) {
               >
                 <div
                   className="w-full h-full bg-cover bg-center bg-no-repeat"
-                  style={{ backgroundImage: isImageOnLeft ? undefined : `url(${story.image})` }}
+                  style={{
+                    backgroundImage: isImageOnLeft
+                      ? undefined
+                      : `url(${story.image})`,
+                  }}
                 >
                   <div className="flex flex-col items-center justify-center h-full text-black p-8">
                     {isImageOnLeft && (
                       <>
-                        <h2 className="mb-4 text-center text-[34px] font-bold uppercase leading-tight">
-                            {story.storyTeller}
+                        <h2 className="mb-4 text-center text-3xl font-bold uppercase leading-tight">
+                          {story.storyTeller}
                         </h2>
-                          <p className="text-center text-[18px] leading-snug text-[#515151]">
-                            {story.description}
-                          </p>
+                        <p className="text-center text-lg leading-snug text-neutral-600">
+                          {story.description}
+                        </p>
                       </>
                     )}
                   </div>

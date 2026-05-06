@@ -1,11 +1,12 @@
+import { t } from "@/lib/i18n/messages";
+
 export const addFormMessages = {
-  success: "Successfully added!",
-  fallbackError: "An error occurred during submission.",
-  localSubmitNotice:
-    "Form submitted locally (Check console). Add apiEndpoint prop to connect to the backend.",
-  submitting: "Submitting...",
-  submit: "Submit Form",
-  uploadFile: "Upload a file",
-  dragAndDropHint: "or drag and drop",
-  fileTypesHint: "PNG, JPG, GIF up to 10MB",
+  success: t("admin.addForm.success"),
+  fallbackError: t("admin.addForm.fallbackError"),
+  localSubmitNotice: t("admin.addForm.localSubmitNotice"),
+  submitting: t("admin.addForm.submitting"),
+  submit: t("admin.addForm.submit"),
+  uploadFile: t("admin.addForm.uploadFile"),
+  dragAndDropHint: t("admin.addForm.dragAndDropHint"),
+  fileTypesHint: t("admin.addForm.fileTypesHint"),
 } as const;

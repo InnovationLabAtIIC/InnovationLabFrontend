@@ -1,42 +1,56 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
 import AboutManageView from "@/components/Admin/AboutManageView";
+import { ADMIN_VIEW_TABS } from "@/constants/ui/admin";
+import { t } from "@/lib/i18n/messages";
+import { adminPlaceholders } from "@/constants/ui/placeholders";
+import { adminPageTitles } from "@/constants/ui/adminPages";
 
 function AddView() {
   const formFields: FormField[] = [
-    { name: "Mission", label: "Mission", type: "textarea", required: true },
-    { name: "Vision", label: "Vision", type: "textarea", required: true },
+    {
+      name: "Mission",
+      label: t("admin.fields.Mission.label" as const),
+      type: "textarea",
+      required: true,
+    },
+    {
+      name: "Vision",
+      label: t("admin.fields.Vision.label" as const),
+      type: "textarea",
+      required: true,
+    },
     {
       name: "ParentOrgName",
-      label: "Parent Organization Name",
+      label: t("admin.fields.ParentOrgName.label" as const),
       type: "text",
       required: true,
     },
     {
       name: "ParentOrgDescription",
-      label: "Parent Organization Description",
+      label: t("admin.fields.ParentOrgDescription.label" as const),
       type: "textarea",
       required: true,
     },
     {
       name: "ParentOrgLogo",
-      label: "Parent Organization Logo",
+      label: t("admin.fields.ParentOrgLogo.label" as const),
       type: "file",
       accept: "image/*",
       required: true,
     },
     {
       name: "ParentOrgWebsiteUrl",
-      label: "Parent Organization Website URL",
+      label: t("admin.fields.ParentOrgWebsiteUrl.label" as const),
       type: "text",
       required: true,
-      placeholder: "https://example.com",
+      placeholder: t("admin.fields.ParentOrgWebsiteUrl.placeholder" as const),
     },
   ];
 
   return (
     <AddForms
-      title="Add About Information"
+      title={adminPageTitles.about.addTitle}
       fields={formFields}
       apiEndpoint="/api/about"
     />
@@ -44,23 +58,19 @@ function AddView() {
 }
 
 function ViewAsUser() {
-  return <div>Code for the User preview goes here...</div>;
+  return <div>{adminPlaceholders.viewAsUser}</div>;
 }
 
 // 2. Export the main Page component
 export default function ManageAbout() {
-  const tabs = [
-    { id: "manage", label: "Manage" },
-    { id: "add", label: "Add" },
-    { id: "preview", label: "View as user" },
-  ];
-
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Manage About</h1>
+      <h1 className="mb-6 text-2xl font-bold">
+        {adminPageTitles.about.heading}
+      </h1>
 
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher tabs={tabs} defaultTab="manage">
+      <AdminViewSwitcher tabs={ADMIN_VIEW_TABS} defaultTab="manage">
         {{
           manage: <AboutManageView />,
           add: <AddView />,

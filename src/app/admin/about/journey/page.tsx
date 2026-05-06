@@ -1,36 +1,50 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
 import JourneyManageView from "@/components/Admin/JourneyManageView";
+import { ADMIN_VIEW_TABS } from "@/constants/ui/admin";
+import { adminPlaceholders } from "@/constants/ui/placeholders";
+import { adminPageTitles } from "@/constants/ui/adminPages";
+import { t } from "@/lib/i18n/messages";
 
 function AddView() {
   const formFields: FormField[] = [
-    { name: "Title", label: "Title", type: "text", required: true },
+    {
+      name: "Title",
+      label: t("admin.fields.Title.label" as const),
+      type: "text",
+      required: true,
+    },
     {
       name: "Description",
-      label: "Description",
+      label: t("admin.fields.Description.label" as const),
       type: "textarea",
       required: true,
     },
     {
       name: "Image",
-      label: "Image",
+      label: t("admin.fields.Image.label" as const),
       type: "file",
       accept: "image/*",
       required: true,
     },
     {
       name: "Date",
-      label: "Date",
+      label: t("admin.fields.Date.label" as const),
       type: "text",
       required: true,
-      placeholder: "YYYY-MM-DDTHH:MM:SS",
+      placeholder: t("admin.fields.Date.placeholder" as const),
     },
-    { name: "Order", label: "Order", type: "number", required: false },
+    {
+      name: "Order",
+      label: t("admin.fields.Order.label" as const),
+      type: "number",
+      required: false,
+    },
   ];
 
   return (
     <AddForms
-      title="Add Journey Milestone"
+      title={adminPageTitles.journey.addTitle}
       fields={formFields}
       apiEndpoint="/api/journey"
     />
@@ -38,23 +52,19 @@ function AddView() {
 }
 
 function ViewAsUser() {
-  return <div>Code for the User preview goes here...</div>;
+  return <div>{adminPlaceholders.viewAsUser}</div>;
 }
 
 // 2. Export the main Page component
 export default function ManageJourney() {
-  const tabs = [
-    { id: "manage", label: "Manage" },
-    { id: "add", label: "Add" },
-    { id: "preview", label: "View as user" },
-  ];
-
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Journey</h1>
+      <h1 className="mb-6 text-2xl font-bold">
+        {adminPageTitles.journey.heading}
+      </h1>
 
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher tabs={tabs} defaultTab="manage">
+      <AdminViewSwitcher tabs={ADMIN_VIEW_TABS} defaultTab="manage">
         {{
           manage: <JourneyManageView />,
           add: <AddView />,

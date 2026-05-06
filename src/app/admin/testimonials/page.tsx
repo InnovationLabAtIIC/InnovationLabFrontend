@@ -1,21 +1,51 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
 import TestimonialManageView from "@/components/Admin/TestimonialManageView";
+import { ADMIN_VIEW_TABS } from "@/constants/ui/admin";
+import { adminPlaceholders } from "@/constants/ui/placeholders";
+import { adminPageTitles } from "@/constants/ui/adminPages";
+import { t } from "@/lib/i18n/messages";
 
 // Add Testimonials
 function AddView() {
   const formFields: FormField[] = [
-    { name: "Name", label: "Name", type: "text", required: true },
-    { name: "Text", label: "Text", type: "textarea", required: true },
-    { name: "Designation", label: "Designation", type: "text", required: true },
-    { name: "Organization", label: "Organization", type: "text", required: true },
-    { name: "ImageUrl", label: "Image (ImageUrl)", type: "file", accept: "image/*", required: true },
+    {
+      name: "Name",
+      label: t("admin.fields.Name.label" as const),
+      type: "text",
+      required: true,
+    },
+    {
+      name: "Text",
+      label: t("admin.fields.Text.label" as const),
+      type: "textarea",
+      required: true,
+    },
+    {
+      name: "Designation",
+      label: t("admin.fields.Designation.label" as const),
+      type: "text",
+      required: true,
+    },
+    {
+      name: "Organization",
+      label: t("admin.fields.Organization.label" as const),
+      type: "text",
+      required: true,
+    },
+    {
+      name: "ImageUrl",
+      label: t("admin.fields.ImageUrl.label" as const),
+      type: "file",
+      accept: "image/*",
+      required: true,
+    },
   ];
 
   return (
-    <AddForms 
-      title="Add Testimonial" 
-      fields={formFields} 
+    <AddForms
+      title={adminPageTitles.testimonials.addTitle}
+      fields={formFields}
       apiEndpoint="/api/testimonials"
     />
   );
@@ -23,26 +53,19 @@ function AddView() {
 
 // View as user
 function ViewAsUser() {
-  return <div>User Preview Not Implemented</div>;
+  return <div>{adminPlaceholders.notImplemented}</div>;
 }
 
 // Main Page Component
 export default function ManageTestimonials() {
-  const tabs = [
-    { id: "manage", label: "Manage" },
-    { id: "add", label: "Add" },
-    { id: "preview", label: "View as user" },
-  ];
-
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Testimonials</h1>
-      
+      <h1 className="mb-6 text-2xl font-bold">
+        {adminPageTitles.testimonials.heading}
+      </h1>
+
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher
-        tabs={tabs}
-        defaultTab="manage"
-      >
+      <AdminViewSwitcher tabs={ADMIN_VIEW_TABS} defaultTab="manage">
         {{
           manage: <TestimonialManageView />,
           add: <AddView />,

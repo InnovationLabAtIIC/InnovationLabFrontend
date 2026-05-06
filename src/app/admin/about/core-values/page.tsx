@@ -1,29 +1,43 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
 import CoreValuesManageView from "@/components/Admin/CoreValuesManageView";
+import { ADMIN_VIEW_TABS } from "@/constants/ui/admin";
+import { adminPlaceholders } from "@/constants/ui/placeholders";
+import { adminPageTitles } from "@/constants/ui/adminPages";
+import { t } from "@/lib/i18n/messages";
 
 function AddView() {
   const formFields: FormField[] = [
-    { name: "Title", label: "Title", type: "text", required: true },
+    {
+      name: "Title",
+      label: t("admin.fields.Title.label" as const),
+      type: "text",
+      required: true,
+    },
     {
       name: "Description",
-      label: "Description",
+      label: t("admin.fields.Description.label" as const),
       type: "textarea",
       required: true,
     },
     {
       name: "Icon",
-      label: "Icon",
+      label: t("admin.fields.Icon.label" as const),
       type: "file",
       accept: "image/*",
       required: true,
     },
-    { name: "Order", label: "Order", type: "number", required: false },
+    {
+      name: "Order",
+      label: t("admin.fields.Order.label" as const),
+      type: "number",
+      required: false,
+    },
   ];
 
   return (
     <AddForms
-      title="Add Core Value"
+      title={adminPageTitles.coreValues.addTitle}
       fields={formFields}
       apiEndpoint="/api/core-values"
     />
@@ -31,23 +45,19 @@ function AddView() {
 }
 
 function ViewAsUser() {
-  return <div>Code for the User preview goes here...</div>;
+  return <div>{adminPlaceholders.viewAsUser}</div>;
 }
 
 // 2. Export the main Page component
 export default function ManageCoreValues() {
-  const tabs = [
-    { id: "manage", label: "Manage" },
-    { id: "add", label: "Add" },
-    { id: "preview", label: "View as user" },
-  ];
-
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Core Values</h1>
+      <h1 className="mb-6 text-2xl font-bold">
+        {adminPageTitles.coreValues.heading}
+      </h1>
 
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher tabs={tabs} defaultTab="manage">
+      <AdminViewSwitcher tabs={ADMIN_VIEW_TABS} defaultTab="manage">
         {{
           manage: <CoreValuesManageView />,
           add: <AddView />,

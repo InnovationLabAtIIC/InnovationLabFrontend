@@ -1,17 +1,32 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import AddForms, { FormField } from "@/components/Admin/AddForms";
 import CategoryManageView from "@/components/Admin/CategoryManageView";
+import { ADMIN_VIEW_TABS } from "@/constants/ui/admin";
+import { adminPageTitles } from "@/constants/ui/adminPages";
+import { adminPlaceholders } from "@/constants/ui/placeholders";
+import { t } from "@/lib/i18n/messages";
 
 function AddView() {
   const formFields: FormField[] = [
-    { name: "name", label: "Category Name", type: "text", required: true },
-    { name: "parentCategoryId", label: "Parent Category ID (Optional)", type: "text", required: false, placeholder: "UUID of parent category" },
+    {
+      name: "name",
+      label: t("admin.fields.Category.label" as const),
+      type: "text",
+      required: true,
+    },
+    {
+      name: "parentCategoryId",
+      label: t("admin.fields.ParentCategoryId.label" as const),
+      type: "text",
+      required: false,
+      placeholder: t("admin.fields.ParentCategoryId.placeholder" as const),
+    },
   ];
 
   return (
-    <AddForms 
-      title="Create New Category" 
-      fields={formFields} 
+    <AddForms
+      title={adminPageTitles.categories.addTitle}
+      fields={formFields}
       apiEndpoint="/api/categories"
       format="json"
     />
@@ -19,28 +34,21 @@ function AddView() {
 }
 
 function ViewAsUser() {
-  return <div>Code for the User preview goes here...</div>;
+  return <div>{adminPlaceholders.viewAsUser}</div>;
 }
 
 // 2. Export the main Page component
 export default function ManageCategories() {
-  const tabs = [
-    { id: "manage", label: "Manage" },
-    { id: "add", label: "Add" },
-    { id: "preview", label: "View as user" },
-  ];
-
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Categories</h1>
-      
+      <h1 className="mb-6 text-2xl font-bold">
+        {adminPageTitles.categories.heading}
+      </h1>
+
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher
-        tabs={tabs}
-        defaultTab="manage"
-      >
+      <AdminViewSwitcher tabs={ADMIN_VIEW_TABS} defaultTab="manage">
         {{
-            manage: <CategoryManageView />,
+          manage: <CategoryManageView />,
           add: <AddView />,
           preview: <ViewAsUser />,
         }}

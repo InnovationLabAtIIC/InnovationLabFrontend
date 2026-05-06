@@ -1,5 +1,8 @@
 import AdminViewSwitcher from "@/components/Admin/AdminViewSwitcher";
 import EventRegistrationManageView from "@/components/Admin/EventRegistrationManageView";
+import { ADMIN_VIEW_TABS } from "@/constants/ui/admin";
+import { adminPlaceholders } from "@/constants/ui/placeholders";
+import { adminPageTitles } from "@/constants/ui/adminPages";
 
 // 1. Define your individual view components
 function ManageView() {
@@ -7,27 +10,23 @@ function ManageView() {
 }
 
 function AddView() {
-  return <div>Registration is done by page visitors</div>;
+  return <div>{adminPlaceholders.notReady}</div>;
 }
 
 function ViewAsUser() {
-  return <div>Code for the User preview goes here...</div>;
+  return <div>{adminPlaceholders.viewAsUser}</div>;
 }
 
 // 2. Export the main Page component
 export default function ManageEvents() {
-  const tabs = [
-    { id: "manage", label: "Manage" },
-    { id: "add", label: "Add" },
-    { id: "preview", label: "View as user" },
-  ];
-
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-6">Event Registration</h1>
+      <h1 className="mb-6 text-2xl font-bold">
+        {adminPageTitles.eventRegistration.heading}
+      </h1>
 
       {/* 3. Pass the tabs mapping to the switcher */}
-      <AdminViewSwitcher tabs={tabs} defaultTab="manage">
+      <AdminViewSwitcher tabs={ADMIN_VIEW_TABS} defaultTab="manage">
         {{
           manage: <ManageView />,
           add: <AddView />,
